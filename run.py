@@ -32,7 +32,8 @@ def home():
 @app.route('/all_recipes')
 def all_recipes():
     """Display all recipes route."""
-    return render_template("all_recipes.html", recipes=recipes_coll.find())
+    return render_template("all_recipes.html", recipes=recipes_coll.find(),
+                           title='Recipes')
 
 @app.route("/login")
 def login():
