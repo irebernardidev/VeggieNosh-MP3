@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu&display=swap');
+
+/* Colour Variables and Fonts */
+:root {
+    /* Primary Colors */
+    --primary: #ff4242; 
+    --primary-light: #ff6b6b; 
+    --primary-dark: #e32020; 
+    --on-primary: #ffffff;  
+
+    /* Accent/Secondary Colors */
+    --accent: #FAB700; 
+    --accent-light: #FFD740;  
+    --accent-dark: #c89200;   
+    --on-accent: #2E2E2E;     
+
+    /* Background and Surface */
+    --background: #ffffff;
+    --surface: #f5f5f5f3;
+    --on-background: #2E2E2E;
+    --on-background-secondary: #A3A3A3;
+
+    /* Error Colors */
+    --error: #ee0909;
+    --error-light: #ff2b24;  
+    --error-dark: #c00606;   
+    --on-error: #ffffff;     
+
+    /* Additional Colors */
+    --green: #0f860f;
+    --green-light: #16bd16;  
+    --green-dark: #0a600a;   
+
+    /* Typography */
+    --primaryfont: 'Open Sans', sans-serif;
+    --secondaryfont: 'Ubuntu', sans-serif;
+}
+
+/* General style settings */
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0px;
+    z-index: 15;
+    background-color: var(--surface); 
+    font-family: var(--primaryfont);
+}
+
+nav img {
+    height: 2em;
+    padding-left: 6px;
+}
+
+nav ul a {
+    color: var(--on-background); 
+    padding: 0 20px;
+    font-family: var(--secondaryfont);
+    margin-right: 5px;
+    font-weight: 400;
+}
+
+.navbar-icon {
+    margin-right: 0.8rem;
+    font-size: 20px;
+    color: var(--on-background); 
+}
+
+.mobile-navbar-heading {
+    font-size: 2.6rem;
+    text-shadow: 1px 1px 6px var(--surface); 
+    color: var(--primary); 
+}
