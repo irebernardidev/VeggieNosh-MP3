@@ -36,6 +36,16 @@
     --secondaryfont: 'Ubuntu', sans-serif;
 }
 
+/* Materialize styly required for flexbox */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    }
+    main {
+    flex: 1 0 auto;
+    }
+
 /* General style settings */
 .uppercase {
     text-transform: uppercase;
@@ -46,22 +56,38 @@ nav {
     position: fixed;
     top: 0px;
     z-index: 15;
-    background-color: var(--surface); 
+    background-color: var(--darkwhite);
     font-family: var(--primaryfont);
-}
+  }
 
 nav img {
     height: 2em;
-    padding-left: 6px;
-}
+    width: 3em;
+    padding-left: 5px;
+    transform: scale(1.0);
+    }
 
 nav ul a {
-    color: var(--on-background); 
+    color: var(--lightblack);
     padding: 0 20px;
     font-family: var(--secondaryfont);
     margin-right: 5px;
     font-weight: 400;
-}
+  }
+  .navbar-icon {
+    margin-right: 0.8rem;
+    font-size: 20px;
+    color: var(--lightblack);
+  }
+  .mobile-navbar-heading {
+    font-size: 2.6rem;
+    text-shadow: 1px 1px 6px var(--darkwhite);
+    color: var(--coral);
+  }
+  /* Footer */
+  .footer-container{
+  padding-bottom: 10px;
+  }
 
 .navbar-icon {
     margin-right: 0.8rem;
