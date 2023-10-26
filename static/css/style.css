@@ -3,48 +3,48 @@
 /* Colour Variables and Fonts */
 :root {
     /* Primary Colors */
-    --primary: #ff4242; 
-    --primary-light: #ff6b6b; 
-    --primary-dark: #e32020; 
-    --on-primary: #ffffff;  
+    --primary: #26a69a; /* Teal */
+    --primary-light: #64d8cb; /* Lighter Teal */
+    --primary-dark: #00766c; /* Darker Teal */
+    --on-primary: #ffffff;
 
     /* Accent/Secondary Colors */
-    --accent: #FAB700; 
-    --accent-light: #FFD740;  
-    --accent-dark: #c89200;   
-    --on-accent: #2E2E2E;     
+    --accent: #ff6f00; /* Deep Orange A400 */
+    --accent-light: #ffa270; /* Deep Orange Lighten 3 */
+    --accent-dark: #c43e00; /* Deep Orange Darken 3 */
+    --on-accent: #2E2E2E;
 
     /* Background and Surface */
-    --background: #ffffff;
-    --surface: #f5f5f5f3;
-    --on-background: #2E2E2E;
-    --on-background-secondary: #A3A3A3;
+    --background: #eceff1; /* Blue Grey 50 */
+    --surface: #cfd8dc; /* Blue Grey 100 */
+    --on-background: #212121; /* Grey 900 */
+    --on-background-secondary: #757575; /* Grey 600 */
 
     /* Error Colors */
-    --error: #ee0909;
-    --error-light: #ff2b24;  
-    --error-dark: #c00606;   
-    --on-error: #ffffff;     
+    --error: #d50000; /* Red A400 */
+    --error-light: #ff5252; /* Red A200 */
+    --error-dark: #b71c1c; /* Red 900 */
+    --on-error: #ffffff;
 
     /* Additional Colors */
-    --green: #0f860f;
-    --green-light: #16bd16;  
-    --green-dark: #0a600a;   
+    --green: #66bb6a; /* Light Green A400 */
+    --green-light: #98ee99; /* Light Green A200 */
+    --green-dark: #338a3e; /* Light Green A700 */
 
     /* Typography */
     --primaryfont: 'Open Sans', sans-serif;
     --secondaryfont: 'Ubuntu', sans-serif;
 }
 
-/* Materialize styly required for flexbox */
+/* Materialize style required for flexbox */
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    }
-    main {
+}
+main {
     flex: 1 0 auto;
-    }
+}
 
 /* General style settings */
 .uppercase {
@@ -56,47 +56,62 @@ nav {
     position: fixed;
     top: 0px;
     z-index: 15;
-    background-color: var(--darkwhite);
+    background-color: var(--surface);
     font-family: var(--primaryfont);
-  }
+}
 
 nav img {
     height: 2em;
     width: 3em;
     padding-left: 5px;
     transform: scale(1.0);
-    }
+}
 
 nav ul a {
-    color: var(--lightblack);
+    color: var(--on-background);
     padding: 0 20px;
     font-family: var(--secondaryfont);
     margin-right: 5px;
     font-weight: 400;
-  }
-  .navbar-icon {
-    margin-right: 0.8rem;
-    font-size: 20px;
-    color: var(--lightblack);
-  }
-  .mobile-navbar-heading {
-    font-size: 2.6rem;
-    text-shadow: 1px 1px 6px var(--darkwhite);
-    color: var(--coral);
-  }
-  /* Footer */
-  .footer-container{
-  padding-bottom: 10px;
-  }
+}
 
 .navbar-icon {
     margin-right: 0.8rem;
     font-size: 20px;
-    color: var(--on-background); 
+    color: var(--on-background);
 }
 
 .mobile-navbar-heading {
     font-size: 2.6rem;
-    text-shadow: 1px 1px 6px var(--surface); 
-    color: var(--primary); 
+    text-shadow: 1px 1px 1px var(--background);
+    color: var(--primary);
+}
+
+/* Footer */
+.footer-container {
+    background-color: var(--surface);
+    padding-bottom: 0.5rem;
+    color: var(--on-background);
+    -webkit-box-shadow: 0px -5px 10px -6px var(--on-background-secondary);
+    -moz-box-shadow: 0px -5px 10px -6px var(--on-background-secondary);
+    box-shadow: 0px -5px 10px -6px var(--on-background-secondary);
+}
+
+.media-icons {
+    font-size: 25px;
+    color: var(--on-accent);
+    margin-bottom: 5px;
+    padding: 3px;
+    font-weight: 300;
+    text-shadow: 2px 2px 2px var(--background);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.media-icons:hover {
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
 }
