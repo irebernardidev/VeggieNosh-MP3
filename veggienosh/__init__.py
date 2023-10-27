@@ -1,7 +1,7 @@
 # Import required libraries and modules
 import os
 from flask import Flask
-from flask_pymongo import PyMongo, pymongo
+from flask_pymongo import PyMongo
 
 # Import environment variables if env.py exists
 if os.path.exists("env.py"):
@@ -11,7 +11,7 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 # Config settings using environment variables from env.py
-app.config['MONGODB_NAME'] = os.environ.get('MONGODB_NAME')
+app.config['MONGODB_NAME'] = "veggienoshDB"
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 

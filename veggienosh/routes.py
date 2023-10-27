@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 
 from veggienosh import app, mongo
-from veggienosh.forms import RegistrationForm, LoginForm
+from veggienosh.forms import RegisterForm, LoginForm
 
 # --- MongoDB Collections Initialization ---
 users_coll = mongo.db.users
@@ -70,7 +70,7 @@ def register():
         flash('You are already registered and logged in!')
         return redirect(url_for('home'))
 
-    form = RegistrationForm()
+    form = RegisterForm()
     if form.validate_on_submit():
         registered_user = users_coll.find_one(
             {'username': request.form['username']})
