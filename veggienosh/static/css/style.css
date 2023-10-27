@@ -51,6 +51,9 @@ main {
     text-transform: uppercase;
 }
 
+.margin-top-large{
+    margin-top: 5rem;
+    }
 
 /* Navigation Bar */
 nav {
