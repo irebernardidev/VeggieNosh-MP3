@@ -1,9 +1,9 @@
 # Import necessary libraries and modules
 import os
 from flask import Flask, render_template, url_for, flash, redirect
-from flask_pymongo import PyMongo, pymongo
+from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from forms import RegistrationForm
+from forms import RegistrationForm, LoginForm
 
 # Check for environment file and import
 if os.path.exists("env.py"):
@@ -27,28 +27,35 @@ categories_coll = mongo.db.categories
 diets_coll = mongo.db.diets
 dishes_coll = mongo.db.dishes
 
-# Define route for landing page
+# Routes
+# ------ 
+
 @app.route('/')
 @app.route("/home")
 def home():
     """Landing page route."""
     return render_template('home.html', title='Home')
 
-# Define route to display all recipes
 @app.route('/all_recipes')
 def all_recipes():
     """Display all recipes route."""
     return render_template("all_recipes.html", recipes=recipes_coll.find(), title='Recipes')
 
-# Define login route
-@app.route("/login")
+@app.route("/login",  methods=['GET', 'POST'])
 def login():
     """Login route."""
-    return render_template('login.html', title='Login')
+    form = LoginForm()
+    if form.validate_on_submit():
+        if form.username.data == 'admin' and form.password.data == 'password':
+            flash('You have been successfully logged in!')
+            return redirect(url_for('home'))
+        else:
+            flash('Username or password is incorrect. Please try again')
+    return render_template('login.html', form=form, title='Login')
 
-# Define registration route
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    """Registration route."""
     form = RegistrationForm()
     if form.validate_on_submit():
         flash(f'Account created for {form.username.data}!')
