@@ -9,6 +9,7 @@ pep8 = "*"
 autopep8 = "*"
 pylint = "*"
 pylint-flask = "*"
+flask-wtf = "*"
 
 [dev-packages]
 
