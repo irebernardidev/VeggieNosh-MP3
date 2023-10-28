@@ -1,20 +1,48 @@
 {% extends 'base.html' %}
-{% block content %}
-<section class="margin-top-large">
-    <div class = "container center-align">
-    <h1>{{ username }}'s account</h1>
 
-    <div class= "row center-align">
-        <div class="col s12 m4">
-            <a href="{{ url_for('change_username', username = session.username) }}">Change username</a>
-        </div>
-        <div class="col s12 m4">
-        <a href="">Change password</a>
-        </div>
-        <div class="col s12 m4">
-        <a href="">Delete account</a>
-        </div>
-        </div>
-    </div>
-    </section>
+{% block content %}
+    <!-- Start of Account Section -->
+    <section class="margin-top-large">
+        
+   
+        <div class="container center-align">
+            
+            <!-- Username Display -->
+            <h1>{{ username }}'s account</h1>
+
+            <!-- Display Flash Messages if any -->
+            <div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="error-message">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <!-- Account Options Row -->
+            <div class="row center-align">
+                
+                <!-- Change Username Column -->
+                <div class="col s12 m4">
+                    <a href="{{ url_for('change_username', username = session.username) }}">Change username</a>
+                </div>
+                
+                <!-- Change Password Column -->
+                <div class="col s12 m4">
+                    <a href="{{ url_for('change_password', username = session.username) }}">Change password</a>
+                </div>
+                
+                <!-- Delete Account Column -->
+                <div class="col s12 m4">
+                    <a href="">Delete account</a>
+                </div>
+                
+            </div> 
+
+        </div> 
+
+    </section> 
+
 {% endblock %}

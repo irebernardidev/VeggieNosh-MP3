@@ -6,25 +6,34 @@
         <h1>Join VeggieNosh</h1>
         <form method="POST" action="">
             {{ form.hidden_tag() }}
-            
+
             <!-- Username Field -->
             <div>
                 {{ form.username.label }}
                 {{ form.username }}
                 {% for error in form.username.errors %}
-                    <span class="error-message">[{{ error }}]</span>
+                    <span class="error-message">{{ error }}</span>
                 {% endfor %}
             </div>
-            
+
             <!-- Password Field -->
             <div>
                 {{ form.password.label }}
                 {{ form.password }}
                 {% for error in form.password.errors %}
-                    <span class="error-message">[{{ error }}]</span>
+                    <span class="error-message">{{ error }}</span>
                 {% endfor %}
             </div>
-            
+
+            <!-- Confirm Password Field -->
+            <div>
+                {{ form.confirm_password.label }}
+                {{ form.confirm_password }}
+                {% for error in form.confirm_password.errors %}
+                    <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </div>
+
             <!-- Display Flash Messages if any -->
             <div>
                 {% with messages = get_flashed_messages() %}
@@ -35,7 +44,7 @@
                     {% endif %}
                 {% endwith %}
             </div>
-            
+
             <!-- Submit Button -->
             <div>
                 {{ form.submit() }}
