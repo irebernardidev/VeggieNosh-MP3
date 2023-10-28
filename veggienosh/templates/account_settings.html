@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Start of Account Section -->
+    <!-- Account Section -->
     <section class="margin-top-large">
         
-   
         <div class="container center-align">
             
-            <!-- Username Display -->
-            <h1>{{ username }}'s account</h1>
-
-            <!-- Display Flash Messages if any -->
+            <!-- Display Username -->
+            <h1>{{ username }}'s Vegan Kitchen</h1>
+            
+            <!-- Flash Messages Section -->
             <div>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
@@ -20,29 +19,66 @@
                     {% endif %}
                 {% endwith %}
             </div>
-
-            <!-- Account Options Row -->
+            
+            <!-- Account Options -->
             <div class="row center-align">
                 
-                <!-- Change Username Column -->
+                <!-- Change Username Option -->
                 <div class="col s12 m4">
-                    <a href="{{ url_for('change_username', username = session.username) }}">Change username</a>
+                    <a href="{{ url_for('change_username', username=session.username) }}">Update Username</a>
                 </div>
                 
-                <!-- Change Password Column -->
+                <!-- Change Password Option -->
                 <div class="col s12 m4">
-                    <a href="{{ url_for('change_password', username = session.username) }}">Change password</a>
+                    <a href="{{ url_for('change_password', username=session.username) }}">Update Password</a>
                 </div>
                 
-                <!-- Delete Account Column -->
+                <!-- Delete Account Option -->
                 <div class="col s12 m4">
-                    <a href="">Delete account</a>
+                    <a href="#delete-modal-account" class="modal-trigger">Close Veggienosh Kitchen</a>
                 </div>
-                
-            </div> 
+            </div>
 
-        </div> 
+        </div>
+    </section>
 
-    </section> 
+    <!-- Account Deletion Modal -->
+    <div id="delete-modal-account" class="modal">
+        <div class="modal-content center-align">
+            
+            <h5>Close Veggienosh Kitchen</h5>
+            <h6>Are you sure you want to close your vegan kitchen?</h6>
+            
+            <!-- Delete Confirmation Form -->
+            <form action="{{ url_for('delete_account', username=session.username) }}" method="POST">
+                <div class="input-field">
+                    <input
+                        placeholder="Enter password to confirm closure"
+                        id="confirm_password_to_deleted"
+                        name="confirm_password_to_delete"
+                        type="password"
+                        class="validate"
+                        required
+                    />
+                    <label for="confirm_password_to_delete">Confirm Password</label>
+                </div>
+                
+                <!-- Display Flash Messages for Deletion -->
+                <div>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p class="error-message">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                
+                <!-- Delete and Cancel Buttons -->
+                <a href="#" class="modal-close">Cancel</a>
+                <button href="#">Close Veggienosh Kitchen</button>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

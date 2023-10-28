@@ -50,7 +50,7 @@ def login():
         return redirect(url_for('home'))
 
     form = LoginForm()
-    users = users_coll  
+    users = users_coll
     if form.validate_on_submit():
         registered_user = users.find_one({'username': request.form['username']})
         if registered_user and check_password_hash(
@@ -71,7 +71,7 @@ def register():
         return redirect(url_for('home'))
 
     form = RegisterForm()
-    users = users_coll  
+    users = users_coll
     if form.validate_on_submit():
         registered_user = users.find_one({'username': request.form['username']})
         if registered_user:
@@ -107,7 +107,7 @@ def account_settings(username):
 @app.route("/change_username/<username>", methods=['GET', 'POST'])
 def change_username(username):
     form = ChangeUsernameForm()
-    users = users_coll  
+    users = users_coll
     if form.validate_on_submit():
         registered_user = users.find_one({
             'username': request.form['new_username']
@@ -149,3 +149,17 @@ def change_password(username):
             flash('Incorrect original password! Please try again')
             return redirect(url_for('change_password', username=session["username"]))
     return render_template('change_password.html', username=username, form=form, title='Change Password')
+
+
+@app.route("/delete_account/<username>", methods=['GET', 'POST'])
+def delete_account(username):
+    user = users_coll.find_one({"username": username})
+    if check_password_hash(user["password"],
+                           request.form["confirm_password_to_delete"]):
+        flash("Your account has been deleted.")
+        session.pop("username", None)
+        users_coll.remove({"_id": user.get("_id")})
+        return redirect(url_for("home"))
+    else:
+        flash("Password is incorrect! Please try again")
+        return redirect(url_for("account_settings", username=username))

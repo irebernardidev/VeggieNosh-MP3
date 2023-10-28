@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, EqualTo
 
-# --- Register Form ---
+# ---------------- Register Form ----------------
 class RegisterForm(FlaskForm):
     username = StringField(
         'Username',
@@ -19,7 +19,7 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Register')
 
 
-# --- Login Form ---
+# ---------------- Login Form ----------------
 class LoginForm(FlaskForm):
     username = StringField(
         'Username',
@@ -32,7 +32,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
-# --- Change Username Form ---
+# ---------------- Change Username Form ----------------
 class ChangeUsernameForm(FlaskForm):
     new_username = StringField(
         'New Username',
@@ -41,7 +41,7 @@ class ChangeUsernameForm(FlaskForm):
     submit = SubmitField('Change Username')
 
 
-# --- Change Password Form ---
+# ---------------- Change Password Form ----------------
 class ChangePasswordForm(FlaskForm):
     old_password = PasswordField(
         'Current Password',
@@ -56,3 +56,12 @@ class ChangePasswordForm(FlaskForm):
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     submit = SubmitField('Change Password')
+    
+    
+# ---------------- Delete Account Form ----------------
+class DeleteAccountForm(FlaskForm):
+    confirm_password = PasswordField(
+        'Confirm New Password',
+        validators=[DataRequired(), Length(min=3, max=15)]
+    )
+    submit = SubmitField('Delete Account')
