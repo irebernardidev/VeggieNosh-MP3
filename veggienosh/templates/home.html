@@ -13,6 +13,13 @@
     {% endif %}
     {% endwith %}
     </div>
+    <div class="container container-recipes">
+        <div class="row">
+          {% for recipe in recipes %}
+              {% include "includes/recipecards.html" %}
+          {% endfor %}
+          </div>
+          </div>
     </section>
 
 {% endblock %}
