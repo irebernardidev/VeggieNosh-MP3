@@ -1,67 +1,88 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import (StringField, PasswordField, SubmitField, TextAreaField,
+                     IntegerField, SelectField)
 from wtforms.validators import DataRequired, Length, EqualTo
 
-# ---------------- Register Form ----------------
+# Register Form
 class RegisterForm(FlaskForm):
     username = StringField(
-        'Username',
+        'Username', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     password = PasswordField(
-        'Password',
+        'Password', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     confirm_password = PasswordField(
-        'Confirm Password',
+        'Confirm Password', 
         validators=[DataRequired(), EqualTo('password')]
     )
     submit = SubmitField('Register')
 
-
-# ---------------- Login Form ----------------
+# Login Form
 class LoginForm(FlaskForm):
     username = StringField(
-        'Username',
+        'Username', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     password = PasswordField(
-        'Password',
+        'Password', 
         validators=[DataRequired()]
     )
     submit = SubmitField('Login')
 
-
-# ---------------- Change Username Form ----------------
+# Change Username Form
 class ChangeUsernameForm(FlaskForm):
     new_username = StringField(
-        'New Username',
+        'New Username', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     submit = SubmitField('Change Username')
 
-
-# ---------------- Change Password Form ----------------
+# Change Password Form
 class ChangePasswordForm(FlaskForm):
     old_password = PasswordField(
-        'Current Password',
+        'Current Password', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     new_password = PasswordField(
-        'New Password',
+        'New Password', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     confirm_new_password = PasswordField(
-        'Confirm New Password',
+        'Confirm New Password', 
         validators=[DataRequired(), Length(min=3, max=15)]
     )
     submit = SubmitField('Change Password')
-    
-    
-# ---------------- Delete Account Form ----------------
-class DeleteAccountForm(FlaskForm):
-    confirm_password = PasswordField(
-        'Confirm New Password',
-        validators=[DataRequired(), Length(min=3, max=15)]
+
+# Add Recipe Form
+class AddRecipe(FlaskForm):
+    recipe_name = StringField(
+        'Recipe Name', 
+        validators=[DataRequired(), Length(min=3, max=25)]
     )
-    submit = SubmitField('Delete Account')
+    recipe_description = TextAreaField(
+        'Recipe Description', 
+        validators=[DataRequired(), Length(min=20, max=300)]
+    )
+    cooking_time = IntegerField(
+        'Cooking Time', 
+        validators=[DataRequired()]
+    )
+    servings = IntegerField(
+        'Number of Servings', 
+        validators=[DataRequired()]
+    )
+    image = StringField('Recipe Image')
+    ingredients = TextAreaField(
+        'Ingredients', 
+        validators=[DataRequired()]
+    )
+    directions = TextAreaField(
+        'Directions', 
+        validators=[DataRequired()]
+    )
+    cuisine_type = SelectField('Cuisine Type')
+    meal_type = SelectField('Meal Type')
+    diet_type = SelectField('Diet Type')
+    submit = SubmitField('Add Recipe')

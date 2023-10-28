@@ -46,7 +46,7 @@ def add_recipe():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if 'username' in session:
-        flash('You are already cultivating vegan wonders!')
+        flash('You are already in the Veggienosh kitchen, Chef!')
         return redirect(url_for('home'))
 
     form = LoginForm()
@@ -59,7 +59,7 @@ def login():
             flash('Welcome back, Veggie Chef!')
             return redirect(url_for('home'))
         else:
-            flash("Oops, that's not right. Please double-check your credentials.")
+            flash("Oops, something's not right in the recipe. Please recheck your credentials.")
             return redirect(url_for('login'))
     return render_template('login.html', form=form, title='Enter the Veggie World')
 
@@ -67,7 +67,7 @@ def login():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if 'username' in session:
-        flash('You are already a member of our vegan community!')
+        flash('Chef, you are already in the Veggienosh kitchen!')
         return redirect(url_for('home'))
 
     form = RegisterForm()
@@ -75,7 +75,7 @@ def register():
     if form.validate_on_submit():
         registered_user = users.find_one({'username': request.form['username']})
         if registered_user:
-            flash("This chef name is already in use. Choose another!")
+            flash("This chef name is already cooking. Choose another!")
             return redirect(url_for('register'))
         else:
             hashed_password = generate_password_hash(request.form['password'])
@@ -119,8 +119,8 @@ def change_username(username):
             {"username": username},
             {"$set": {"username": request.form["new_username"]}})
         flash(
-            "Your username was updated successfully. "
-            "Please, login with your new username"
+           "Chef's name plate updated!"
+           "Next time, use your new name to enter the Veggienosh kitchen."
         )
         session.pop("username",  None)
         return redirect(url_for("login"))
@@ -140,7 +140,7 @@ def change_password(username):
                     {'username': username},
                     {'$set': {'password': generate_password_hash(request.form['new_password'])}}
                 )
-                flash("Success! Your password was updated.")
+                flash("Recipe secret updated! You've successfully changed your password.")
                 return redirect(url_for('account_settings', username=username))
             else:
                 flash("New passwords do not match! Please try again")
@@ -156,10 +156,10 @@ def delete_account(username):
     user = users_coll.find_one({"username": username})
     if check_password_hash(user["password"],
                            request.form["confirm_password_to_delete"]):
-        flash("Your account has been deleted.")
+        flash("We're sad to see you leave the Veggienosh kitchen. Farewell, Chef!")
         session.pop("username", None)
         users_coll.remove({"_id": user.get("_id")})
         return redirect(url_for("home"))
     else:
-        flash("Password is incorrect! Please try again")
+        flash("Something's amiss in the recipe. Please check your password.")
         return redirect(url_for("account_settings", username=username))
