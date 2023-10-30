@@ -8,7 +8,7 @@
   <nav>
       <div class="nav-wrapper">
            <a href="{{ url_for('home') }}">
-              <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo" alt="VeggieNosh Logo" lazyload="on" >
+              <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo" alt="Veggienosh Logo" lazyload="on" >
           </a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons navbar-icon">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -26,7 +26,7 @@
   </nav>
   <!--Mobile Collapse Button-->
   <ul class="sidenav" id="mobile-demo">
-      <li><h1 class ="center-align mobile-navbar-heading">VeggieNosh</h1></li>
+      <li><h1 class ="center-align mobile-navbar-heading">Veggienosh</h1></li>
       <li><a href="{{url_for('home')}}" class="uppercase"><i class="fas fa-home"></i>Home</a></li>
       <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils"></i>Browse Recipes</a></li>
       {% if session.username %}
