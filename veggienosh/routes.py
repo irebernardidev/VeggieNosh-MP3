@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from veggienosh.forms import (
     RegisterForm, LoginForm, ChangeUsernameForm, ChangePasswordForm
 )
-from flask_pymongo import PyMongo, pymongo
+from flask_pymongo import pymongo
 from bson.objectid import ObjectId
 
 # MongoDB Collections Initialization
@@ -14,6 +14,7 @@ categories_coll = mongo.db.categories
 diets_coll = mongo.db.diets
 dishes_coll = mongo.db.dishes
 
+# Routes
 
 # Route for home page
 @app.route('/')
@@ -26,18 +27,34 @@ def home():
 # Route to display all recipes
 @app.route('/all_recipes')
 def all_recipes():
-    return render_template(
-        "all_recipes.html", recipes=recipes_coll.find(),
-        title='All Veggie Delights'
-    )
+    recipes = recipes_coll.find()
+    return render_template("all_recipes.html", recipes=recipes,
+                           title='All Veggie Delights')
+
+# Single Recipe info display
+@app.route('/recipe_info/<recipe_id>')
+def single_recipe_info(recipe_id):
+
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    author = users_coll.find_one(
+    {"_id": ObjectId(selected_recipe.get("author"))})["username"]
+
+    return render_template("single_recipe_info.html", selected_recipe=selected_recipe, author=author, 
+                           title='Recipes')
+    
 
 
 # Route to display user's recipes
-@app.route('/my_recipes')
-def my_recipes():
-    return render_template("my_recipes.html", title='My Veggie Creations')
-
-
+@app.route('/my_recipes/<username>')
+def my_recipes(username):
+    my_id = users_coll.find_one({'username': session['username']})['_id']
+    my_username = users_coll.find_one({'username': session
+                                      ['username']})['username']
+    my_recipes = recipes_coll.find({'author': my_id})
+    return render_template("my_recipes.html", my_recipes=my_recipes,
+                           username=my_username, title='My Recipes')
+    
+    
 # Route to add new recipe
 @app.route('/add_recipe')
 def add_recipe():
@@ -58,8 +75,9 @@ def insert_recipe():
     ingredients = request.form.get("ingredients").splitlines()
     directions = request.form.get("recipe_directions").splitlines()
     author = users_coll.find_one({"username": session["username"]})["_id"]
-
+    
     if request.method == 'POST':
+        # Prepare new recipe data
         new_recipe = {
             "recipe_name": request.form.get("recipe_name"),
             "description": request.form.get("recipe_description"),
@@ -73,6 +91,8 @@ def insert_recipe():
             'author': author,
             "image": request.form.get("image")
         }
+        
+        # Insert new recipe and update user
         insert_recipe_intoDB = recipes_coll.insert_one(new_recipe)
         users_coll.update_one(
             {"_id": ObjectId(author)},
@@ -84,6 +104,7 @@ def insert_recipe():
 # Route for user login
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    # Check if user is already logged in
     if 'username' in session:
         flash('You are already in the Veggienosh kitchen, Chef!')
         return redirect(url_for('home'))
@@ -105,6 +126,7 @@ def login():
 # Route for user registration
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    # Check if user is already logged in
     if 'username' in session:
         flash('Chef, you are already in the Veggienosh kitchen!')
         return redirect(url_for('home'))
@@ -161,13 +183,12 @@ def change_username(username):
             "Chef's name plate updated! "
             "Next time, use your new name to enter the Veggienosh kitchen."
         )
-        session
-
-        session.pop("username",  None)
+        session.pop("username", None)
         return redirect(url_for("login"))
     return render_template('change_username.html', username=session["username"], form=form, title='Change Username')
 
 
+# Route to change user's password
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
     users = users_coll
@@ -181,28 +202,27 @@ def change_password(username):
         if check_password_hash(users.find_one({
                 'username': username})['password'], old_password):
             if new_password == confirm_password:
-                users.update_one({'username': username}, {'$set': {'password': generate_password_hash(request.form['new_password'])}})
-                flash("Recipe secret updated! You've successfully changed your password.")
-                return redirect(url_for('account_settings', username=username))
+                users.update_one({'username': username},
+                                 {'$set': {'password': generate_password_hash(
+                                     request.form['new_password'])}})
+                flash("Recipe secret updated! Log in with the new ingredient next time.")
+                session.pop('username', None)
+                return redirect(url_for('login'))
             else:
-                flash("New passwords do not match! Please try again")
-                return redirect(url_for("change_password",
-                                        username=session["username"]))
+                flash("Oops! The new ingredients don't match. Try again.")
+                return redirect(url_for('change_password', username=session["username"]))
         else:
-            flash('Incorrect original password! Please try again')
+            flash("Oops! Old ingredient is not correct. Recheck and try again.")
             return redirect(url_for('change_password', username=session["username"]))
-    return render_template('change_password.html', username=username, form=form, title='Change Password')
+    return render_template(
+        'change_password.html', username=username, form=form, title='Change Secret Ingredient'
+    )
 
 
-@app.route("/delete_account/<username>", methods=['GET', 'POST'])
+# Route to delete user account
+@app.route("/delete_account/<username>")
 def delete_account(username):
-    user = users_coll.find_one({"username": username})
-    if check_password_hash(user["password"],
-                           request.form["confirm_password_to_delete"]):
-        flash("We're sad to see you leave the Veggienosh kitchen. Farewell, Chef!")
-        session.pop("username", None)
-        users_coll.remove({"_id": user.get("_id")})
-        return redirect(url_for("home"))
-    else:
-        flash("Something's amiss in the recipe. Please check your password.")
-        return redirect(url_for("account_settings", username=username))
+    users_coll.remove({"username": session["username"]})
+    flash('We are sad to see you leave the Veggienosh family. Take care, Veggie Chef!')
+    session.pop("username", None)
+    return redirect(url_for('register'))

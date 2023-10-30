@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>I'm extending the base template</h2>
+<section class = "container margin-top-large">
+    <h1 class=" uppercase center-align">All Veggie Delights</h1>
 
-{% for recipe in recipes %}
-    {{recipe.recipe_name}}
-    {{recipe.description}}
-    {{recipe.category_type}}
-    {{recipe.dish_type}}
-    {{recipe.cooking_time}}
-    {{recipe.diet_type}}
-    {{recipe.servings}}
-    {{recipe.author}}
-    {{recipe.ingredients}}
-    {{recipe.directions}}
-    {{recipe.image}}
-{% endfor %}
+    <div class="container container-recipes">
+        <div class="row">
+        {% for recipe in recipes %}
+        {% include "includes/recipecards.html" %}
+        {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}
