@@ -1,81 +1,106 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+
 {% block content %}
-<section class = "container margin-top-large center-align">
-<h1>{{ selected_recipe.recipe_name }}</h1>
-<p>{{ selected_recipe.description }}</p>
-<div class="row">
-<div class="col s12 m6">
-      <img
-        class="responsive-img z-depth-2"
-        src="{{ selected_recipe.image }}"
-        alt="Recipe Image"
-      />
-      <p>Author: {{ author }}</p>
+<!-- Recipe Information Section -->
+<section class="container margin-top-large center-align">
+    <!-- Recipe Title -->
+    <h1>{{ selected_recipe.recipe_name }}</h1>
 
-      <div class="row">
-        <div class="col s6">
-          <a
-            href=""
-            class="btn"
-            name="action"
-          >
-            <i class="fas fa-edit right"></i>
-            Edit
-          </a>
-        </div>
-        <div class="col s6">
-          <a
-           href=""
-            class="btn"
-            name="action"
-          >
-            <i class="fas fa-trash-alt right"></i>
-            Delete
-          </a>
-        </div>
-      </div>
+    <!-- Recipe Description -->
+    <p>{{ selected_recipe.description }}</p>
 
+    <div class="row">
+        <div class="col s12 m6">
+            <!-- Recipe Image -->
+            <img
+                class="responsive-img z-depth-2"
+                src="{{ selected_recipe.image }}"
+                alt="Recipe Image"
+            />
+
+            <!-- Author Information -->
+            <p>Author: {{ author }}</p>
+
+            <!-- Edit/Delete Buttons for Recipe's Author -->
+            {% if session.username == author %}
+            <div class="row">
+                <div class="col s6">
+                    <!-- Edit Button -->
+                    <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}" class="btn" name="action">
+                        <i class="fas fa-edit right"></i>
+                        Edit
+                    </a>
+                </div>
+                <div class="col s6">
+                    <!-- Delete Button -->
+                    <a href="" class="btn" name="action">
+                        <i class="fas fa-trash-alt right"></i>
+                        Delete
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Recipe Details -->
+        <div class="col s12 m6">
+            <!-- Category Type -->
+            <div>
+                <h6>Category Type</h6>
+                {{ selected_recipe.category_type }}
+            </div>
+
+            <!-- Dish Type -->
+            <div>
+                <h6>Dish Type</h6>
+                {{ selected_recipe.dish_type }}
+            </div>
+
+            <!-- Diet Type -->
+            <div>
+                <h6>Diet Type</h6>
+                {{ selected_recipe.diet_type }}
+            </div>
+
+            <!-- Cooking Time -->
+            <div>
+                <h6>Cooking time</h6>
+                {{ selected_recipe.cooking_time }}
+            </div>
+
+            <!-- Servings -->
+            <div>
+                <h6>Serves</h6>
+                {{ selected_recipe.servings }}
+            </div>
+        </div>
     </div>
-</div>
-<div class="col s12 m6">
-<div>
-<h6>Cuisine Type</h6>
-{{ selected_recipe.cuisine_type }}</div>
-<div>
-<h6>Meal Type</h6>
-{{ selected_recipe.meal_type }}</div>
-<div>
-<h6>Diet Type</h6>
-{{ selected_recipe.diet_type }}</div>
-<div>
-<h6>Cooking time</h6>
-{{ selected_recipe.cooking_time }}</div>
-<div>
-<h6>Serves</h6>
-{{ selected_recipe.servings }}</div>
-</div>
-</div>
-<div class="row">
-<div class="col s12 m6">
-<h4>Ingredients: </h4>
-<ul>
-{% for ingredient in selected_recipe.ingredients %}
-<li>
-    {{ ingredient }}
-</li>
-{% endfor %}
-</ul>
-</div>
-<div class="col s12 m6">
-<h4>Directions: </h4>
-    <ol>
-    {% for direction in selected_recipe.directions %}
-    <li>
-        {{ direction }}
-    </li>
-    {% endfor %}
-    </ol>
-</div>
-</div>
+
+    <!-- Ingredients and Directions Lists -->
+    <div class="row">
+        <!-- Ingredients List -->
+        <div class="col s12 m6">
+            <h4>Ingredients:</h4>
+            <ul>
+                {% for ingredient in selected_recipe.ingredients %}
+                <li>
+                    {{ ingredient }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Directions List -->
+        <div class="col s12 m6">
+            <h4>Directions:</h4>
+            <ol>
+                {% for direction in selected_recipe.directions %}
+                <li>
+                    {{ direction }}
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
 </section>
 {% endblock %}

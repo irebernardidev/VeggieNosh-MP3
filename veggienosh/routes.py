@@ -14,6 +14,7 @@ categories_coll = mongo.db.categories
 diets_coll = mongo.db.diets
 dishes_coll = mongo.db.dishes
 
+
 # Routes
 
 # Route for home page
@@ -31,42 +32,39 @@ def all_recipes():
     return render_template("all_recipes.html", recipes=recipes,
                            title='All Veggie Delights')
 
+
 # Single Recipe info display
 @app.route('/recipe_info/<recipe_id>')
 def single_recipe_info(recipe_id):
-
     selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
     author = users_coll.find_one(
-    {"_id": ObjectId(selected_recipe.get("author"))})["username"]
+        {"_id": ObjectId(selected_recipe.get("author"))})["username"]
 
-    return render_template("single_recipe_info.html", selected_recipe=selected_recipe, author=author, 
-                           title='Recipes')
-    
+    return render_template("single_recipe_info.html", selected_recipe=selected_recipe, 
+                           author=author, title='Recipes')
 
 
 # Route to display user's recipes
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
     my_id = users_coll.find_one({'username': session['username']})['_id']
-    my_username = users_coll.find_one({'username': session
-                                      ['username']})['username']
+    my_username = users_coll.find_one({'username': session['username']})['username']
     my_recipes = recipes_coll.find({'author': my_id})
+    
     return render_template("my_recipes.html", my_recipes=my_recipes,
                            username=my_username, title='My Recipes')
-    
-    
+
+
 # Route to add new recipe
 @app.route('/add_recipe')
 def add_recipe():
-    form = Add_Edit_RecipeForm(request.form)
+    form = Add_Edit_RecipeForm()
     diet_types = diets_coll.find()
     dish_types = dishes_coll.find()
     category_types = categories_coll.find()
-    return render_template(
-        "add_recipe.html", diet_types=diet_types,
-        category_types=category_types, dish_types=dish_types,
-        form=form, title='New Recipe'
-    )
+    return render_template("add_recipe.html", diet_types=diet_types,
+                           category_types=category_types, dish_types=dish_types,
+                           form=form, title='New Recipe')
 
 
 # Route to insert a recipe into the database
@@ -75,7 +73,7 @@ def insert_recipe():
     ingredients = request.form.get("ingredients").splitlines()
     directions = request.form.get("recipe_directions").splitlines()
     author = users_coll.find_one({"username": session["username"]})["_id"]
-    
+
     if request.method == 'POST':
         # Prepare new recipe data
         new_recipe = {
@@ -101,10 +99,22 @@ def insert_recipe():
         return redirect(url_for("home", recipe_id=insert_recipe_intoDB.inserted_id))
 
 
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    form = Add_Edit_RecipeForm()
+    diet_types = diets_coll.find()
+    dish_types = dishes_coll.find()
+    category_types = categories_coll.find()
+
+    return render_template('edit_recipe.html', selected_recipe=selected_recipe,
+                           category_types=category_types, diet_types=diet_types,
+                           dish_types=dish_types, form=form, title='Edit Recipe')
+
+
 # Route for user login
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    # Check if user is already logged in
     if 'username' in session:
         flash('You are already in the Veggienosh kitchen, Chef!')
         return redirect(url_for('home'))
@@ -120,13 +130,13 @@ def login():
         else:
             flash("Oops, something's not right in the recipe. Please recheck your credentials.")
             return redirect(url_for('login'))
+
     return render_template('login.html', form=form, title='Enter the Veggie World')
 
 
 # Route for user registration
 @app.route("/register", methods=['GET', 'POST'])
 def register():
-    # Check if user is already logged in
     if 'username' in session:
         flash('Chef, you are already in the Veggienosh kitchen!')
         return redirect(url_for('home'))
@@ -141,14 +151,13 @@ def register():
             hashed_password = generate_password_hash(request.form['password'])
             new_user = {
                 "username": request.form['username'],
-                "password": hashed_password,
-                "user_recipes": [],
+                "password": hashed_password
             }
             users_coll.insert_one(new_user)
-            session["username"] = request.form['username']
-            flash('Welcome to the Veggienosh family!')
+            session['username'] = request.form['username']
+            flash('You are now officially a Veggienosh Chef!')
             return redirect(url_for('home'))
-    return render_template('register.html', form=form, title='Join the Veggienosh Family')
+    return render_template('register.html', form=form, title='Join the Veggie World')
 
 
 # Route to logout the user
