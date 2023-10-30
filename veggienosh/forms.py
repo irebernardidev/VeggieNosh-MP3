@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import (StringField, PasswordField, SubmitField,
-                     TextAreaField, IntegerField)
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField
 from wtforms.validators import DataRequired, Length, EqualTo, Optional
+
 
 # Register Form
 class RegisterForm(FlaskForm):
@@ -60,17 +60,17 @@ class ChangePasswordForm(FlaskForm):
 
 
 # Add Recipe Form
-class Add_Edit_RecipeForm(FlaskForm):
+class Add_RecipeForm(FlaskForm):
     recipe_name = StringField(
         'Recipe Name',
-        validators=[DataRequired(), Length(min=3, max=25)]
+        validators=[DataRequired()]
     )
     recipe_description = TextAreaField(
         'Recipe Description',
-        validators=[DataRequired(), Length(min=20, max=300)]
+        validators=[DataRequired()]
     )
     cooking_time = IntegerField(
-        'Cooking Time (min)',
+        'Cooking Time (minutes)',
         validators=[DataRequired()]
     )
     servings = IntegerField(
