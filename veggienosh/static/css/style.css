@@ -1,42 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu&display=swap');
 
+/* === GLOBAL STYLES === */
+
 /* Colour Variables and Fonts */
 :root {
     /* Primary Colors */
-    --primary: #26a69a; /* Teal */
-    --primary-light: #64d8cb; /* Lighter Teal */
-    --primary-dark: #00766c; /* Darker Teal */
+    --primary: #26a69a; 
+    --primary-light: #64d8cb;
+    --primary-dark: #00766c; 
     --on-primary: #ffffff;
 
     /* Accent/Secondary Colors */
-    --accent: #ff6f00; /* Deep Orange A400 */
-    --accent-light: #ffa270; /* Deep Orange Lighten 3 */
-    --accent-dark: #c43e00; /* Deep Orange Darken 3 */
+    --accent: #ff6f00;
+    --accent-light: #ffa270;
+    --accent-dark: #c43e00; 
     --on-accent: #2E2E2E;
 
     /* Background and Surface */
-    --background: #eceff1; /* Blue Grey 50 */
-    --surface: #cfd8dc; /* Blue Grey 100 */
-    --on-background: #212121; /* Grey 900 */
-    --on-background-secondary: #757575; /* Grey 600 */
+    --background: #eceff1; 
+    --surface: #cfd8dc; 
+    --on-background: #212121; 
+    --on-background-secondary: #757575;
 
     /* Error Colors */
-    --error: #d50000; /* Red A400 */
-    --error-light: #ff5252; /* Red A200 */
-    --error-dark: #b71c1c; /* Red 900 */
+    --error: #d50000; 
+    --error-light: #ff5252; 
+    --error-dark: #b71c1c; 
     --on-error: #ffffff;
 
     /* Additional Colors */
-    --green: #66bb6a; /* Light Green A400 */
-    --green-light: #98ee99; /* Light Green A200 */
-    --green-dark: #338a3e; /* Light Green A700 */
+    --green: #66bb6a; 
+    --green-light: #98ee99;
+    --green-dark: #338a3e; 
 
     /* Typography */
     --primaryfont: 'Open Sans', sans-serif;
     --secondaryfont: 'Ubuntu', sans-serif;
 }
 
-/* Materialize style required for flexbox */
+/* Materialize style adjustments */
 body {
     display: flex;
     min-height: 100vh;
@@ -45,9 +47,18 @@ body {
 
 main {
     flex: 1 0 auto;
+    margin-top: 4em;
+    margin: 0;
+    padding: 0; 
+    color: var(--lightblack);
+    background-color: var(--white);
+    font-family: var(--primaryfont);
+    font-weight: 400;
+    line-height: 1.7rem;
+    overflow-x: hidden;
 }
 
-/* General style settings */
+/* Text and spacing utilities */
 .uppercase {
     text-transform: uppercase;
 }
@@ -56,7 +67,32 @@ main {
     margin-top: 5rem;
 }
 
-/* Navigation Bar */
+.margin-top-small {
+    margin-top: 1rem;
+}
+
+.container-95 {
+    width: 95%;
+}
+
+.container-85 {
+    width: 85%;  
+}
+
+/* Heading Styles */
+.primary-heading {
+    font-size: 2.3rem;
+    font-weight: 500;
+    letter-spacing: 0.3rem; 
+    font-family: var(--secondaryfont);
+    text-shadow: 1px 1px 1px var(--lightgrey);
+}
+
+.sub-heading {
+    font-size: 1.7rem;
+}
+
+/* === NAVIGATION STYLES === */
 nav {
     position: fixed;
     top: 0px;
@@ -93,7 +129,7 @@ nav ul a {
     color: var(--primary);
 }
 
-/* Footer */
+/* === FOOTER STYLES === */
 .footer-container {
     background-color: var(--surface);
     padding-bottom: 0.5rem;
@@ -117,7 +153,6 @@ nav ul a {
     transition-timing-function: ease-in-out;
 }
 
-
 .media-icons:hover {
     -webkit-transform: scale(1.3);
     -moz-transform: scale(1.3);
@@ -125,8 +160,7 @@ nav ul a {
     transform: scale(1.3);
 }
 
-
-/* Register-Login */
+/* === LOGIN/REGISTER STYLES === */
 .login-reg-section {
     max-width: 30rem;
     min-width: 250px;
@@ -138,10 +172,38 @@ nav ul a {
     color: var(--red);
 }
 
-/* Home */
+/* === HOME PAGE STYLES === */
 .home-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    height: 350px;
     display: flex;
-    margin-top: 5rem;
+    margin-top: 2em;
+}
+
+.hero-image {
+    background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../images/bg-home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.home-paragpaph {
+    font-size: 1rem;
+}
+
+/* Text overlay in hero image */
+.text-block-home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--black);
+    width: inherit;
+    padding: 9px;
 }
 
 .card .card-image img {
@@ -154,69 +216,106 @@ nav ul a {
     padding-top: 0;
 }
 
-/* Add-Edit recipe*/
-.container-addrecipe{
-    padding:1px;
+/* === ADD/EDIT RECIPE STYLES === */
+.container-addrecipe {
+    padding: 1px;
     border-radius: 20px;
     margin-bottom: 2rem;
-    width:100%;
-    }
-    .add-edit-form{
-    padding:0;
-    }
-    .asterisk{
+    width: 100%;
+}
+
+.add-edit-form {
+    padding: 0;
+}
+
+.asterisk {
     color: var(--red);
     font-size: 10px;
-    }
-    /* Buttons*/
-    .btn-main{
+}
+
+/* === BUTTON STYLES === */
+.btn-main {
     background-color: var(--coral);
     color: var(--white);
     border-radius: 1.5rem;
     margin-top: 20px;
     margin-bottom: -20px;
     font-family: var(--secondaryfont);
-    }
-    .btn-main:hover,
-    .btn-main:active,
-    .btn-main:focus{
+}
+
+.btn-main:hover,
+.btn-main:active,
+.btn-main:focus {
     background-color: var(--lightcoral);
-    }
-    .btn-form{
+}
+
+.btn-form {
     margin-top: 0;
     margin-bottom: 0;
     width: 90%;
-    }
-    .btn-secondary{
+}
+
+.btn-secondary {
     color: var(--black);
     background-color: var(--darkwhite);
-    }
-    .btn-secondary:hover,
-    .btn-secondary:focus,
-    .btn-secondary:active{
-    background-color: var(--midiumwhite);
-    }
+}
 
-/* >600px Tablet and Desktop size Media queries */
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background-color: var(--midiumwhite);
+}
+
+#btn-home {
+    text-shadow: 1px 1px 1px var(--lightblack);
+}
+
+/* === MEDIA QUERIES === */
+/* Tablet and Desktop sizes */
 @media (min-width: 600px) {
     .container-recipes {
         width: 95%;
         max-width: 1500px;
     }
-    .add-edit-form{
-        padding:0 2rem;
-        }
-        }
-        /*  Tablet size only Media queries */
-        @media (min-width: 600px) and (max-width: 992px){
-        .container-addrecipe{
-        width:85%;
-        }
-        }
-        /* Desktop size only Media queries */
-        @media (min-width: 992px) {
-        
-        .container-addrecipe{
-        width:70%;
-        }
+    .add-edit-form {
+        padding: 0 2rem;
+    }
+    .primary-heading {
+        font-size: 4rem;
+    }
+    .home-container {
+        width: 85%;
+        height: 390px;
+    }
+    .btn-main {
+        font-size: 1rem;
+    }
+    #btn-home {
+        width: 15rem; 
+    }
 }
+
+/* Tablet size only */
+@media (min-width: 600px) and (max-width: 992px) {
+    .container-addrecipe {
+        width: 85%;
+    }
+}
+
+/* Desktop size only */
+@media (min-width: 992px) {
+    .container-addrecipe {
+        width: 70%;
+    }
+    .tablet-break {
+        display: none; 
+    }
+    .home-paragpaph {
+        font-size: 1.2rem;
+    }
+    .sub-heading {
+        font-size: 1.9rem;
+        text-align: left;
+    }
+}
+

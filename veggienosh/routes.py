@@ -126,6 +126,7 @@ def delete_recipe(recipe_id):
     author = recipes_coll.find_one({"_id": ObjectId(recipe_id)})["author"]
     users_coll.update_one({"_id": ObjectId(author)},
                           {"$pull": {"user_recipes": ObjectId(recipe_id)}})
+    return redirect(url_for("all_recipes"))
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
