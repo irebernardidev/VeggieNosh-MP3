@@ -2,8 +2,9 @@ from flask import render_template, url_for, flash, redirect, request, session
 from veggienosh import app, mongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from veggienosh.forms import (
-    RegisterForm, LoginForm, ChangeUsernameForm, ChangePasswordForm
+    RegisterForm, LoginForm, ChangeUsernameForm, ChangePasswordForm, Add_Edit_RecipeForm
 )
+
 from flask_pymongo import pymongo
 from bson.objectid import ObjectId
 
