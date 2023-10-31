@@ -256,10 +256,21 @@ def change_password(username):
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
     user = users_coll.find_one({"username": username})
-    if check_password_hash(user["password"], request.form["confirm_password_to_delete"]):
-        flash("We are sad to see you leave the Veggienosh family. Take care, Veggie Chef!")
+    
+    if check_password_hash(user["password"], 
+                           request.form.get("confirm_password_to_delete")):
+        
+        # Removes all user's recipes from the Database
+        all_user_recipes = user.get("user_recipes")
+        
+        for recipe in all_user_recipes:
+            recipes_coll.delete_one({"_id": recipe})
+        
+        flash("We are sad to see you leave the Veggienosh family."
+              " Take care, Veggie Chef!")
         session.pop("username", None)
-        users_coll.remove({"_id": user.get("_id")})
+        users_coll.delete_one({"_id": user.get("_id")})
+        
         return redirect(url_for("home"))
     else:
         flash("Password is incorrect! Please try again")

@@ -4,7 +4,7 @@
 
     <!-- Account Dashboard Section -->
     <div class="container margin-top-large button-container">
-        
+
         <!-- User's Account Title -->
         <h1 class="secondary-heading uppercase center-align">
             <span class="text-black"> {{ username }}</span>'s Veggienosh Kitchen
@@ -34,24 +34,26 @@
 
         <!-- Account Options Section -->
         <div class="row center-align">
+
             <!-- Change Username Option -->
             <div class="col s12 m4">
-                <a href="{{ url_for('change_username', username = session.username) }}"
+                <a href="{{ url_for('change_username', username=session.username) }}"
                    class="waves-effect waves-light text-shadow-small btn btn-golden uppercase z-depth-3 btn-main btn-form bold">Spice up Username</a>
             </div>
 
             <!-- Change Password Option -->
             <div class="col s12 m4">
-                <a href="{{ url_for('change_password', username = session.username) }}"
+                <a href="{{ url_for('change_password', username=session.username) }}"
                    class="waves-effect waves-yellow text-shadow-small btn btn-green uppercase z-depth-3 btn-main btn-form bold">Refresh Password</a>
             </div>
 
             <!-- Delete Account Option -->
             <div class="col s12 m4">
-                <a href="#delete-modal-account" 
+                <a href="#delete-modal-account"
                    class="modal-trigger waves-effect waves-light text-shadow-small btn btn-red uppercase z-depth-3 btn-main btn-form bold">Shut Kitchen Down</a>
             </div>
         </div>
+
     </div>
 
     <!-- Modal for Account Deletion Confirmation -->
@@ -63,24 +65,27 @@
             <!-- Modal Warning Header -->
             <h5 class="text-red bold">Close Veggienosh Kitchen?</h5>
             <div class="divider"></div>
-
+            <p class="text-red">
+                <i class="fas fa-exclamation-circle margin-top-small"></i> Deleting your account
+            will remove all your recipes from Veggienosh. </p>
+            
             <!-- Modal Warning Message -->
             <h6 class="margin-top-small">Are you certain you want to close down your Veggienosh Kitchen?</h6>
-            
+
             <!-- Account Deletion Form -->
-            <form action="{{ url_for('delete_account', username = session.username) }}" method="POST">
+            <form action="{{ url_for('delete_account', username=session.username) }}" method="POST">
                 <div class="row center-align margin-top-small">
                     <div class="input-field col s12 m6 offset-m3">
                         <i class="material-icons prefix">lock</i>
                         <input
                             placeholder="Enter secret greens password to confirm"
-                            id="confirmed_password"
-                            name="confirmed_password"
+                            id="confirm_password_to_delete"
+                            name="confirm_password_to_delete"
                             type="password"
                             class="validate"
                             required
                         />
-                        <label for="confirmed_password">Confirm Secret Password</label>
+                        <label for="confirm_password_to_delete">Confirm Secret Greens Password</label>
                     </div>
                 </div>
 
@@ -94,10 +99,10 @@
                         {% endif %}
                     {% endwith %}
                 </div>
-                
+
                 <!-- Modal Form Buttons -->
                 <div class="margin-top-small">
-                    <a href="{{ url_for('account_settings',  username = session.username) }}"
+                    <a href="{{ url_for('account_settings',  username=session.username) }}"
                        class="modal-close btn btn-secondary waves-effect waves-light z-depth-2">Back to Kitchen</a>
                     <button class="btn btn-red waves-effect waves-light z-depth-2" href="#">Close Kitchen</button>
                 </div>
