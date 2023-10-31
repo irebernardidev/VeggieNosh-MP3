@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VeggieNosh</title>
+    <title>Veggienosh</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    {% if request.endpoint == 'login' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
+    {% elif request.endpoint == 'register' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
+    {% elif request.endpoint == 'change_password' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
+    {% elif request.endpoint == 'change_username' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
+    {% endif %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='imgages/favicon.jpg') }}" type="image/x-icon" sizes="200x200">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.jpg') }}" type="image/x-icon" sizes="200x200">
 
     {% if title %}
- <title>VeggieNosh - {{ title }}</title>
-{% else %}
-<title>Welcome to VeggieNosh!</title>
-{% endif %}
+    <title>Veggienosh Cookbook - {{ title }}</title>
+    {% else %}
+    <title>Welcome to Veggienosh!</title>
+    {% endif %}
 </head>
 
 <body>
