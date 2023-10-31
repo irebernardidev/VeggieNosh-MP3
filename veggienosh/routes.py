@@ -20,9 +20,10 @@ dishes_coll = mongo.db.dishes
 @app.route('/')
 @app.route("/home")
 def home():
-    recipes = recipes_coll.find()
-    return render_template('home.html', recipes=recipes, title='Veggienosh Home')
-
+    featured_recipes = ([recipe for recipe in recipes_coll.aggregate
+                        ([{"$sample": {"size": 4}}])])
+    return render_template('home.html', featured_recipes=featured_recipes,
+                           title='Veggienosh Home')
 
 @app.route('/all_recipes')
 def all_recipes():
@@ -40,12 +41,23 @@ def single_recipe_info(recipe_id):
 
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
-    my_id = users_coll.find_one({'username': session['username']})['_id']
-    my_username = users_coll.find_one({'username': session['username']})['username']
-    my_recipes = recipes_coll.find({'author': my_id})
-    number_of_recipes = recipes_coll.find({'author': my_id}).count()
-    return render_template("my_recipes.html", my_recipes=my_recipes, username=my_username,
-                           number_of_recipes=number_of_recipes, title='My Recipes')
+    user_doc = users_coll.find_one({'username': session['username']})
+    
+    if user_doc:
+        my_id = user_doc['_id']
+        my_username = user_doc['username']
+        my_recipes = recipes_coll.find({'author': my_id})
+        number_of_recipes = recipes_coll.count_documents({'author': my_id})
+        
+        return render_template("my_recipes.html", 
+                               my_recipes=my_recipes, 
+                               username=my_username,
+                               number_of_recipes=number_of_recipes, 
+                               title='My Recipes')
+    
+    else:
+        return "User not found!", 404
+
 
 
 @app.route('/add_recipe')

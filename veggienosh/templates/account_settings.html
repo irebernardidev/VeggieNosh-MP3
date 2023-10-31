@@ -1,84 +1,107 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Account Section -->
-    <section class="margin-top-large">
+
+    <!-- Account Dashboard Section -->
+    <div class="container margin-top-large button-container">
         
-        <div class="container center-align">
-            
-            <!-- Display Username -->
-            <h1>{{ username }}'s Vegan Kitchen</h1>
-            
-            <!-- Flash Messages Section -->
-            <div>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p class="error-message">{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-            </div>
-            
-            <!-- Account Options -->
-            <div class="row center-align">
-                
-                <!-- Change Username Option -->
-                <div class="col s12 m4">
-                    <a href="{{ url_for('change_username', username=session.username) }}">Update Username</a>
-                </div>
-                
-                <!-- Change Password Option -->
-                <div class="col s12 m4">
-                    <a href="{{ url_for('change_password', username=session.username) }}">Update Password</a>
-                </div>
-                
-                <!-- Delete Account Option -->
-                <div class="col s12 m4">
-                    <a href="#delete-modal-account" class="modal-trigger">Close Veggienosh Kitchen</a>
-                </div>
-            </div>
+        <!-- User's Account Title -->
+        <h1 class="secondary-heading uppercase center-align">
+            <span class="text-black"> {{ username }}</span>'s Veggienosh Kitchen
+        </h1>
 
+        <!-- Flash messages for Account Dashboard -->
+        <div class="row center-align">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="error-message">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
         </div>
-    </section>
 
-    <!-- Account Deletion Modal -->
+        <!-- User profile image -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <img
+                    src="{{ url_for('static', filename='images/user_profile_img.png') }}"
+                    class="responsive-img user-img"
+                    alt="Profile Avatar"
+                />
+            </div>
+        </div>
+
+        <!-- Account Options Section -->
+        <div class="row center-align">
+            <!-- Change Username Option -->
+            <div class="col s12 m4">
+                <a href="{{ url_for('change_username', username = session.username) }}"
+                   class="waves-effect waves-light text-shadow-small btn btn-golden uppercase z-depth-3 btn-main btn-form bold">Spice up Username</a>
+            </div>
+
+            <!-- Change Password Option -->
+            <div class="col s12 m4">
+                <a href="{{ url_for('change_password', username = session.username) }}"
+                   class="waves-effect waves-yellow text-shadow-small btn btn-green uppercase z-depth-3 btn-main btn-form bold">Refresh Password</a>
+            </div>
+
+            <!-- Delete Account Option -->
+            <div class="col s12 m4">
+                <a href="#delete-modal-account" 
+                   class="modal-trigger waves-effect waves-light text-shadow-small btn btn-red uppercase z-depth-3 btn-main btn-form bold">Shut Kitchen Down</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Account Deletion Confirmation -->
     <div id="delete-modal-account" class="modal">
-        <div class="modal-content center-align">
+
+        <!-- Modal Content -->
+        <div class="modal-content center-align container-95">
+
+            <!-- Modal Warning Header -->
+            <h5 class="text-red bold">Close Veggienosh Kitchen?</h5>
+            <div class="divider"></div>
+
+            <!-- Modal Warning Message -->
+            <h6 class="margin-top-small">Are you certain you want to close down your Veggienosh Kitchen?</h6>
             
-            <h5>Close Veggienosh Kitchen</h5>
-            <h6>Are you sure you want to close your vegan kitchen?</h6>
-            
-            <!-- Delete Confirmation Form -->
-            <form action="{{ url_for('delete_account', username=session.username) }}" method="POST">
-                <div class="input-field">
-                    <input
-                        placeholder="Enter password to confirm closure"
-                        id="confirm_password_to_deleted"
-                        name="confirm_password_to_delete"
-                        type="password"
-                        class="validate"
-                        required
-                    />
-                    <label for="confirm_password_to_delete">Confirm Password</label>
+            <!-- Account Deletion Form -->
+            <form action="{{ url_for('delete_account', username = session.username) }}" method="POST">
+                <div class="row center-align margin-top-small">
+                    <div class="input-field col s12 m6 offset-m3">
+                        <i class="material-icons prefix">lock</i>
+                        <input
+                            placeholder="Enter secret greens password to confirm"
+                            id="confirmed_password"
+                            name="confirmed_password"
+                            type="password"
+                            class="validate"
+                            required
+                        />
+                        <label for="confirmed_password">Confirm Secret Password</label>
+                    </div>
                 </div>
-                
-                <!-- Display Flash Messages for Deletion -->
-                <div>
+
+                <!-- Flash Messages for Modal -->
+                <div class="row center-align">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             {% for message in messages %}
-                                <p class="error-message">{{ message }}</p>
+                                <p class="flash-error margin-top-small">{{ message }}</p>
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
                 </div>
                 
-                <!-- Delete and Cancel Buttons -->
-                <a href="#" class="modal-close">Cancel</a>
-                <button href="#">Close Veggienosh Kitchen</button>
+                <!-- Modal Form Buttons -->
+                <div class="margin-top-small">
+                    <a href="{{ url_for('account_settings',  username = session.username) }}"
+                       class="modal-close btn btn-secondary waves-effect waves-light z-depth-2">Back to Kitchen</a>
+                    <button class="btn btn-red waves-effect waves-light z-depth-2" href="#">Close Kitchen</button>
+                </div>
             </form>
         </div>
     </div>
-
 {% endblock %}

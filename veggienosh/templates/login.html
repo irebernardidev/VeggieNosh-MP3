@@ -1,37 +1,86 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="login-reg-section center-align">
-    <h1 class = "secondary-heading heading-black uppercase">Login</h1>
-    <form method="POST" action="">
-    {{ form.hidden_tag() }}
-    <div>
-        {{ form.username.label }}
-        {{ form.username }}
-        {% for error in form.username.errors %}
-        <span class = "error-message">{{ error }}</span>
-        {% endfor %}
-    </div>
-    <div>
-        {{ form.password.label }}
-        {{ form.password }}
-        {% for error in form.password.errors %}
-        <span class = "error-message">{{ error }}</span>
-        {% endfor %}
-    </div>
-    <div>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    <p class="error-message">
-        {{ message }}
-    </p>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-    </div>
-    <div>{{ form.submit() }}</div>
-    </form>
+
+    <!-- Start of Login Section -->
+    <section class="login-reg-section center-align">
+        
+        <!-- Logo for Login Section -->
+        <a href="{{ url_for('home') }}">
+            <img
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                class="logo-login-register hide-on-med-and-down"
+                alt="Veggie Cookbook Logo"
+                lazyload="on"
+            />
+        </a>
+
+        <!-- Login Heading -->
+        <h1 class="secondary-heading heading-black uppercase">Veggienosh Login</h1>
+        
+        <!-- Login Form Start -->
+        <div class="row">
+            <form method="POST" action="" class="col s12">
+
+                {{ form.hidden_tag() }}
+
+                <!-- Username Field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person</i>
+                        {{ form.username.label }} 
+                        {{ form.username(placeholder="Your veggie username") }} 
+                        {% for error in form.username.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        {{ form.password.label }} 
+                        {{ form.password(placeholder="Your secret greens password") }} 
+                        {% for error in form.password.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Displaying Error Messages -->
+                <div class="row center-align">
+                    {% with messages = get_flashed_messages() %} 
+                        {% if messages %} 
+                            {% for message in messages %}
+                                <p class="error-message">
+                                    {{ message }}
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+                <!-- Login Button -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        {{ form.submit(class="btn btn-form btn-main z-depth-3 uppercase") }}
+                    </div>
+                </div>
+
+                <!-- Account Creation Prompt -->
+                <div class="row center-align">
+                    <div class="col s12">
+                        <small>
+                            Need an account to share your veggie delights? 
+                            <a href="{{ url_for('register') }}">Whip one up!</a>
+                        </small>
+                    </div>
+                </div>
+
+            </form>
+        </div>
     </section>
+    <!-- End of Login Section -->
 
 {% endblock %}
