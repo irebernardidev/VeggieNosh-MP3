@@ -1,16 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
 {% block content %}
-<section class = "container margin-top-large">
-    <h1 class=" uppercase center-align">All Veggie Delights</h1>
 
+    <!-- Heading section -->
+    <section class="container margin-top-large">
+        <h1 class="secondary-heading uppercase center-align">All Veggie Delights</h1>
+    </section>
+
+    <!-- Recipes container -->
     <div class="container container-recipes">
         <div class="row">
-        {% for recipe in recipes %}
-        {% include "includes/recipecards.html" %}
-        {% endfor %}
+
+            <!-- Loop through each recipe and include the recipe card -->
+            {% for recipe in recipes %} 
+                {% include "includes/recipecards.html" %} 
+            {% endfor %}
+
         </div>
     </div>
-</section>
 
 {% endblock %}
+

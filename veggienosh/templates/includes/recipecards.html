@@ -1,24 +1,72 @@
+<!-- Main container div -->
 <div class="col s12 m6 l3">
-    <div class="card hoverable">
-        <div class="card-image">
-          <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}">
-        <img
-        src="{{ recipe.image }}"
-        class="responsive-img"
-        alt="Recipe Image"
-        /></a>
-          <h3 class="card-title">{{ recipe.recipe_name }}</h3>
-        </div>
-        <div class="row card-content">
-         <div class="col s4 uppercase">{{ recipe.dish_type }}</div>
-        <div class="col s8 right-align">
-          <span title="Cooking time"
-            ><i class="far fa-clock"></i> {{ recipe.cooking_time }} min|
-          </span>
-          <span title="Servings"
-            ><i class="fas fa-concierge-bell"></i> {{ recipe.servings }} 
-          </span>
-        </div>
-        </div>
+  <!-- Card container -->
+  <div class="card hoverable card-recipe">
+
+      <!-- Card image section -->
+      <div class="card-image">
+          <!-- Link to single recipe info -->
+          <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}"> 
+              <!-- Check if recipe has image -->
+              {% if recipe.image %}
+                  <img
+                      src="{{ recipe.image }}"
+                      class="responsive-img"
+                      alt="Recipe Image"
+                  />
+              {% else %}
+                  <!-- Display placeholder image if no image provided -->
+                  <img
+                      src="{{ url_for('static', filename='img/recipe_placeholder.jpg') }}"
+                      class="responsive-img"
+                      alt="No recipe image available" 
+                  />
+              {% endif %}
+          </a>
+
+          <!-- Display category type if not null -->
+          {% if recipe.category_type != "null" %}
+              <div class="text-block">
+                  <p>{{ recipe.category_type }}</p>
+              </div>
+          {% endif %}
       </div>
+      <!-- End of card image section -->
+
+      <!-- Card content section -->
+      <div class="card-content">
+          <!-- Recipe name -->
+          <h3>
+              <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}" class="card-title">
+                  {{ recipe.recipe_name }}
+              </a>
+          </h3>
+          <!-- Divider -->
+          <div class="divider"></div>
+
+          <!-- Card bottom information -->
+          <div class="row card-bottom-info">
+              <!-- Dish type -->
+              <div class="col s4 uppercase">{{ recipe.dish_type }}</div>
+              
+              <!-- Cooking time and servings -->
+              <div class="col s8 right-align">
+                  <!-- Cooking time -->
+                  <span title="Cooking time">
+                      <i class="far fa-clock icon-recipe-card"></i> {{ recipe.cooking_time }} min|
+                  </span>
+                  <!-- Servings -->
+                  <span title="Servings">
+                      <i class="fas fa-concierge-bell icon-recipe-card"></i> {{ recipe.servings }} 
+                  </span>
+              </div>
+          </div>
+          <!-- End of card bottom information -->
+
+      </div>
+      <!-- End of card content section -->
+
+  </div>
+  <!-- End of card container -->
 </div>
+<!-- End of main container div -->

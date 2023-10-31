@@ -1,41 +1,59 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<!-- Recipe Information Section -->
-<section class="container margin-top-large center-align">
-    <!-- Recipe Title -->
-    <h1>{{ selected_recipe.recipe_name }}</h1>
 
-    <!-- Recipe Description -->
-    <p>{{ selected_recipe.description }}</p>
+<!-- Recipe Main Container -->
+<div class="container margin-top-large">
+
+    <!-- Recipe Title -->
+    <h1 class="secondary-heading heading-black uppercase center-align">
+        {{ selected_recipe.recipe_name }}
+    </h1>
+    <div class="hide-on-small-only">
+        <hr class="center-align divider-yellow" />
+    </div>
 
     <div class="row">
+        <!-- Recipe Image & Author Details -->
         <div class="col s12 m6">
-            <!-- Recipe Image -->
-            <img
-                class="responsive-img z-depth-2"
-                src="{{ selected_recipe.image }}"
-                alt="Recipe Image"
-            />
+            
+            {% if selected_recipe.image %}
+                <!-- Display Recipe Image -->
+                <img
+                    class="recipe-image responsive-img z-depth-2"
+                    src="{{ selected_recipe.image }}"
+                    alt="Veggie Recipe Image"
+                />
+            {% else %}
+                <!-- Display Placeholder if No Image -->
+                <img
+                    src="{{ url_for('static', filename='img/recipe_placeholder.jpg') }}"
+                    class="recipe-image responsive-img z-depth-2"
+                    alt="Placeholder for Veggie Recipe"
+                />
+            {% endif %}
 
-            <!-- Author Information -->
-            <p>Author: {{ author }}</p>
+            <p class="center-align">
+                <span class="recipe-lead-text">Recipe By:</span> {{ author }}
+            </p>
 
-            <!-- Edit/Delete Buttons for Recipe's Author -->
+            <!-- Edit & Delete Options for Recipe Author -->
             {% if session.username == author %}
             <div class="row">
-                <div class="col s6">
-                    <!-- Edit Button -->
-                    <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}" class="btn" name="action">
+                <div class="col s6 center-align">
+                    <a
+                      href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}"
+                      class="btn"
+                      name="action"
+                    >
                         <i class="fas fa-edit right"></i>
-                        Edit
+                        Edit Recipe
                     </a>
                 </div>
-                <div class="col s6">
-                    <!-- Delete Button -->
-                    <a href="#delete-modal" class="btn modal-trigger " name="action">
+                <div class="col s6 center-align">
+                    <a href="#delete-modal" class="btn modal-trigger" name="action">
                         <i class="fas fa-trash-alt right"></i>
-                        Delete
+                        Delete Recipe
                     </a>
                 </div>
             </div>
@@ -43,85 +61,110 @@
         </div>
 
         <!-- Recipe Details -->
-        <div class="col s12 m6">
-            <!-- Category Type -->
-            <div>
-                <h6>Category Type</h6>
-                {{ selected_recipe.category_type }}
+        <div class="col s12 m6 center-align">
+            <p class="recipe-description-paragraph">
+              {{ selected_recipe.description }}
+            </p>
+            <div class="row center-align">
+
+                <!-- Recipe Category -->
+                <div class="col s6">
+                    <i class="fas fa-globe-europe recipe_icon"></i>
+                    <h6>Category</h6>
+                    {% if selected_recipe.category_type == "null" %}
+                        <p class="paragraph-recipe">Not Specified</p>
+                    {% else %}
+                        <p class="paragraph-recipe">{{ selected_recipe.category_type }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Dish Type -->
+                <div class="col s6">
+                    <i class="fas fa-utensils recipe_icon"></i>
+                    <h6>Type of Dish</h6>
+                    <p class="paragraph-recipe">{{ selected_recipe.dish_type }}</p>
+                </div>
+
+            </div>
+            <div class="row center-align">
+
+                <!-- Diet Type -->
+                <div class="col s6">
+                    <i class="fas fa-leaf recipe_icon"></i>
+                    <h6>Diet Preference</h6>
+                    {% if selected_recipe.diet_type == "null" %}
+                        <p class="paragraph-recipe">Not Specified</p>
+                    {% else %}
+                        <p class="paragraph-recipe">{{ selected_recipe.diet_type }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Cooking Time -->
+                <div class="col s6">
+                    <i class="far fa-clock recipe_icon"></i>
+                    <h6>Preparation Time</h6>
+                    <p class="paragraph-recipe">{{ selected_recipe.cooking_time }} minutes</p>
+                </div>
+
             </div>
 
-            <!-- Dish Type -->
-            <div>
-                <h6>Dish Type</h6>
-                {{ selected_recipe.dish_type }}
+            <!-- Servings Info -->
+            <div class="row center-align">
+                <div class="col s12">
+                    <i class="fas fa-user recipe_icon"></i>
+                    <h6>Serves:</h6>
+                    <p class="paragraph-recipe">{{ selected_recipe.servings }}</p>
+                </div>
             </div>
 
-            <!-- Diet Type -->
-            <div>
-                <h6>Diet Type</h6>
-                {{ selected_recipe.diet_type }}
+        </div>
+    </div>
+
+    <!-- Ingredients and Directions Section -->
+    <div class="container container-recipe-lists">
+        <div class="row">
+
+            <!-- Ingredients List -->
+            <div class="col s12 m4">
+                <h3 class="tertiary-heading uppercase center-align">Ingredients:</h3>
+                <ul class="unordered-list list-items">
+                    {% for ingredient in selected_recipe.ingredients %}
+                    <li>
+                        {{ ingredient }}
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
 
-            <!-- Cooking Time -->
-            <div>
-                <h6>Cooking time</h6>
-                {{ selected_recipe.cooking_time }}
+            <!-- Directions List -->
+            <div class="col s12 m8">
+                <h3 class="tertiary-heading uppercase center-align">Steps:</h3>
+                <ol class="list-items">
+                    {% for direction in selected_recipe.directions %}
+                    <li class="margin-bottom-small">
+                        {{ direction }}
+                    </li>
+                    {% endfor %}
+                </ol>
             </div>
 
-            <!-- Servings -->
+        </div>
+    </div>
+
+    <!-- Modal for Recipe Deletion Confirmation -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content center-align">
+            <h5>Confirm Recipe Deletion</h5>
+            <div class="divider"></div>
+            <p class="text-red">
+                <i class="fas fa-exclamation-circle"></i> Attention! Deleting this veggie recipe will remove it permanently.
+            </p>
+            <h6>Are you sure?</h6>
             <div>
-                <h6>Serves</h6>
-                {{ selected_recipe.servings }}
+                <a href="#" class="modal-close btn btn-secondary waves-effect waves-light z-depth-2">Cancel</a>
+                <a class="btn btn-main z-depth-2" href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}">Delete Recipe</a>
             </div>
         </div>
     </div>
 
-    <!-- Ingredients and Directions Lists -->
-    <div class="row">
-        <!-- Ingredients List -->
-        <div class="col s12 m6">
-            <h4>Ingredients:</h4>
-            <ul>
-                {% for ingredient in selected_recipe.ingredients %}
-                <li>
-                    {{ ingredient }}
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <!-- Directions List -->
-        <div class="col s12 m6">
-            <h4>Directions:</h4>
-            <ol>
-                {% for direction in selected_recipe.directions %}
-                <li>
-                    {{ direction }}
-                </li>
-                {% endfor %}
-            </ol>
-        </div>
-    </div>
-</section>
-<!--Delete Recipe Modal -->
-<div id="delete-modal" class="modal">
-    <div class="modal-content center-align">
-      <h5>Delete Recipe</h5>
-      <div class="divider"></div>
-      <p class="text-red">
-        <i class="fas fa-exclamation-circle"></i>Attention! Deleting the recipe
-        will permanently remove it from the website! </p>
-       <h6> Are you sure you want to delete it?</h6>
-      <div>
-      <a href="#" class="modal-close btn btn-secondary waves-effect waves-light z-depth-2"
-        >Cancel</a
-      >
-      <a
-        class="btn btn-main z-depth-2"
-        href="{{ url_for('delete_recipe', recipe_id=selected_recipe._id) }}"
-        >Delete Recipe</a
-      >
-    </div>
-    </div>
-  </div>
 {% endblock %}
