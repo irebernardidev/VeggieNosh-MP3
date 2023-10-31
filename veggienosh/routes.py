@@ -43,8 +43,9 @@ def my_recipes(username):
     my_id = users_coll.find_one({'username': session['username']})['_id']
     my_username = users_coll.find_one({'username': session['username']})['username']
     my_recipes = recipes_coll.find({'author': my_id})
+    number_of_recipes = recipes_coll.find({'author': my_id}).count()
     return render_template("my_recipes.html", my_recipes=my_recipes, username=my_username,
-                           title='My Recipes')
+                           number_of_recipes=number_of_recipes, title='My Recipes')
 
 
 @app.route('/add_recipe')
@@ -122,11 +123,11 @@ def update_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    recipes_coll.remove({"_id": ObjectId(recipe_id)})
+    recipes_coll.delete_one({"_id": ObjectId(recipe_id)})
     author = recipes_coll.find_one({"_id": ObjectId(recipe_id)})["author"]
+    author = users_coll.find_one({'username': session['username']})['_id']
     users_coll.update_one({"_id": ObjectId(author)},
                           {"$pull": {"user_recipes": ObjectId(recipe_id)}})
-    return redirect(url_for("all_recipes"))
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():

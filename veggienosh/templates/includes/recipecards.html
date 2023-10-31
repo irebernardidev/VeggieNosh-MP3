@@ -17,7 +17,7 @@
               {% else %}
                   <!-- Display placeholder image if no image provided -->
                   <img
-                      src="{{ url_for('static', filename='img/recipe_placeholder.jpg') }}"
+                      src="{{ url_for('static', filename='images/recipe_placeholder.jpg') }}"
                       class="responsive-img"
                       alt="No recipe image available" 
                   />
@@ -57,7 +57,7 @@
                   </span>
                   <!-- Servings -->
                   <span title="Servings">
-                      <i class="fas fa-concierge-bell icon-recipe-card"></i> {{ recipe.servings }} 
+                    <i class="fas fa-user icon-recipe-card"></i> {{ recipe.servings }} 
                   </span>
               </div>
           </div>

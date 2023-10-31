@@ -1,13 +1,40 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<section class = "container margin-top-large">
-    <h1 class=" uppercase center-align">My Veggie Delights</h1>
-    <div class="container container-recipes">
-        <div class="row">
+
+<!-- Begin User's Recipe Dashboard Section -->
+<div class="container margin-top-large">
+    <!-- Display the User's Recipe Title -->
+    <h1 class="secondary-heading uppercase center-align">
+        {{ username }}'s Veggie Masterpieces
+    </h1>
+
+    <!-- Display the Number of Recipes Contributed by the User -->
+    <p class="paragraph-count center-align">
+        You've cooked up <span class="red-text">{{ number_of_recipes }}</span> veggie delights! Keep them coming!
+    </p>
+</div>
+
+<!-- Display the User's Created Recipes or Prompt to Create One -->
+<div class="container container-recipes center-align">
+    <div class="row">
         {% for recipe in my_recipes %}
-        {% include "includes/recipecards.html" %}
+            <!-- Include Individual Recipe Cards -->
+            {% include "includes/recipecards.html" %}
+        {% else %}
+            <!-- Prompt for User to Create their First Recipe -->
+            <h5 class="margin-top-small">
+                Looks like your veggie canvas is blank. Ready to paint your first recipe?
+            </h5>
+            <a
+                href="{{ url_for('add_recipe')}}"
+                class="waves-effect waves-light btn uppercase margin-top-small z-depth-3 btn-main"
+            >
+                Craft Your First Recipe!
+            </a>
         {% endfor %}
-        </div>
     </div>
-</section>
+</div>
+<!-- End of User's Recipe Dashboard Section -->
+
 {% endblock %}
