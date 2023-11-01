@@ -15,8 +15,9 @@ categories_coll = mongo.db.categories
 diets_coll = mongo.db.diets
 dishes_coll = mongo.db.dishes
 
-# Routes
+# --- Routes ---
 
+# Home Route
 @app.route('/')
 @app.route("/home")
 def home():
@@ -25,12 +26,13 @@ def home():
     return render_template('home.html', featured_recipes=featured_recipes,
                            title='Veggienosh Home')
 
+# All Recipes Route
 @app.route('/all_recipes')
 def all_recipes():
     recipes = recipes_coll.find()
     return render_template("all_recipes.html", recipes=recipes, title='All Veggie Delights')
 
-
+# Single Recipe Info Route
 @app.route('/recipe_info/<recipe_id>')
 def single_recipe_info(recipe_id):
     selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
@@ -38,7 +40,7 @@ def single_recipe_info(recipe_id):
     return render_template("single_recipe_info.html", selected_recipe=selected_recipe,
                            author=author, title='Recipes')
 
-
+# My Recipes Route
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
     user_doc = users_coll.find_one({'username': session['username']})
@@ -59,7 +61,7 @@ def my_recipes(username):
         return "User not found!", 404
 
 
-
+# Add Recipe Route
 @app.route('/add_recipe')
 def add_recipe():
     form = Add_RecipeForm()
@@ -70,7 +72,7 @@ def add_recipe():
                            category_types=category_types, dish_types=dish_types,
                            form=form, title='New Recipe')
 
-
+# Insert Recipe Route
 @app.route("/insert_recipe", methods=['GET', 'POST'])
 def insert_recipe():
     ingredients = request.form.get("ingredients").splitlines()
@@ -97,7 +99,7 @@ def insert_recipe():
         )
         return redirect(url_for("home", recipe_id=insert_recipe_intoDB.inserted_id))
 
-
+# Edit Recipe Route
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
     selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
@@ -108,7 +110,7 @@ def edit_recipe(recipe_id):
                            category_types=category_types, diet_types=diet_types,
                            dish_types=dish_types, title='Edit Recipe')
 
-
+# Update Recipe Route
 @app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
     recipes = recipes_coll
@@ -133,6 +135,7 @@ def update_recipe(recipe_id):
         return redirect(url_for("single_recipe_info",
                                 recipe_id=recipe_id))
 
+# Delete Recipe Route
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     recipes_coll.delete_one({"_id": ObjectId(recipe_id)})
@@ -141,6 +144,7 @@ def delete_recipe(recipe_id):
     users_coll.update_one({"_id": ObjectId(author)},
                           {"$pull": {"user_recipes": ObjectId(recipe_id)}})
 
+# Login Route
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if 'username' in session:
@@ -160,6 +164,7 @@ def login():
 
     return render_template('login.html', form=form, title='Enter the Veggie World')
 
+# Register Route
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if 'username' in session:
@@ -185,20 +190,20 @@ def register():
 
     return render_template('register.html', form=form, title='Join the Veggie World')
 
-
+# Logout Route
 @app.route("/logout")
 def logout():
     session.pop("username", None)
     flash('See you soon, Veggie Chef!')
     return redirect(url_for("home"))
 
-
+# Account Settings Route
 @app.route("/account_settings/<username>")
 def account_settings(username):
     username = users_coll.find_one({'username': session['username']})['username']
     return render_template('account_settings.html', username=username, title='Veggie Chef Settings')
 
-
+# Change Username Route
 @app.route("/change_username/<username>", methods=['GET', 'POST'])
 def change_username(username):
     users = users_coll
@@ -221,7 +226,7 @@ def change_username(username):
     return render_template(
         'change_username.html', username=session["username"], form=form, title='Change Username')
 
-
+# Change Password Route
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
     users = users_coll
@@ -252,26 +257,40 @@ def change_password(username):
     return render_template(
         'change_password.html', username=username, form=form, title='Change Secret Ingredient')
 
-
+# Delete Account Route
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
     user = users_coll.find_one({"username": username})
-    
-    if check_password_hash(user["password"], 
+
+    if check_password_hash(user["password"],
                            request.form.get("confirm_password_to_delete")):
-        
+
         # Removes all user's recipes from the Database
         all_user_recipes = user.get("user_recipes")
-        
         for recipe in all_user_recipes:
             recipes_coll.delete_one({"_id": recipe})
-        
+
         flash("We are sad to see you leave the Veggienosh family."
               " Take care, Veggie Chef!")
         session.pop("username", None)
         users_coll.delete_one({"_id": user.get("_id")})
-        
+
         return redirect(url_for("home"))
+
     else:
         flash("Password is incorrect! Please try again")
         return redirect(url_for("account_settings", username=username))
+
+# Error handlers
+
+# Handle 404 error (page not found)
+@app.errorhandler(404)
+def error_404(error):
+    return render_template('error-pages/404.html', 
+                           title="Page not found"), 404
+
+# Handle 500 error (internal server error)
+@app.errorhandler(500)
+def error_500(error):
+    return render_template('error-pages/500.html', 
+                           title="Internal Server Error"), 500
