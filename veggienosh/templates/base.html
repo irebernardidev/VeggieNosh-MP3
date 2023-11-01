@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
     {% elif request.endpoint == 'change_username' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
+    {% elif error %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_errors.css') }}">
     {% endif %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.jpg') }}" type="image/x-icon" sizes="200x200">

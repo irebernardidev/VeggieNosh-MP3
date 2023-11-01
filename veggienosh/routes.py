@@ -286,11 +286,12 @@ def delete_account(username):
 # Handle 404 error (page not found)
 @app.errorhandler(404)
 def error_404(error):
-    return render_template('error-pages/404.html', 
-                           title="Page not found"), 404
+    return render_template('error-pages/404.html', error=True), 404
 
 # Handle 500 error (internal server error)
 @app.errorhandler(500)
 def error_500(error):
-    return render_template('error-pages/500.html', 
-                           title="Internal Server Error"), 500
+    return render_template('error-pages/500.html', error=True), 500
+
+
+    
