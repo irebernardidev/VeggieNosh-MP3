@@ -75,6 +75,10 @@ main {
     margin-bottom: 1rem;  
     }
 
+.margin-bottom-large{
+    margin-bottom: 2rem; 
+    }
+
 .container-95 {
     width: 95%;
 }
@@ -370,9 +374,10 @@ nav ul a {
 }
 
 /* Account Settings*/
-.user-img{
+.user-avatar{
     width:250px;
     height:250px;
+    border-radius: 60px;
     }
 
 /* === BUTTON STYLES === */
@@ -434,9 +439,7 @@ nav ul a {
     background-color: var(--lighgreen);
     }
 
-    .buttons-change{
-        margin-bottom: 2rem;
-        }
+   
         .button-coral{
         background-color: var(--coral);
         text-shadow: 1px 1px 1px var(--lightblack);
@@ -457,6 +460,10 @@ nav ul a {
     .btn-golden:focus{
     background-color: var(--yellow);
     }
+
+    .btn-change{
+        font-size: 11px;
+        }
 
     /*Errors*/
     .error-heading{
@@ -497,6 +504,9 @@ nav ul a {
     .unordered-list{
         text-align: left;
     }
+    .btn-change{
+        font-size: 14px;
+        }
 }
 
 /* Tablet size only */

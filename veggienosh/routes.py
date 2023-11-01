@@ -119,7 +119,7 @@ def insert_recipe():
             {"_id": ObjectId(author)},
             {"$push": {"user_recipes": insert_recipe_intoDB.inserted_id}}
         )
-        return redirect(url_for("home", recipe_id=insert_recipe_intoDB.inserted_id))
+        return redirect(url_for("single_recipe_info", recipe_id=insert_recipe_intoDB.inserted_id))
 
 # Edit Recipe Route
 @app.route("/edit_recipe/<recipe_id>")

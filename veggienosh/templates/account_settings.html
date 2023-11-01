@@ -25,15 +25,15 @@
         <div class="row">
             <div class="col s12 center-align">
                 <img
-                    src="{{ url_for('static', filename='images/user_profile_img.png') }}"
-                    class="responsive-img user-img"
+                    src="https://ui-avatars.com/api/?name={{session.username}}"
+                    class="responsive-img user-avatar"
                     alt="Profile Avatar"
                 />
             </div>
         </div>
 
         <!-- Account Options Section -->
-        <div class="row center-align">
+        <div class="row center-align margin-bottom-large">
 
             <!-- Change Username Option -->
             <div class="col s12 m4">
@@ -66,8 +66,8 @@
             <h5 class="text-red bold">Close Veggienosh Kitchen?</h5>
             <div class="divider"></div>
             <p class="text-red">
-                <i class="fas fa-exclamation-circle margin-top-small"></i> Deleting your account
-            will remove all your recipes from Veggienosh. </p>
+                <i class="fas fa-exclamation-circle margin-top-small"></i> Deleting your account will remove all your recipes from Veggienosh.
+            </p>
             
             <!-- Modal Warning Message -->
             <h6 class="margin-top-small">Are you certain you want to close down your Veggienosh Kitchen?</h6>
