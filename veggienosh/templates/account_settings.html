@@ -3,7 +3,7 @@
 {% block content %}
 
     <!-- Account Dashboard Section -->
-    <div class="container margin-top-large button-container">
+    <div class="container margin-top-large">
 
         <!-- User's Account Title -->
         <h1 class="secondary-heading uppercase center-align">
@@ -60,7 +60,7 @@
     <div id="delete-modal-account" class="modal">
 
         <!-- Modal Content -->
-        <div class="modal-content center-align container-95">
+        <div class="modal-content center-align">
 
             <!-- Modal Warning Header -->
             <h5 class="text-red bold">Close Veggienosh Kitchen?</h5>
@@ -75,10 +75,10 @@
             <!-- Account Deletion Form -->
             <form action="{{ url_for('delete_account', username=session.username) }}" method="POST">
                 <div class="row center-align margin-top-small">
-                    <div class="input-field col s12 m6 offset-m3">
+                    <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
                         <input
-                            placeholder="Enter secret greens password to confirm"
+                            placeholder="Enter secret greens password"
                             id="confirm_password_to_delete"
                             name="confirm_password_to_delete"
                             type="password"
@@ -103,8 +103,8 @@
                 <!-- Modal Form Buttons -->
                 <div class="margin-top-small">
                     <a href="{{ url_for('account_settings',  username=session.username) }}"
-                       class="modal-close btn btn-secondary waves-effect waves-light z-depth-2">Back to Kitchen</a>
-                    <button class="btn btn-red waves-effect waves-light z-depth-2" href="#">Close Kitchen</button>
+                       class="modal-close btn btn-change btn-secondary waves-effect waves-light z-depth-2 btn-small-font">Back to Kitchen</a>
+                    <button class="btn btn-change btn-red waves-effect waves-light z-depth-2 btn-small-font" href="#">Close Kitchen</button>
                 </div>
             </form>
         </div>
