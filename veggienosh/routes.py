@@ -7,6 +7,7 @@ from veggienosh.forms import (
 )
 from flask_pymongo import pymongo
 from bson.objectid import ObjectId
+import math
 
 # MongoDB Collections Initialization
 users_coll = mongo.db.users
@@ -29,8 +30,29 @@ def home():
 # All Recipes Route
 @app.route('/all_recipes')
 def all_recipes():
-    recipes = recipes_coll.find()
-    return render_template("all_recipes.html", recipes=recipes, title='All Veggie Delights')
+    limit_per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+    
+    # Use count_documents() instead of count()
+    number_of_all_rec = recipes_coll.count_documents({})
+    
+    pages = range(
+        1, int(math.ceil(number_of_all_rec / limit_per_page)) + 1
+    )
+    recipes = (
+        recipes_coll.find()
+        .sort('_id', pymongo.ASCENDING)
+        .skip((current_page - 1) * limit_per_page)
+        .limit(limit_per_page)
+    )
+    return render_template(
+        "all_recipes.html", 
+        recipes=recipes, 
+        title='All Veggie Delights', 
+        current_page=current_page, 
+        pages=pages
+    )
+
 
 # Single Recipe Info Route
 @app.route('/recipe_info/<recipe_id>')
