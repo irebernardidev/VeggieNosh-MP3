@@ -2,39 +2,58 @@
 
 {% block content %}
 
-<!-- Begin User's Recipe Dashboard Section -->
-<div class="container margin-top-large">
-    <!-- Display the User's Recipe Title -->
+  <!-- Main Content Area for User's Recipe Dashboard -->
+  <div class="container margin-top-large">
+    
+    <!-- Section Header: User's Recipe Collection Title -->
     <h1 class="secondary-heading uppercase center-align">
-        {{ username }}'s Veggie Masterpieces
+      <!-- Display the User's Name with 'Veggie Masterpieces' Suffix -->
+      <span class="text-black">{{ username }}</span>'s Veggie Masterpieces
     </h1>
 
-    <!-- Display the Number of Recipes Contributed by the User -->
+    <!-- Section Sub-Header: Number of Recipes Counter -->
     <p class="paragraph-count center-align">
-        You've cooked up <span class="red-text">{{ number_of_recipes }}</span> veggie delights! Keep them coming!
+      <!-- Display the Count of Recipes the User has Contributed -->
+      You've cooked up <span class="red-text">{{ number_of_rec }}</span> veggie delights! Keep them coming!
     </p>
-</div>
+  </div>
 
-<!-- Display the User's Created Recipes or Prompt to Create One -->
-<div class="container container-recipes center-align">
+  <!-- User's Created Recipes Display Area -->
+  <div class="container container-recipes center-align">
     <div class="row">
-        {% for recipe in my_recipes %}
-            <!-- Include Individual Recipe Cards -->
-            {% include "includes/recipecards.html" %}
-        {% else %}
-            <!-- Prompt for User to Create their First Recipe -->
-            <h5 class="margin-top-small">
-                Looks like your veggie canvas is blank. Ready to paint your first recipe?
-            </h5>
-            <a
-                href="{{ url_for('add_recipe')}}"
-                class="waves-effect waves-light btn uppercase margin-top-small z-depth-3 btn-main"
-            >
-                Craft Your First Recipe!
-            </a>
-        {% endfor %}
+      {% for recipe in my_recipes %}
+        <!-- Recipe Card Inclusion for Each Recipe in the User's Collection -->
+        {% include "includes/recipecards.html" %}
+      {% else %}
+        <!-- Prompt to Encourage User to Create Their First Recipe if None Exist -->
+        <h5 class="margin-top-small">
+          Looks like your veggie canvas is blank. Ready to paint your first recipe?
+        </h5>
+        <!-- Call-to-Action Button for Creating First Recipe -->
+        <a href="{{ url_for('add_recipe') }}" class="waves-effect waves-light btn uppercase margin-top-small z-depth-3 btn-main">
+          Craft Your First Recipe!
+        </a>
+      {% endfor %}
     </div>
-</div>
-<!-- End of User's Recipe Dashboard Section -->
+    
+    <!-- Pagination Control Area -->
+    <ul class="pagination center-align">
+      {% for page_num in pages %} 
+        {% if page_num == current_page %}
+          <!-- Active Page Indicator -->
+          <li class="active"><a>{{ page_num }}</a></li>
+        {% else %}
+          <!-- Other Page Links -->
+          <li class="waves-effect">
+            <a href="{{ url_for('my_recipes', username=session.username, current_page=page_num) }}">
+              {{ page_num }}
+            </a>
+          </li>
+        {% endif %} 
+      {% endfor %}
+    </ul>
+
+  </div>
+  <!-- End of User's Recipe Dashboard Section -->
 
 {% endblock %}

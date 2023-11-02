@@ -71,47 +71,44 @@ def single_recipe_info(recipe_id):
     return render_template("single_recipe_info.html", selected_recipe=selected_recipe,
                            author=author, title='Recipes')
 
-# My Recipes Route
+# Define the route for viewing a user's recipes
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
-    # Retrieve user ID based on session username
+    # Retrieve user's ID from the database using the session username
     my_id = users_coll.find_one({'username': session['username']})['_id']
-    
-    # Retrieve the same username from the session for consistency
+    # Retrieve the actual username for display purposes
     my_username = users_coll.find_one({'username': session['username']})['username']
     
-    # Finds all user's recipes by author id
-    my_recipes_query = {'author': my_id}
+    # Execute a query to find all recipes authored by the user
+    my_recipes_cursor = recipes_coll.find({'author': my_id})
+    # Count the total number of recipes found
+    number_of_my_rec = recipes_coll.count_documents({'author': my_id})
     
-    # Get the total number of recipes created by the user
-    number_of_my_rec = recipes_coll.count_documents(my_recipes_query)
-    
-    # Pagination settings
+    # Pagination setup: number of recipes displayed per page set to 8
     limit_per_page = 8
+    # Determine the current page number from the query parameter 'current_page'
     current_page = int(request.args.get('current_page', 1))
+    # Calculate the total number of pages needed to display all recipes
+    total_pages = math.ceil(number_of_my_rec / limit_per_page)
+    # Generate a range of page numbers for pagination links
+    pages = range(1, int(total_pages) + 1)
     
-    # Calculate the total number of pages
-    pages = range(1, int(math.ceil(number_of_my_rec / limit_per_page)) + 1)
-    
-    # Retrieve recipes for the current page
-    recipes = (
-        recipes_coll.find(my_recipes_query)
-        .sort('_id', pymongo.ASCENDING)
-        .skip((current_page - 1) * limit_per_page)
-        .limit(limit_per_page)
-    )
-    
-    # Render the 'my_recipes' page with the user's recipes and pagination info
+    # Sort recipes by ID in ascending order for the current page and limit the results per page
+    recipes_displayed = my_recipes_cursor.sort('_id', pymongo.ASCENDING) \
+                                         .skip((current_page - 1) * limit_per_page) \
+                                         .limit(limit_per_page)
+
+    # Render the 'my_recipes' template with the data for the user's recipes
     return render_template(
-        "my_recipes.html", 
-        my_recipes=recipes,  
-        username=my_username, 
-        recipes=recipes,
+        "my_recipes.html",
+        my_recipes=list(recipes_displayed),  # Convert cursor to a list for the template
+        username=my_username,
         number_of_my_rec=number_of_my_rec,
-        current_page=current_page, 
+        current_page=current_page,
         pages=pages,
         title='My Recipes'
     )
+
 
 
 # Add Recipe Route
@@ -136,13 +133,18 @@ def add_recipe():
                            form=form, title='New Recipe')
 
 
-# Insert Recipe Route
+# Route for inserting a new recipe into the database
 @app.route("/insert_recipe", methods=['GET', 'POST'])
 def insert_recipe():
+    # Parse ingredients and directions from form, splitting by new lines
     ingredients = request.form.get("ingredients").splitlines()
     directions = request.form.get("recipe_directions").splitlines()
+    # Retrieve author's ID from the session
     author = users_coll.find_one({"username": session["username"]})["_id"]
+
+    # Process the form submission
     if request.method == 'POST':
+        # Construct the new recipe dictionary from form inputs
         new_recipe = {
             "recipe_name": request.form.get("recipe_name").strip(),
             "description": request.form.get("recipe_description"),
@@ -156,13 +158,20 @@ def insert_recipe():
             'author': author,
             "image": request.form.get("image")
         }
+        
+        # Insert the new recipe document into the database
         insert_recipe_intoDB = recipes_coll.insert_one(new_recipe)
+        
+        # Update the user's document with the new recipe's ID
         users_coll.update_one(
             {"_id": ObjectId(author)},
             {"$push": {"user_recipes": insert_recipe_intoDB.inserted_id}}
         )
-        flash('Your recipe  was succsessfully added!')
+        
+        # Notify user of successful addition and redirect to the new recipe's page
+        flash('Your recipe was successfully added!')
         return redirect(url_for("single_recipe_info", recipe_id=insert_recipe_intoDB.inserted_id))
+
 
 # Edit Recipe Route
 @app.route("/edit_recipe/<recipe_id>")
@@ -193,19 +202,25 @@ def edit_recipe(recipe_id):
         return redirect(url_for('home'))
 
 
-# Update Recipe Route
+# Define the route to update a specific recipe by its ID
 @app.route("/update_recipe/<recipe_id>", methods=["POST"])
 def update_recipe(recipe_id):
-    # Ensure the request method is POST
+    # Find the selected recipe by its ID in the database
+    selected_recipe = recipes_coll.find_one({"_id": ObjectId(recipe_id)})
+    
+    # Retrieve the author's information from the selected recipe
+    author = selected_recipe.get("author")
+    
+    # Only proceed if the method is POST
     if request.method == "POST":
-        # Split ingredients and directions into lists
+        # Split the ingredients and directions from the form into lists
         ingredients = request.form.get("ingredients").splitlines()
         directions = request.form.get("directions").splitlines()
 
-        # Update the document
+        # Update the recipe document in the database with new values
         recipes_coll.update_one(
             {"_id": ObjectId(recipe_id)},  # Query for the specific document
-            {  # $set operator to specify fields to update
+            {  # Use the $set operator to specify the fields to be updated
                 "$set": {
                     "recipe_name": request.form.get("recipe_name"),
                     "description": request.form.get("recipe_description"),
@@ -221,8 +236,9 @@ def update_recipe(recipe_id):
             }
         )
 
-        # Redirect to the recipe info page of the updated recipe
+        # After updating, redirect the user to the recipe info page of the updated recipe
         return redirect(url_for("single_recipe_info", recipe_id=recipe_id))
+
 
 
 # Delete Recipe Route

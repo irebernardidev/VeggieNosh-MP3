@@ -108,6 +108,9 @@ main {
     text-shadow: 1px 1px 1px var(--black);   
 }
 
+h6 {
+    font-size: 1.1rem;
+    }
 /* Heading Styles */
 .primary-heading {
     font-size: 2.3rem;
@@ -344,7 +347,7 @@ nav ul a {
 .card .card-image img {
     position: relative;
     object-fit: cover;
-    height: 40vh;
+    height: 50vh;
 }
 
 .card .card-content {
@@ -358,7 +361,7 @@ nav ul a {
 }
 
 .card .card-title:hover {
-    text-shadow: 2px 2px 2px var(--lightgrey);
+    color: var(--darkyellow);
 }
 
 .text-block {
@@ -569,6 +572,10 @@ nav ul a {
         text-align: left;
     }
 
+    .card .card-image img{
+        height: 40vh;
+        }
+
     .recipe-description-paragraph {
         padding-bottom: 3rem;
     }
@@ -585,3 +592,54 @@ nav ul a {
         width: 70%;
     }
 }
+
+/* Media queries for very small devices like iPhone 5/SE */
+@media (max-width: 360px) {
+    .btn-change {
+      font-size: 9px; /* Smaller font for change button on small screens */
+    }
+    .secondary-heading {
+      font-size: 1.3rem; /* Adjust secondary heading size for readability */
+    }
+    .btn-edit-del {
+      font-size: 12px; /* Reduce font size for edit/delete buttons */
+    }
+    .card_dish_heading {
+      font-size: 12px; /* Decrease meal card heading font size for consistency */
+    }
+  }
+  
+  /* Media queries for intermediate devices like iPad Pro */
+  @media only screen and (min-width: 1024px) and (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+    .card .card-image img {
+      height: 20vh; /* Set image height to maintain aspect ratio */
+    }
+    .card .card-title {
+      font-size: 13px; /* Adjust card title font size for clarity */
+    }
+    .card-bottom-info {
+      font-size: 8px; /* Decrease font size for card bottom info for spacing */
+    }
+    .icon-recipe-card {
+      font-size: 10px; /* Resize icons on recipe cards for better fit */
+    }
+    .recipe-description-paragraph {
+      padding-bottom: 0; /* Remove padding to tighten up layout */
+    }
+    .container-addrecipe {
+      width: 90%; /* Adjust width of add recipe container for better margins */
+    }
+    .container-recipes {
+      width: 100%; /* Use full width for recipes container for improved layout */
+    }
+    .container-recipe-lists {
+      width: 90%; /* Control recipe list container width for aesthetics */
+    }
+    .button-container {
+      width: 70%; /* Modify button container width for better alignment */
+    }
+    .btn-edit-del {
+      width: 90%; /* Ensure edit/delete buttons fit well within the layout */
+    }
+  }
+  

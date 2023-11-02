@@ -1,152 +1,180 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Start of Main Section for VeggieNosh -->
-    <section class="container margin-top-large container-addrecipe z-depth-2">
-        <h1 class="uppercase center-align secondary-heading">Edit Veggie Recipe</h1>
+<!-- Start of Main Section for VeggieNosh -->
+<section class="container margin-top-large container-addrecipe z-depth-2">
+    <h1 class="uppercase center-align secondary-heading">Edit Veggie Recipe</h1>
+    
+    <!-- Start of Veggie Recipe Form -->
+    <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('update_recipe', recipe_id=selected_recipe._id) }}">
+        <!-- Recipe Name Input -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="far fa-file-alt prefix"></i>
+                <input id="recipe_name" name="recipe_name" value="{{ selected_recipe.recipe_name }}" type="text" minlength="4" maxlength="25" class="validate" required />
+                <label for="recipe_name">Recipe Name <i class="fas fa-asterisk asterisk"></i></label>
+            </div>
+
+            <!-- Recipe Description Input -->
+            <div class="input-field col s12">
+                <i class="fas fa-pen prefix"></i>
+                <textarea id="recipe_description" name="recipe_description" class="validate materialize-textarea" minlength="20" maxlength="300" required>{{ selected_recipe.description }}</textarea>
+                <label for="recipe_description">Recipe Description <i class="fas fa-asterisk asterisk"></i></label>
+            </div>
         
-        <!-- Start of Veggie Recipe Form -->
-        <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('update_recipe', recipe_id=selected_recipe._id) }}">
-
-            <!-- Recipe Name Input -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="far fa-file-alt prefix"></i>
-                    <input id="recipe_name" name="recipe_name" value="{{ selected_recipe.recipe_name }}" type="text" minlength="4" maxlength="25" class="validate" required />
-                    <label for="recipe_name">Recipe Name <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
-
-                <!-- Recipe Description Input -->
-                <div class="input-field col s12">
-                    <i class="fas fa-pen prefix"></i>
-                    <textarea id="recipe_description" name="recipe_description" class="validate materialize-textarea" minlength="20" maxlength="300" required>{{ selected_recipe.description }}</textarea>
-                    <label for="recipe_description">Recipe Description <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
+            <!-- Category Type Dropdown -->
+            <div class="input-field col s12 m6 l4">
+                <i class="fas fa-globe-europe prefix"></i>
+                <select id="category_type" name="category_type">
+                    <option value="None" selected>Select an option</option>
+                    {% for category in category_types %}
+                        {% if category.category_type == selected_recipe.category_type %}
+                            <option value="{{category.category_type}}" selected>{{category.category_type}}</option>
+                        {% else %}
+                            <option value="{{category.category_type}}">{{category.category_type}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="category_type">Veggie Category (optional)</label>
             </div>
 
-            <!-- Dropdowns Row for Categories, Dishes, and Diet Types -->
-            <div class="row">
-                <!-- Category Type Dropdown -->
-                <div class="input-field col s12 m6 l4">
-                    <i class="fas fa-globe-europe prefix"></i>
-                    <select id="category_type" name="category_type">
-                        <option value="None" selected>Select an option</option>
-                        {% for category in category_types %}
-                            {% if category.category_type == selected_recipe.category_type %}
-                                <option value="{{category.category_type}}" selected>{{category.category_type}}</option>
-                            {% else %}
-                                <option value="{{category.category_type}}">{{category.category_type}}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label for="category_type">Veggie Category (optional)</label>
-                </div>
-
-                <!-- Dish Type Dropdown -->
-                <div class="input-field col s12 m6 l4">
-                    <i class="fas fa-utensils prefix"></i>
-                    <select id="dish_type" name="dish_type" class="validate" required>
-                        <option value="" disabled selected>Select a dish</option>
-                        {% for dish in dish_types %}
-                            {% if dish.dish_type == selected_recipe.dish_type %}
-                                <option value="{{dish.dish_type}}" selected>{{dish.dish_type}}</option>
-                            {% else %}
-                                <option value="{{dish.dish_type}}">{{dish.dish_type}}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label for="dish_type">Dish Type <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
-
-                <!-- Diet Type Dropdown -->
-                <div class="input-field col s12 m6 l4">
-                    <i class="fas fa-leaf prefix"></i>
-                    <select id="diet_type" name="diet_type">
-                        <option value="None" selected>Select a diet</option>
-                        {% for diet in diet_types %}
-                            {% if diet.diet_type == selected_recipe.diet_type %}
-                                <option value="{{diet.diet_type}}" selected>{{diet.diet_type}}</option>
-                            {% else %}
-                                <option value="{{diet.diet_type}}">{{diet.diet_type}}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label for="diet_type">Diet Preference (optional)</label>
-                </div>
+            <!-- Dish Type Dropdown -->
+            <div class="input-field col s12 m6 l4">
+                <i class="fas fa-utensils prefix"></i>
+                <select id="dish_type" name="dish_type" class="validate" required>
+                    <option value="" disabled selected>Select a dish</option>
+                    {% for dish in dish_types %}
+                        {% if dish.dish_type == selected_recipe.dish_type %}
+                            <option value="{{dish.dish_type}}" selected>{{dish.dish_type}}</option>
+                        {% else %}
+                            <option value="{{dish.dish_type}}">{{dish.dish_type}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="dish_type">Dish Type <i class="fas fa-asterisk asterisk"></i></label>
             </div>
 
-            <!-- Cooking Time and Servings Row -->
-            <div class="row">
-                <!-- Cooking Time Input -->
-                <div class="input-field col s12 m6">
-                    <i class="far fa-clock prefix"></i>
-                    <input id="cooking_time" name="cooking_time" value="{{ selected_recipe.cooking_time }}" type="number" class="validate" required />
-                    <label for="cooking_time">Cooking Time in minutes <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
-
-                <!-- Servings Input -->
-                <div class="input-field col s12 m6">
-                    <i class="fas fa-concierge-bell prefix"></i>
-                    <input id="servings" name="servings" value="{{ selected_recipe.servings }}" type="number" class="validate" required />
-                    <label for="servings">Number of Servings <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
+            <!-- Diet Type Dropdown -->
+            <div class="input-field col s12 m6 l4">
+                <i class="fas fa-leaf prefix"></i>
+                <select id="diet_type" name="diet_type">
+                    <option value="None" selected>Select a diet</option>
+                    {% for diet in diet_types %}
+                        {% if diet.diet_type == selected_recipe.diet_type %}
+                            <option value="{{diet.diet_type}}" selected>{{diet.diet_type}}</option>
+                        {% else %}
+                            <option value="{{diet.diet_type}}">{{diet.diet_type}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="diet_type">Diet Preference (optional)</label>
             </div>
 
-            <!-- Ingredients and Directions Row -->
-            <div class="row">
-                <!-- Ingredients Textarea -->
-                <div class="input-field col s12">
-                    <i class="fas fa-clipboard-list prefix"></i>
-                    <textarea id="ingredients" name="ingredients" placeholder="List each ingredient on a new line" class="validate materialize-textarea" required>
-                        {% for ingredient in selected_recipe.ingredients -%}
-                            {{ ingredient }}
-                        {% endfor -%}
-                    </textarea>
-                    <label for="ingredients">Ingredients (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
-
-                <!-- Directions Textarea -->
-                <div class="input-field col s12">
-                    <i class="fas fa-list-ol prefix"></i>
-                    <textarea id="directions" name="directions" placeholder="Detail each step on a new line" class="validate materialize-textarea" required>
-                        {% for direction in selected_recipe.directions -%}
-                            {{ direction }}
-                        {% endfor -%}
-                    </textarea>
-                    <label for="directions">Cooking Steps (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
-                </div>
+            <!-- Cooking Time Input -->
+            <div class="input-field col s12 m6">
+                <i class="far fa-clock prefix"></i>
+                <input id="cooking_time" name="cooking_time" value="{{ selected_recipe.cooking_time }}" type="number" class="validate" required />
+                <label for="cooking_time">Cooking Time in minutes <i class="fas fa-asterisk asterisk"></i></label>
             </div>
 
-            <!-- Image Input Row -->
-            <div class="row">
-                <!-- Recipe Image Input -->
-                <div class="input-field col s12">
-                    <i class="far fa-images prefix"></i>
-                    <input id="recipe_image" name="recipe_image" value="{{ selected_recipe.image }}" placeholder="Provide a URL for your veggie dish image" type="text" class="validate" />
-                    <label for="recipe_image">Recipe Image (optional, URL only)</label>
-                </div>
+            <!-- Servings Input -->
+            <div class="input-field col s12 m6">
+                <i class="fas fa-concierge-bell prefix"></i>
+                <input id="servings" name="servings" value="{{ selected_recipe.servings }}" type="number" class="validate" required />
+                <label for="servings">Number of Servings <i class="fas fa-asterisk asterisk"></i></label>
+            </div>
+        </div>
+
+        <!-- Ingredients and Directions Row -->
+        <div class="row">
+            <!-- Ingredients Textarea -->
+            <div class="input-field col s12">
+                <i class="fas fa-clipboard-list prefix"></i>
+                <textarea
+id="ingredients"
+name="ingredients"
+placeholder="Add each ingredient on a new line"
+class="validate materialize-textarea"
+required
+>
+{% for ingredient in selected_recipe.ingredients -%}
+{{ ingredient }}
+{% endfor -%}
+</textarea>
+                <label for="ingredients">Ingredients (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
             </div>
 
-            <!-- Error Messages -->
-            <div>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p class="error-message">{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
+            <!-- Directions Textarea -->
+            <div class="input-field col s12">
+                <i class="fas fa-list-ol prefix"></i>
+                <textarea
+id="directions"
+name="directions"
+placeholder=" Add each step on a new line"
+class="validate materialize-textarea"
+required
+>
+{% for direction in selected_recipe.directions -%}
+{{ direction }}
+{% endfor -%}
+</textarea>
+                <label for="directions">Directions (each on a new line) <i class="fas fa-asterisk asterisk"></i></label>
             </div>
+        </div>
 
-            <!-- Action Buttons -->
-            <div class="row">
-                <div class="col s6 right-align">
-                    <a href="{{ url_for('edit_recipe', recipe_id=selected_recipe._id) }}" class="btn btn-cancel waves-effect waves-dark">Cancel</a>
-                </div>
-                <div class="col s6 left-align">
-                    <button class="btn btn-save waves-effect waves-light" type="submit">Save Recipe</button>
-                </div>
+        <!-- Image Input Row -->
+        <div class="row">
+            <!-- Recipe Image Input -->
+            <div class="input-field col s12">
+                <i class="far fa-images prefix"></i>
+                <input
+id="recipe_image"
+name="recipe_image"
+value="{{ selected_recipe.image}}"
+placeholder="Provide URL for your recipe image"
+type="text"
+class="validate"
+/>
+                <label for="recipe_image">Recipe Image (optional)</label>
             </div>
-        </form> <!-- End of Veggie Recipe Form -->
-    </section> <!-- End of Main Section for VeggieNosh -->
+        </div>
+
+        <div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="error-message">
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="row">
+            <div class="col s6 right-align">
+                <a
+                    href="{{ url_for('home') }}"
+                    class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase"
+                    name="action"
+                >
+                    Cancel
+                </a>
+            </div>
+            <div class="col s6">
+                <button
+                    class="btn z-depth-3 btn-form btn-primary waves-effect waves-light btn-main uppercase"
+                    type="submit"
+                    name="action"
+                >
+                    Update Recipe
+                    <i class="fas fa-pen right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <!-- End of Veggie Recipe Form -->
+</section>
+<!-- End of Main Section for VeggieNosh -->
 {% endblock %}
