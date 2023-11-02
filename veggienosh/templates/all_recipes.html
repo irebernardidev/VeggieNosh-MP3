@@ -1,42 +1,47 @@
-{% extends 'base.html' %} {# Base template extension #}
+{% extends 'base.html' %} <!-- Extends the base layout -->
+{% block content %} <!-- Content block starts -->
 
-{% block content %} {# Start of content block #}
+  <!-- Heading for the recipe list -->
+  <div class="margin-top-large">
+    <h1 class="secondary-heading uppercase center-align margin-bottom-large">
+      <span class="text-black">All </span>Veggie Delights ({{ number_of_all_rec }})
+    </h1>
+  </div>
 
-    <!-- Heading section -->
-    <section class="container margin-top-large">
-        <h1 class="secondary-heading uppercase center-align margin-bottom-large">
-            <span class="text-black">All </span>Veggie Delights ({{ number_of_all_rec }})
-        </h1>
-        <div class="margin-top-med hide-on-small-only">
-            <hr class="center-align divider-yellow" />
-        </div>
-    </section>
-
-    <!-- Recipes container -->
-    <div class="container container-recipes margin-top-med">
-        <div class="row">
-            <!-- Loop through each recipe and include the recipe card -->
-            {% for recipe in recipes %} 
-                {% include "includes/recipecards.html" %} {# Includes the recipe card partial #}
-            {% endfor %}
-        </div>
-
-        <!-- Pagination section-->
-        <ul class="pagination center-align">
-            {% for page_num in pages %} 
-                <!-- Check if the page number is the current page -->
-                {% if page_num == current_page %}
-                    <li class="active">
-                        <a>{{ page_num }}</a>
-                    </li>
-                {% else %}
-                    <li class="waves-effect">
-                        <!-- Link to the page number -->
-                        <a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a>
-                    </li>
-                {% endif %} 
-            {% endfor %}
-        </ul>
+  <!-- Horizontal divider -->
+  <div class="divider-container hide-on-small-only">
+    <hr class="divider-yellow" />
+  </div>
+  
+  <!-- Search bar -->
+  <div class="search-container">
+    <form action="#" class="search">
+      <input type="text" class="search-input" placeholder="Search veggie recipes...">
+      <button class="search-button">
+        <i class="fas fa-search search-icon"></i>
+      </button>
+    </form>
+  </div>
+    
+  <!-- Container for recipes -->
+  <div class="container-recipes">
+    <div class="row">
+      <!-- Loop to include recipe cards -->
+      {% for recipe in recipes %} 
+        {% include "includes/recipecards.html" %} <!-- Recipe card partial -->
+      {% endfor %}
     </div>
 
-{% endblock %} {# End of content block #}
+    <!-- Pagination -->
+    <ul class="pagination center-align margin-bottom-large">
+      {% for page_num in pages %} 
+        {% if page_num == current_page %} <!-- Current page check -->
+          <li class="active"><a>{{ page_num }}</a></li>
+        {% else %}
+          <li class="waves-effect"><a href="{{ url_for('all_recipes', page=page_num) }}">{{ page_num }}</a></li>
+        {% endif %} 
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %} <!-- Content block ends -->
