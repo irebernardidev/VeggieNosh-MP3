@@ -1,30 +1,37 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {# Base template extension #}
 
-{% block content %}
+{% block content %} {# Start of content block #}
 
     <!-- Heading section -->
     <section class="container margin-top-large">
-        <h1 class="secondary-heading uppercase center-align margin-bottom-large"><span class="text-black">All </span>Veggie Delights</h1>
+        <h1 class="secondary-heading uppercase center-align margin-bottom-large">
+            <span class="text-black">All </span>Veggie Delights ({{ number_of_all_rec }})
+        </h1>
+        <div class="margin-top-med hide-on-small-only">
+            <hr class="center-align divider-yellow" />
+        </div>
     </section>
 
     <!-- Recipes container -->
-    <div class="container container-recipes margin-top-small">
+    <div class="container container-recipes margin-top-med">
         <div class="row">
-
             <!-- Loop through each recipe and include the recipe card -->
             {% for recipe in recipes %} 
-                {% include "includes/recipecards.html" %} 
+                {% include "includes/recipecards.html" %} {# Includes the recipe card partial #}
             {% endfor %}
-
         </div>
 
         <!-- Pagination section-->
         <ul class="pagination center-align">
             {% for page_num in pages %} 
+                <!-- Check if the page number is the current page -->
                 {% if page_num == current_page %}
-                    <li class="active"><a>{{ page_num }}</a></li>
+                    <li class="active">
+                        <a>{{ page_num }}</a>
+                    </li>
                 {% else %}
                     <li class="waves-effect">
+                        <!-- Link to the page number -->
                         <a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a>
                     </li>
                 {% endif %} 
@@ -32,4 +39,4 @@
         </ul>
     </div>
 
-{% endblock %}
+{% endblock %} {# End of content block #}
