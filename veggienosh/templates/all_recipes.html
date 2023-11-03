@@ -38,7 +38,7 @@
         {% if page_num == current_page %} <!-- Current page check -->
           <li class="active"><a>{{ page_num }}</a></li>
         {% else %}
-          <li class="waves-effect"><a href="{{ url_for('all_recipes', page=page_num) }}">{{ page_num }}</a></li>
+          <li class="waves-effect"><a href="{{ url_for('all_recipes', current_page=page_num) }}">{{ page_num }}</a></li>
         {% endif %} 
       {% endfor %}
     </ul>

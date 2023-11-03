@@ -73,7 +73,7 @@
             <div class="input-field col s12 m6">
                 <i class="fas fa-concierge-bell prefix"></i>
                 {{ form.servings(type="number", class="validate", id="servings") }}
-                <label for="servings">Servings <i class="fas fa-asterisk asterisk"></i></label>
+                <label for="servings">Number of Servings <i class="fas fa-asterisk asterisk"></i></label>
             </div>
 
             {# Textarea for the list of ingredients #}
@@ -94,7 +94,7 @@
             <div class="input-field col s12">
                 <i class="far fa-images prefix"></i>
                 {{ form.image(id="recipe_image", placeholder="Got a photo of your masterpiece?", class="validate") }}
-                <label for="recipe_image">Image URL (show it off if you've got it!)</label>
+                <label for="recipe_image">Image URL (show it off if you've got it!)<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i></label>
             </div>
 
             {# Display flash messages, if any #}
