@@ -1,4 +1,3 @@
-# Import required libraries and modules
 import os
 from flask import Flask
 from flask_pymongo import PyMongo

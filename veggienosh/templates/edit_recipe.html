@@ -51,7 +51,7 @@
             <!-- Dropdown for selecting dish type -->
             <div class="input-field col s12 m6 l4">
                 <i class="fas fa-utensils prefix"></i>
-                <select id="dish_type" name="dish_type" class="validate" required>
+                <select id="dish_type" name="dish_type">
                     <option value="" disabled selected>Pick a Plate Type</option>
                     {% for dish in dish_types %}
                     {% if dish.dish_type == selected_recipe.dish_type %}

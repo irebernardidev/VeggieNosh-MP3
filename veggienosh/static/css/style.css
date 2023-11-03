@@ -5,38 +5,42 @@
 
 /* Colour Variables and Fonts */
 :root {
-    /* Primary Colors */
-    --primary: #26a69a; 
-    --primary-light: #64d8cb;
-    --primary-dark: #00766c; 
-    --on-primary: #ffffff;
-
-    /* Accent/Secondary Colors */
-    --accent: #ff6f00;
-    --accent-light: #ffa270;
-    --accent-dark: #c43e00; 
-    --on-accent: #2E2E2E;
-
-    /* Background and Surface */
-    --background: #eceff1; 
-    --surface: #cfd8dc; 
-    --on-background: #212121; 
-    --on-background-secondary: #757575;
-
-    /* Error Colors */
-    --error: #d50000; 
-    --error-light: #ff5252; 
-    --error-dark: #b71c1c; 
-    --on-error: #ffffff;
-
-    /* Additional Colors */
-    --green: #66bb6a; 
-    --green-light: #98ee99;
-    --green-dark: #338a3e; 
+    --white: #ffffff;
+    --midiumwhite: #fffafa;
+    --darkwhite: rgba(245, 245, 245, 0.953);
+    --black: #070707;
+    --lightblack: #2e2e2e;
+    --darkgrey: #515151;
+    --lightgrey: #a3a3a3;
+    --coral: #ff4242;
+    --lightcoral: #ff5249e6;
+    --yellow: #fab700;
+    --darkyellow: #c89200;
+    --red: #ee0909;
+    --lightred: #ff2b24;
+    --green: #0f860f;
+    --lighgreen: #16bd16;
+    --primaryfont: "Open Sans", sans-serif;
+    --secondaryfont: "Ubuntu", sans-serif;
+    
 
     /* Typography */
     --primaryfont: 'Open Sans', sans-serif;
     --secondaryfont: 'Ubuntu', sans-serif;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+    overflow-x: hidden;
 }
 
 /* Materialize style adjustments */
@@ -51,12 +55,11 @@ body {
     font-family: var(--primaryfont);
     font-weight: 400;
     line-height: 1.7rem;
-    overflow-x: hidden;
 }
 
 main {
     flex: 1 0 auto;
-    margin-top: 4em;
+    margin-top: 5.7rem;
 }
 
 /* Text and spacing utilities */
@@ -114,15 +117,13 @@ main {
 
 /* Heading Styles */
 .primary-heading {
-    font-size: 2.3rem;
-    font-weight: 500;
-    letter-spacing: 0.3rem; 
+    font-size: 3.1rem;
+    letter-spacing: 0.8rem; 
     font-family: var(--secondaryfont);
-    text-shadow: 1px 1px 1px var(--lightgrey);
 }
 
 .secondary-heading {
-    font-size: 2.1rem;
+    font-size: 2.4rem;
     letter-spacing: 0.2rem; 
     color: var(--coral);
     font-weight: 600;
@@ -135,6 +136,7 @@ main {
 
 .sub-heading {
     font-size: 1.7rem;
+    font-weight: 500;
 }
 
 .heading-black {
@@ -149,22 +151,24 @@ main {
 nav {
     position: fixed;
     top: 0px;
-    z-index: 10;
-    background-color: var(--surface);
+    z-index: 100;
+    background-color: var(--darkwhite);
     font-family: var(--primaryfont);
-    height: 75px;
 }
 
 nav img {
-    height: 2.5em;
-    width: 6em;
-    margin-left: 20px;
-    transform: scale(1.2);
+    height: 5.5rem;
+}
+
+nav .brand-logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 nav ul a {
-    color: var(--on-background);
-    padding: 0 20px;
+    color: var(--lightblack);
+    padding: 0 2rem;
     font-family: var(--secondaryfont);
     margin-right: 5px;
     font-weight: 400;
@@ -172,8 +176,12 @@ nav ul a {
 
 .navbar-icon {
     margin-right: 0.8rem;
-    font-size: 20px;
-    color: var(--on-background);
+    font-size: 1.5rem;
+    color: var(--lightblack);
+}
+
+.brand-logo {
+    color: var(--darkgrey);
 }
 
 .small-nav-icon{
@@ -189,21 +197,21 @@ nav ul a {
 
 /* === FOOTER STYLES === */
 .footer-container {
-    background-color: var(--surface);
+    background-color: var(--darkwhite);
     padding-bottom: 0.5rem;
     color: var(--on-background);
-    -webkit-box-shadow: 0px -5px 10px -6px var(--on-background-secondary);
-    -moz-box-shadow: 0px -5px 10px -6px var(--on-background-secondary);
-    box-shadow: 0px -5px 10px -6px var(--on-background-secondary);
+    -webkit-box-shadow: 0px -5px 10px -6px var(--lightblack);
+    -moz-box-shadow: 0px -5px 10px -6px var(--lightblack);
+    box-shadow: 0px -5px 10px -6px var(--lightblack);
 }
 
 .media-icons {
     font-size: 25px;
-    color: var(--on-accent);
+    color: var(--black);
     margin-bottom: 5px;
     padding: 3px;
     font-weight: 300;
-    text-shadow: 2px 2px 2px var(--background);
+    text-shadow: 2px 2px 2px var(--lightgrey);
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;

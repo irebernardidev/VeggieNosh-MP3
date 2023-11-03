@@ -41,13 +41,13 @@
             {# Select input for the type of dish #}
             <div class="input-field col s12 m6 l4">
                 <i class="fas fa-utensils prefix"></i>
-                <select id="dish_type" name="dish_type" class="validate" required>
+                <select id="dish_type" name="dish_type">
                     <option value="" disabled selected>Pick a dish type</option>
                     {% for dish in dish_types %}
                         <option value="{{ dish.dish_type }}">{{ dish.dish_type }}</option>
                     {% endfor %}
                 </select>
-                <label for="dish_type">Dish Type <i class="fas fa-asterisk asterisk"></i></label>
+                <label for="dish_type">Dish Type (optional)</label>
             </div>
 
             {# Select input for specifying the diet type #}
