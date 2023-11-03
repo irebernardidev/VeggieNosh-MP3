@@ -468,6 +468,26 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
     width: 2rem;
 }
 
+.search-img-container {
+    position: relative;
+}
+
+.img-search {
+    width: 100%;
+    object-fit: cover;
+}
+
+.search-img-title {
+    background-color: rgba(94, 94, 94, 0.411);
+    color: var(--white);
+    border-radius: .5rem;
+    font-size: 3.3rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: .5rem;
+    left: 1.5rem;
+}
+
 /* === ADD/EDIT RECIPE STYLES === */
 .container-addrecipe {
     padding: 1px;
@@ -595,143 +615,150 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
     font-size: 2rem;
 }
 
-/* === MEDIA QUERIES === */
-/* Tablet and Desktop sizes */
-@media (min-width: 600px) {
-    .container-recipes {
-        width: 95%;
-        max-width: 1500px;
-    }
+/* MEDIA QUERIES */
 
-    .add-edit-form {
-        padding: 0 2rem;
-    }
+/* Breakpoints
+ * 0-600px: Phone
+ * 600-900px: Tablet portrait
+ * 900-1200px: Tablet landscape
+ * 1200-1800px: Desktop
+ * 1800px+: Big desktop
+ *
+ * Media Queries are in em units:
+ * 37.5em = 600px
+ * 56.25em = 900px
+ * 75em = 1200px
+ * 112.5em = 1800px
+ */
 
-    .primary-heading {
-        font-size: 4rem;
-    }
-
+/* Tablet Portrait (min-width: 600px) */
+@media only screen and (min-width: 37.5em) {
+    html {
+        font-size: 70%;
+    }  
     .home-container {
-        width: 85%;
-        height: 390px;
-    }
-
-    .btn-main {
-        font-size: 1rem;
-    }
-
-    #btn-home {
-        width: 15rem; 
-    }
-
-    .unordered-list {
-        text-align: left;
-    }
-
-    .btn-change {
-        font-size: 14px;
-    }
-}
-
-/* Tablet size only */
-@media (min-width: 600px) and (max-width: 992px) {
-    .container-addrecipe {
-        width: 85%;
-    }
-
-    .card .card-image img {
-        height: 30vh;
-    }
-}
-
-/* Desktop size only */
-@media (min-width: 992px) {
-    .container-addrecipe {
-        width: 70%;
-    }
-
-    .tablet-break {
-        display: none; 
-    }
-
-    .home-paragpaph {
-        font-size: 1.2rem;
-    }
-
-    .sub-heading {
-        font-size: 1.9rem;
-        text-align: left;
-    }
-
-    .card .card-image img{
-        height: 40vh;
-        }
-
-    .recipe-description-paragraph {
-        padding-bottom: 3rem;
-    }
-
-    .recipe-image {
-        padding: 1rem;
-    }
-
-    .container-recipe-lists {
         width: 90%;
     }
-
-    .btn-edit-del {
-        width: 70%;
+    .btn-main,
+    .btn-main:link,
+    .btn-main:visited {
+        padding: .5rem 1.7rem;
+    }
+    .card .card-image img {
+        height: 40vh;
+    }
+    .container-recipes {
+        width: 90%;
+    }
+    .add-edit-form {
+        padding: 2rem;
+    }
+    .img-search {
+        height: 60vh;
     }
 }
 
-/* Media queries for very small devices like iPhone 5/SE */
-@media (max-width: 350px) {
-    .btn-change {
-      font-size: 9px; 
+/* Tablet Landscape (min-width: 900px) */
+@media only screen and (min-width: 56.25em) {
+    main {
+        margin-top: 5.1rem;
     }
-    .secondary-heading {
-      font-size: 1.3rem; 
+    nav img {
+        display: inline-block;
+        padding: .6rem;
+        height: 5.5rem;
     }
-    .btn-edit-del {
-      font-size: 10px; 
-    }
-    .card_dish_heading {
-      font-size: 12px; 
-    }
-    .btn-small-font{
-        font-size: 10px;
-        margin: 1px;
-        }
-  }
-  
-  /* Media queries for intermediate devices like iPad Pro */
-  @media only screen and (min-width: 1024px) and (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
-    .card .card-image img {
-      height: 20vh; 
-    }
-    .card .card-title {
-      font-size: 13px; 
-    }
-    .card-bottom-info {
-      font-size: 8px; 
-    }
-    .icon-recipe-card {
-      font-size: 10px; 
-    }
-    .recipe-description-paragraph {
-      padding-bottom: 0; 
-    }
-    .container-addrecipe {
-      width: 90%; 
+    #btn-home {
+        letter-spacing: .2rem;
     }
     .container-recipes {
-      width: 100%; 
+        width: 95%;
     }
-    .container-recipe-lists {
-      width: 90%; 
+    .card .card-title {
+        font-size: 1.3rem;
     }
-    .btn-edit-del {
-      width: 90%; 
+    .icon-recipe-card {
+        font-size: 1.1rem;
     }
-  }
-  
+    .card-bottom-info {
+        font-size: .9rem;
+    }
+    .recipe-image {
+        padding: .7rem;
+    }
+    input[type=text]:not(.browser-default),
+    .search-input {
+        width: 50%;
+    }
+    input[type=text]:not(.browser-default):focus:not([readonly]),
+    .search-input:focus {
+        width: 53%;
+    }
+}
+
+/* Desktop (min-width: 1200px) */
+@media only screen and (min-width: 75em) {
+    html {
+        font-size: 80%;
+    }
+    main {
+        margin-top: 4.8rem;
+    }
+    .home-container {
+        width: 85%;
+        padding: 0 2rem;
+    }
+    .primary-heading {
+        font-size: 3.5rem;
+        letter-spacing: 1rem;
+    }
+    .sub-heading {
+        font-size: 2rem;
+        text-align: left;
+    }
+    .container-recipes {
+        width: 90%;
+    }
+    .login-reg-section {
+        width: 35rem;
+    }
+}
+
+/* Big Desktop (min-width: 1800px) */
+@media only screen and (min-width: 112.5em) {
+    html {
+        font-size: 85%;
+    }
+    main {
+        margin-top: 4.4rem;
+    }
+    .card .card-title {
+        font-size: 1.4rem;
+    }
+    .icon-recipe-card {
+        font-size: 1.3rem;
+    }
+    .card-bottom-info {
+        font-size: 1rem;
+    }
+    .container-recipes {
+        width: 85%;
+    }
+    .card .card-image img {
+        height: 35vh;
+    }
+}
+
+/* iPad Pro and iPad Landscape (min-width: 992px and max-width: 1025px) */
+@media only screen and (min-width: 62em) and (max-width: 64.0625em)
+         and (-webkit-min-device-pixel-ratio: 1.5) {
+    .card .card-image img {
+        height: 25vh;
+    }
+    .container-recipes {
+        width: 98%;
+    }
+    .login-reg-section {
+        width: 40rem;
+    }
+}
