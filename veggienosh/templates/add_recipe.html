@@ -111,7 +111,7 @@
             {# Submission and cancellation buttons with clear labeling #}
             <div class="row">
                 <div class="col s6 right-align">
-                    <a href="{{ url_for('home') }}" class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase">Change My Mind</a>
+                    <a href="{{ url_for('home') }}" class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase" name="action">Change My Mind</a>
                 </div>
                 <div class="col s6">
                     {{ form.submit(class="btn btn-coral z-depth-3 btn-form btn-main uppercase") }}
