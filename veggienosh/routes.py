@@ -456,5 +456,47 @@ def error_500(error):
                            title="Internal Server Error"), 500
 
 
+@app.route("/search")
+def search():
+    """
+    Function to handle search queries for recipes.
 
+    Retrieves user input, searches the database for matching recipes,
+    handles pagination, and renders the results on 'search.html'.
+    """
     
+    # Pagination setup
+    limit_per_page = 8
+    current_page = int(request.args.get('current_page', 1))
+    query = request.args.get('query')
+
+    # Create a text index for the search
+    recipes_coll.create_index([("$**", 'text')])
+
+    # Perform the search and handle sorting and pagination
+    results = recipes_coll.find(
+        {'$text': {'$search': str(query)}},
+        {'score': {'$meta': 'textScore'}}
+    ).sort('_id', pymongo.ASCENDING).skip(
+        (current_page - 1) * limit_per_page
+    ).limit(limit_per_page)
+
+    # Calculate the total number of recipes found and pages needed
+    number_of_recipes_found = recipes_coll.count_documents(
+        {'$text': {'$search': str(query)}}
+    )
+    total_pages = int(math.ceil(number_of_recipes_found / limit_per_page))
+    results_pages = range(1, total_pages + 1)
+
+    # Render the search results page
+    return render_template(
+        "search.html",
+        title='Search',
+        limit_per_page=limit_per_page,
+        number_of_recipes_found=number_of_recipes_found,
+        current_page=current_page,
+        query=query,
+        results=results,
+        results_pages=results_pages,
+        total_pages=total_pages
+    )
