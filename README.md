@@ -1,39 +1,148 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# VeggieNosh: Vegan Recipe-Sharing Web Application
 
-Welcome,
+Dedicated to the vibrant world of vegan cuisine, VeggieNosh is a contemporary recipe-sharing platform drawing inspiration from esteemed sites like [The Vegan Society](https://www.vegansociety.com/) and [Rainbow Plant Life](https://rainbowplantlife.com/). It provides users with a user-friendly interface to craft, share, and archive their cherished vegan recipes.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+> **Note**: This endeavor is an integral component of the Code Institute’s Milestone Project 3, as part of their Diploma in Full Stack Software Development. It proficiently demonstrates the implementation of HTML, CSS, JavaScript, Python+Flask, MongoDB, and other technologies, meeting the essential criteria for CRUD (Create, Read, Update, and Delete) operations.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+**[View Live Website Here](#)** _(Replace `#` with your live website URL)_
 
 ---
 
-Happy coding!
+## Table of Contents
+- [UX Development Planes](#ux-development-planes)
+  * [Strategy Plane](#strategy-plane)
+  * [Scope Plane](#scope-plane)
+  * [Structure Plane](#structure-plane)
+  * [Skeleton Plane](#skeleton-plane)
+  * [Surface Plane](#surface-plane)
+- [Features](#features)
+- [Issues and Bugs](#issues-and-bugs)
+- [Testing](#testing)
+- [Technology Used](#technology-used)
+- [Deployment](#deployment)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
+
+---
+
+## UX Development Planes
+
+### A. Strategy Plane
+#### User Stories
+
+**New/Unregistered User:**
+- Search for recipes easily.
+- Explore all site recipes.
+- View complete recipes of interest.
+- Intuitive navigation with clear Sign-Up.
+- Understand the site's purpose and functionality.
+
+**Returning/Registered User:**
+- Quick access to Log In.
+- View latest recipes.
+- Access account settings, personal cookbook, and other user-specific pages.
+- Manage profile and recipes (create, edit, delete).
+- Share recipes on social media.
+- Print recipes.
+- Access a contact page for queries.
+
+**Administrative User:**
+- All functionalities of a registered user.
+- Manage recipe categories.
+- Edit or delete any site recipes.
+
+#### Online Research
+For UI and UX inspiration, research included platforms like:
+- [The Vegan Society](https://www.vegansociety.com/) 
+- [Rainbow Plant Life](https://rainbowplantlife.com/)
+- various projects on [Dribbble](https://dribbble.com/)
+- Projects by Code Institute peers (from `peer-code-review` on Slack).
+
+#### Project Goals
+VeggieNosh aims to provide a visually appealing and user-friendly platform for sharing recipes. Users can:
+- Create, edit, delete, and save recipes.
+- Search recipes.
+- Print, and share recipes on social media.
+
+#### User Goals
+Users seek a:
+- Simple and modern recipe-sharing platform.
+- Community to share and discover recipes.
+- Personal online cookbook for favorite recipes.
+
+**Target Audience:**
+- All age groups.
+- Vegan community.
+- Foodies and food-enthusiasts.
+- Cooking and baking enthusiasts.
+- Tech-savvy users who share recipes online.
+
+#### Site Owner Goals
+The site owner aims to:
+- Offer a comprehensive online recipe-sharing platform.
+- Engage with the community as a regular user.
+- Curate the platform's content and categories.
+- Maintain platform quality and adherence to rules.
+
+#### Strategy Table
+A thorough brainstorming session was conducted based on the user stories and goals. Opportunities were evaluated based on importance (driven by goals and user needs) and viability (considering time and resources).
+
+_(Continue with other sections like Scope Plane, Structure Plane, etc. following a similar structure.)_
+
+### B. Scope Plane
+
+Based on the mapping in the Strategy Plane, a scope was defined for the site with room for future improvements.
+
+## Functional Requirements
+
+**Users** will be able to:
+
+- Sign up and log in to the site by providing username and password.
+- View and Edit their profile (option to change username and password).
+- Delete their account.
+- Upload a recipe.
+- Edit their recipe.
+- Delete their recipe.
+- View all recipes on the site.
+- Search for recipes.
+- View the cookbook that is filled with their recipes.
+- Print a recipe page.
+- Share a recipe page.
+
+**Admin/ Site Owners** will be able to:
+
+- Have all functionalities as a user does.
+- Add a category of recipes.
+- Edit a category.
+- Delete a category.
+- Delete any recipes listed on the site (if needed).
+
+## Non-Functional Requirements
+
+- The users will be able to send a message to the Admin/ site owners via contact form.
+- The users will be able to navigate easily and intuitively throughout the site, able to log in and log out at every page the users currently at.
+
+## Content Requirements
+
+- **Single Recipe Page:** Includes recipe name, description, serving size, time, category, ingredients, and direction. 
+
+- **Home Page:** Features:
+  - A button that redirects a user to the "All Recipes" page.
+  - Displays 4 random images from the database using the $sample function of MongoDB.
+
+- **Online Cookbook:** Features all recipes that had been saved to the cookbook by users, and users' uploaded recipes as well.
+
+### C. Structure Plane
+
+### D. Skeleton Plane
+
+Wireframes/ mock-ups were created using Figma to design the navigation and interface of the website. For a better and clearer visualization before coding, and also to check if the color scheme and images match and work great together, the wireframes were created with such details, in three different device sizes: desktop, tablet, and mobile.
+
+### E. Surface Plane
+
+## Color Scheme
+
+The overall theme of the site was orange and green[...] Using [Coolors](https://coolors.co/)[...]
+
+
+
