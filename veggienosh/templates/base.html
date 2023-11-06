@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link href="static/images/favicon.ico" rel="icon" type="image/x-icon">
     {% if request.endpoint == 'login' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
     {% elif request.endpoint == 'register' %}
@@ -21,8 +22,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_errors.css') }}">
     {% endif %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.jpg') }}" type="image/x-icon" sizes="200x200">
-
     {% if title %}
     <title>Veggienosh Cookbook - {{ title }}</title>
     {% else %}
