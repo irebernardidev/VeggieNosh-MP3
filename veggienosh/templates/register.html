@@ -1,85 +1,89 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Start of Registration Section -->
+    <!-- Registration Section -->
     <section class="login-reg-section center-align">
-
-        <!-- Registration Logo -->
+        
+        <!-- Registration Logo with link to Home -->
         <a href="{{ url_for('home') }}">
             <img
                 src="{{ url_for('static', filename='images/logo.png') }}"
                 class="logo-login-register hide-on-med-and-down"
-                alt="VeggienoshLogo"
-                lazyload="on"
+                alt="VeggieNosh Logo"
             />
         </a>
-
-        <!-- Registration Heading -->
+        
+        <!-- Heading for the Registration Page -->
         <h1 class="secondary-heading heading-black uppercase">Whip up an account!</h1>
-
-        <!-- Registration Form Start -->
+        
+        <!-- Registration Form -->
         <div class="row">
             <form method="POST" action="" class="col s12">
-
+                
                 {{ form.hidden_tag() }}
-
-                <!-- Username Field -->
+                
+                <!-- Username Input Field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">person</i>
-                        {{ form.username.label }}
-                        {{ form.username(placeholder="Your veggie alias") }}
+                        {{ form.username(placeholder="Your veggie alias", id="username") }}
+                        <label for="username">Username <i class="fas fa-question-circle tooltipped" data-position="top"
+                            data-tooltip="3-15 characters, case sensitive"></i></label>
+                        <!-- Errors for Username -->
                         {% for error in form.username.errors %}
                             <span class="error-message">{{ error }}</span>
                         {% endfor %}
                     </div>
                 </div>
-
-                <!-- Password Field -->
+                
+                <!-- Password Input Field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
-                        {{ form.password.label }}
-                        {{ form.password(placeholder="Secret garden passphrase") }}
+                        {{ form.password(placeholder="Secret garden passphrase", id="password") }}
+                        <label for="password">Password <i class="fas fa-question-circle tooltipped" data-position="top"
+                            data-tooltip="Must be 3-15 characters and is case sensitive"></i></label>
+                        <!-- Errors for Password -->
                         {% for error in form.password.errors %}
-                            <span class="error-message">{{ error }}</span>
+                            <span class="text-red">{{ error }}</span>
                         {% endfor %}
                     </div>
                 </div>
-
-                <!-- Confirm Password Field -->
+                
+                <!-- Confirm Password Input Field -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
                         {{ form.confirm_password.label }}
                         {{ form.confirm_password(placeholder="Confirm your garden passphrase") }}
+                        <!-- Errors for Confirm Password -->
                         {% for error in form.confirm_password.errors %}
-                            <span class="error-message">{{ error }}</span>
+                            <span class="text-red">{{ error }}</span>
                         {% endfor %}
                     </div>
                 </div>
-
-                <!-- Displaying Error Messages -->
+                
+                <!-- Flash Messages for Additional Errors or Notifications -->
                 <div class="row center-align">
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             {% for message in messages %}
-                                <p class="error-message">
+                                <p class="text-red">
                                     {{ message }}
                                 </p>
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
                 </div>
-
-                <!-- Register Button -->
+                
+                <!-- Submit Button for Registration Form -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        {{ form.submit(class="btn btn-form btn-main z-depth-3 uppercase") }}
+                        {{ form.submit(class="btn btn-form btn-main btn-coral z-depth-3 uppercase") }}
                     </div>
                 </div>
-
-                <!-- Login Prompt -->
+                
+                <!-- Link to Login Page for Existing Users -->
                 <div class="row center-align">
                     <div class="col s12">
                         <small>

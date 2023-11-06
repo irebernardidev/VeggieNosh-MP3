@@ -11,7 +11,6 @@
                 src="{{ url_for('static', filename='images/logo.png') }}"
                 class="logo-login-register hide-on-med-and-down"
                 alt="Veggie Cookbook Logo"
-                lazyload="on"
             />
         </a>
 
@@ -53,7 +52,7 @@
                     {% with messages = get_flashed_messages() %} 
                         {% if messages %} 
                             {% for message in messages %}
-                                <p class="error-message">
+                                <p class="text-red">
                                     {{ message }}
                                 </p>
                             {% endfor %}
@@ -64,7 +63,7 @@
                 <!-- Login Button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        {{ form.submit(class="btn btn-form btn-main z-depth-3 uppercase") }}
+                        {{ form.submit(class="btn btn-form btn-main btn-coral z-depth-3 uppercase") }}
                     </div>
                 </div>
 
