@@ -2,46 +2,61 @@
 
 {% block content %}
 
-<!-- Banner Image -->
+
 <div class="search-img-container">
-    <img src="{{ url_for('static', filename='images/search.jpg') }}" class="img-search" alt="Vegan Dish Picture">
+    
+    <img src="{{ url_for('static', filename='images/search.jpg') }}" class="img-search" alt="Vegan Dish Inspiration">
     <div>
-        <h1 class="search-img-title text-white">Discover Vegan Delights</h1>   
+        <!-- Title for Recipe Discovery -->
+        <h1 class="search-img-title text-white">Explore Plant-Based Wonders</h1>   
     </div>
 </div>
 
-<!-- Search Form -->
+<!-- Recipe Search Form -->
 <div class="search-container">
+    <!-- Form for searching vegan recipes -->
     <form action="{{ url_for('search', query=query, current_page=current_page) }}" class="search-form">
-        <input type="text" class="search-input" id="query" name="query" placeholder="Find vegan recipes...">
+        <!-- Input placeholder for vegan recipe discovery -->
+        <input type="text" class="search-input" id="query" name="query" placeholder="Search plant-based recipes...">
+        <!-- Icon Button for Search -->
         <button class="search-button">
             <i class="fas fa-search search-icon"></i>
         </button>
     </form>
 </div>
 
-<!-- Search Results -->
+<!-- Search Results Information -->
 <div class="search-results">
-    <!-- Search Results Count -->
     {% if query %}
-        <!-- 0 Results -->
         {% if number_of_recipes_found == 0 %}
-            <h2 class="sub-heading">No recipes found for "<span class="highlight">{{ query }}</span>"</h2>
-            <p>Try searching for a dish, ingredient, or cuisine type.</p>
+            <!-- No Results Found Message -->
+            <h2 class="sub-heading">Oh kale no! No recipes found for "<span class="text-red">{{ query }}</span>"</h2>
+            <p>Try sowing a different seed: search for categories like 'desserts' or 'salads', or check your spelling.</p>
+            <!-- Link to Browse All Recipes -->
             <div class="margin-top-med">
-                <a href="{{ url_for('all_recipes')}}" class="btn btn-primary" id="btn-back-to-all">View All Recipes</a>
+                <a href="{{ url_for('all_recipes') }}"
+                   class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
+                   id="btn-home">
+                   Browse All Veggie Recipes
+                </a>
             </div>
-        <!-- 1 Result -->
         {% elif number_of_recipes_found == 1 %}
-            <h2 class="sub-heading">One tasty match for "<span class="highlight">{{ query }}</span>"</h2>
-        <!-- Multiple Results -->
+            <!-- Single Result Found Message -->
+            <h2 class="sub-heading">We found one scrumptious recipe for "<span class="text-red">{{ query }}</span>"</h2>
         {% else %}
-            <h2 class="sub-heading">{{ number_of_recipes_found }} delicious results for "<span class="highlight">{{ query }}</span>"</h2>
+            <!-- Multiple Results Found Message -->
+            <h2 class="sub-heading">We've harvested <span class="text-red">{{ number_of_recipes_found }}</span> recipes for "<span class="text-red">{{ query }}</span>"</h2>
         {% endif %} 
     {% else %}
-        <h2 class="sub-heading">Enter keywords to search for vegan recipes.</h2>
+        <!-- No Search Query Entered Message -->
+        <h2 class="sub-heading">Type something to discover the flavors of kindness.</h2>
+        <!-- Link to Browse All Recipes -->
         <div class="margin-top-med">
-            <a href="{{ url_for('all_recipes')}}" class="btn btn-primary" id="btn-back-to-all">Browse Recipes</a>
+            <a href="{{ url_for('all_recipes') }}"
+               class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
+               id="btn-home">
+               Browse All Veggie Recipes
+            </a>
         </div>
     {% endif %}
 </div>
@@ -49,13 +64,15 @@
 <!-- Recipe Cards Container -->
 <div class="container-recipes">
     <div class="row margin-top-med">
+        <!-- Recipe Cards Loop -->
         {% for recipe in results %} 
             {% include "includes/recipecards.html" %} 
         {% endfor %}
     </div>
 
-    <!-- Pagination -->
+    <!-- Pagination for Recipe Search Results -->
     <ul class="pagination center-align margin-bottom-large">
+        <!-- Pagination Links -->
         {% for page_num in results_pages %} 
             {% if page_num == current_page %}
                 <li class="active"><a>{{ page_num }}</a></li>
