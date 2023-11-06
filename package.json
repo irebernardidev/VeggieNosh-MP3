@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/irebernardidev/VeggieNosh-MP3/issues"
   },
-  "homepage": "https://github.com/irebernardidev/VeggieNosh-MP3#readme"
+  "homepage": "https://github.com/irebernardidev/VeggieNosh-MP3#readme",
+  "dependencies": {
+    "sharer.js": "^0.5.1"
+  }
 }
