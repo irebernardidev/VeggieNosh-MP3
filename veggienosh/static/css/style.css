@@ -152,22 +152,18 @@ nav {
     position: fixed;
     top: 0px;
     z-index: 100;
-    background-color: var(--darkwhite);
+    background-color:var(--coral);
     font-family: var(--primaryfont);
 }
 
-nav img {
-    height: 5.5rem;
-}
-
 nav .brand-logo{
-    height: 100%;
+    height: 110%;
     display: flex;
     align-items: center;
 }
 
 nav ul a {
-    color: var(--lightblack);
+    color: var(--darkwhite);
     padding: 0 2rem;
     font-family: var(--secondaryfont);
     margin-right: 5px;
@@ -177,11 +173,7 @@ nav ul a {
 .navbar-icon {
     margin-right: 0.8rem;
     font-size: 1.5rem;
-    color: var(--lightblack);
-}
-
-.brand-logo {
-    color: var(--darkgrey);
+    color: var(--darkwhite);
 }
 
 .small-nav-icon{
@@ -197,7 +189,7 @@ nav ul a {
 
 /* === FOOTER STYLES === */
 .footer-container {
-    background-color: var(--darkwhite);
+    background-color: var(--coral);
     padding-bottom: 0.5rem;
     color: var(--on-background);
     -webkit-box-shadow: 0px -5px 10px -6px var(--lightblack);
@@ -207,7 +199,7 @@ nav ul a {
 
 .media-icons {
     font-size: 25px;
-    color: var(--black);
+    color: var(--darkwhite);
     margin-bottom: 5px;
     padding: 3px;
     font-weight: 300;
@@ -648,8 +640,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]),
     .home-container {
         width: 90%;
     }
-    .btn-main,
-    .btn-main:link,
     .btn-main:visited {
         padding: .5rem 1.7rem;
     }
