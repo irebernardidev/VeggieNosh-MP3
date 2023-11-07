@@ -127,35 +127,27 @@
                     </div>
                 </div>
 
-                <!-- Social Media Share and Print Options -->
-                <button type="button" class="btn btn-sm btn-rec-secondary me-1 me-sm-2 dropdown-toggle" 
-                        id="shareDropdown" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-share-alt"></i> Share
+                <!-- Dropdown Trigger -->
+                <button type="button" class="btn btn-main dropdown-trigger" 
+                data-target="dropdown1">
+                <i class="fas fa-share-alt"></i> Share
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="shareDropdown">
-                    <!-- WhatsApp Share -->
-                    <li>
-                        <a class="nav-link dropdown-item" role="button" data-sharer="whatsapp" 
-                            data-title="Checkout this awesome recipe!" 
-                            data-url="https://veggienosh-mp3.herokuapp.com/single_recipe_info/{{ recipe_id }}">
-                            <i class="fab fa-whatsapp text-success"></i> 
-                            Share to Whatsapp
-                        </a>
-                    </li>
-                    <!-- Facebook Share -->
-                    <li>
-                        <a class="nav-link dropdown-item" role="button" data-sharer="facebook" 
-                            data-hashtag="AwesomeRecipe" 
-                            data-url="https://veggienosh-mp3.herokuapp.com/single_recipe_info/{{ recipe_id }}">
-                            <i class="fab fa-facebook-square text-primary"></i> 
-                            Share to Facebook
-                        </a>
-                    </li>
+
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content">
+                <li><a href="#!" data-sharer="whatsapp" data-title="Checkout this awesome recipe!"
+                 data-url="https://veggienosh-mp3.herokuapp.com/single_recipe_info/{{ recipe_id }}">
+                 <i class="fab fa-whatsapp"></i>Share to Whatsapp</a></li>
+                <li><a href="#!" data-sharer="facebook" data-hashtag="AwesomeRecipe"
+                 data-url="https://veggienosh-mp3.herokuapp.com/single_recipe_info/{{ recipe_id }}">
+                 <i class="fab fa-facebook"></i>Share to Facebook</a></li>
                 </ul>
+
                 <!-- Print button -->
-                <button type="button" class="btn btn-sm btn-rec-secondary me-1 me-sm-2" onClick="window.print()">
-                    <i class="fas fa-print"></i> Print
+                <button type="button" class="btn btn-sm btn-main me-1 me-sm-2" onClick="window.print()">
+                <i class="fas fa-print"></i> Print
                 </button>
+
             </div>
         </div>
 
