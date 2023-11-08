@@ -15,7 +15,7 @@
 <!-- Recipe Search Form -->
 <div class="search-container">
     <!-- Form for searching vegan recipes -->
-    <form action="{{ url_for('search', query=query, current_page=current_page) }}" class="search-form">
+    <form action="{{ url_for('search') }}" class="search-form">
         <!-- Input placeholder for vegan recipe discovery -->
         <input type="text" class="search-input" id="query" name="query" placeholder="Search plant-based recipes...">
         <!-- Icon Button for Search -->
