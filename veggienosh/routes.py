@@ -350,30 +350,36 @@ def account_settings(username):
     return render_template('account_settings.html',
                            username=username, title='veggie Chef Settings')
 
-# Change Username Route
-@app.route("/change_username/<username>", methods=['GET', 'POST'])
-def change_username(username):
+@app.route("/change_username", methods=['GET', 'POST'])  # Removed <username> to prevent confusion
+def change_username():
+    # Redirect user if they're not logged in
     if 'username' not in session:
         flash("You need to be in the Veggienosh kitchen to update your chef's name!")
+        return redirect(url_for('login'))
+
     users = users_coll
-    form = ChangeUsernameForm()
+    current_username = session['username']
+    form = ChangeUsernameForm(current_username=current_username)
+
     if form.validate_on_submit():
-        registered_user = users.find_one({'username': request.form['new_username']})
-        if registered_user:
+        new_username = request.form['new_username']
+
+        # Check if the new username already exists, case-insensitive search
+        registered_user = users.find_one({'username': {"$regex": f"^{new_username}$", "$options": "i"}})
+        
+        if registered_user and registered_user['username'] != current_username:
             flash('Chef name already taken. Choose a different one.')
-            return redirect(url_for('change_username', username=session["username"]))
         else:
+            # Update the database with the new username
             users.update_one(
-                {"username": username},
-                {"$set": {"username": request.form["new_username"]}})
-            flash(
-                "Chef's name plate updated! "
-                "Next time, use your new name to enter the Veggienosh kitchen.")
-            session.pop("username", None)
+                {"username": current_username},
+                {"$set": {"username": new_username}})
+            flash("Chef's name plate updated! Next time, use your new name to enter the Veggienosh kitchen.")
+            session['username'] = new_username  # Update the session with the new username
             return redirect(url_for("login"))
 
     return render_template(
-        'change_username.html', username=session["username"], form=form, title='Change Username')
+        'change_username.html', username=current_username, form=form, title='Change Username')
 
 # Change Password Route
 @app.route("/change_password/<username>", methods=['GET', 'POST'])

@@ -18,25 +18,26 @@ class RegisterForm(FlaskForm):
         validators=[
             DataRequired(),
             Length(min=3, max=15),
-            Regexp('^[\S]+$', message='No whitespace allowed')  # Password must not contain whitespace
+            Regexp('^[\S]+$', message='No whitespace allowed'),  # Password must not contain whitespace
+            EqualTo('confirm_password', message='Passwords must match.')  # Ensure confirmation matches the password
         ]
     )
 
     confirm_password = PasswordField(
         'Confirm Password',
         validators=[
-            DataRequired(),
-            EqualTo('password')  # Ensure confirmation matches the password
+            DataRequired()
         ]
     )
 
     submit = SubmitField('Register')
 
-    
     # Custom validator for the password field
     def validate_password(self, field):
+        if self.username.data.lower() == field.data.lower():
+            raise ValidationError("Password cannot be the same as your username.")
         if self.username.data and field.data.lower().startswith(self.username.data.lower()):
-            raise ValidationError("Password cannot start with username")
+            raise ValidationError("Password cannot start with username.")
 
 # Form for user login
 class LoginForm(FlaskForm):
@@ -74,8 +75,8 @@ class ChangeUsernameForm(FlaskForm):
 
     # Custom validator for the new username field
     def validate_new_username(self, field):
-        if self.current_username.data and self.current_username.data.lower() == field.data.lower():
-            raise ValidationError('New username cannot match current username')
+        if self.current_username.data.lower() == field.data.lower():
+            raise ValidationError('New username cannot match current username.')
 
 # Form to change the current password
 class ChangePasswordForm(FlaskForm):
@@ -91,7 +92,9 @@ class ChangePasswordForm(FlaskForm):
         'New Password',
         validators=[
             DataRequired(),
-            Length(min=3, max=15)
+            Length(min=3, max=15),
+            Regexp('^[\S]+$', message='No whitespace allowed'),  # New password must not contain whitespace
+            EqualTo('confirm_new_password', message='Passwords must match.')  # Ensure confirmation matches the new password
         ]
     )
 
@@ -104,6 +107,11 @@ class ChangePasswordForm(FlaskForm):
     )
 
     submit = SubmitField('Change Password')
+
+    # Custom validator for the new password field
+    def validate_new_password(self, field):
+        if self.old_password.data.lower() == field.data.lower():
+            raise ValidationError("New password cannot be the same as the current password in any case.")
 
 # Form for adding a new recipe
 class Add_RecipeForm(FlaskForm):
@@ -157,4 +165,3 @@ class Add_RecipeForm(FlaskForm):
     )
 
     submit = SubmitField('Add Recipe')
-
