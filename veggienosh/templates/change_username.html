@@ -68,8 +68,8 @@
                 </div>
                 
                 <!-- Cancel and Submit Buttons -->
-                <div>
-                <div class="col s6 right-align margin-bottom-large">
+                <div class="row">
+                <div class="col s12 right-align margin-bottom-large">
                     <a
                         href="{{ url_for('account_settings', username=session.username) }}"
                         class="btn z-depth-2 btn-change btn-form btn-secondary waves-effect waves-light uppercase"
@@ -78,7 +78,7 @@
                         Retreat!
                     </a>
                 </div>
-                <div class="col s6 left-align margin-bottom-large">
+                <div class="col s12 right-align margin-bottom-large">
                     {{ form.submit(class="btn z-depth-3 btn-change btn-form btn-coral-2 uppercase") }}
                 </div>
             </div>
