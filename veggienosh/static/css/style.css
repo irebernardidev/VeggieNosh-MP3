@@ -239,8 +239,7 @@ nav ul a {
 /* Override Materialize label color */
 .input-field label {
 	color: var(--black);
-	font-size: 1.3rem;
-	
+	font-size: 1.3rem;	
 }
 
 input::placeholder {
