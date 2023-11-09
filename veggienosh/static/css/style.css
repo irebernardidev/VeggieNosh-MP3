@@ -7,7 +7,6 @@
 :root {
 	--white: #ffffff;
 	--mediumwhite: #fffafa;
-	--darkwhite: rgba(245, 245, 245, 0.953);
 	--black: #070707;
 	--lightblack: #2e2e2e;
 	--darkgrey: #515151;
@@ -158,7 +157,7 @@ nav .brand-logo {
 }
 
 nav ul a {
-	color: var(--darkwhite);
+	color: var(--white);
 	padding: 0 2rem;
 	font-family: var(--secondaryfont);
 	margin-right: 5px;
@@ -168,7 +167,7 @@ nav ul a {
 .navbar-icon {
 	margin-right: 0.8rem;
 	font-size: 1.5rem;
-	color: var(--darkwhite);
+	color: var(--white);
 }
 
 .small-nav-icon {
@@ -187,7 +186,7 @@ nav ul a {
 .footer-container {
 	background-color: var(--coral);
 	padding-bottom: 0.5rem;
-	color: var(--on-background);
+	color: var(--lightblack);
 	/* Ensure --on-background is defined or this will not work */
 	-webkit-box-shadow: 0px -5px 10px -6px var(--lightblack);
 	-moz-box-shadow: 0px -5px 10px -6px var(--lightblack);
@@ -196,7 +195,7 @@ nav ul a {
 
 .media-icons {
 	font-size: 25px;
-	color: var(--darkwhite);
+	color: var(--white);
 	margin-bottom: 5px;
 	padding: 3px;
 	font-weight: 300;
@@ -594,7 +593,7 @@ input::placeholder {
 /* Secondary button styles */
 .btn-secondary {
 	color: var(--black);
-	background-color: var(--darkwhite);
+	background-color: var(--mediumwhite);
 }
 
 /* Secondary button hover, active, and focus states */
@@ -631,6 +630,17 @@ input::placeholder {
 .btn-green {
 	background-color: var(--green);
 	margin: 5px;
+}
+
+.btn-coral-2 {
+    background-color: var(--coral);
+    text-shadow: 0 1px 3px var(--lightblack);
+}
+
+.btn-coral-2:hover,
+.btn-coral-2:active,
+.btn-coral-2:focus {
+    background-color: var(--lightcoral);
 }
 
 /* Green button hover, active, and focus states */
