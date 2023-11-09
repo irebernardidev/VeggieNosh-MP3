@@ -135,7 +135,7 @@ main {
 }
 
 .heading-black {
-	color: var(--lightblack);
+	color: var(--lightlack);
 	margin: 2rem;
 	padding-bottom: 1rem;
 	text-shadow: 1px 1px 1px var(--lightgrey);
@@ -220,7 +220,7 @@ nav ul a {
 }
 
 .logo-login-register {
-	width: 10rem;
+	width: 14rem;
 }
 
 .error-message {
@@ -239,8 +239,14 @@ nav ul a {
 /* Override Materialize label color */
 .input-field label {
 	color: var(--black);
+	font-size: 1.3rem;
+	
 }
 
+input::placeholder {
+	color: var(--darkgrey); 
+	opacity: 0.6; 
+}
 .dropdown-content li>a,
 .dropdown-content li>span {
 	color: var(--black);
@@ -285,6 +291,12 @@ nav ul a {
 }
 
 /* Recipe details styles */
+.divider-container {
+    display: flex;
+    justify-content: center;
+    margin: 3.5rem auto;
+}
+
 .divider-yellow {
 	background-color: var(--darkyellow);
 	margin-top: -2rem;
@@ -626,7 +638,7 @@ nav ul a {
 .btn-green:hover,
 .btn-green:active,
 .btn-green:focus {
-	background-color: var(--lighgreen);
+	background-color: var(--lightgreen);
 }
 
 /* Coral button styles */
