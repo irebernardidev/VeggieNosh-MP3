@@ -1,4 +1,4 @@
-# VEggieNosh
+# VeggieNosh
 ![VeggieNosh](veggienosh/static/images/readme/amiresponsive.png)
 Find the final project here: [VeggieNosh]()
 

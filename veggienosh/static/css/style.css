@@ -600,7 +600,7 @@ input::placeholder {
 .btn-secondary:hover,
 .btn-secondary:focus,
 .btn-secondary:active {
-	background-color: var(--midiumwhite);
+	background-color: var(--mediumwhite);
 }
 
 /* Home button styles */

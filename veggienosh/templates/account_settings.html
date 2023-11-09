@@ -36,19 +36,19 @@
         <div class="row center-align margin-bottom-large">
 
             <!-- Change Username Option -->
-            <div class="col s12 m4">
+            <div class="col s12 offset-m3 m6 offset-xl4 xl4">
                 <a href="{{ url_for('change_username', username=session.username) }}"
                    class="waves-effect waves-light text-shadow-small btn btn-golden uppercase z-depth-3 btn-main btn-form bold">Spice up Username</a>
             </div>
 
             <!-- Change Password Option -->
-            <div class="col s12 m4">
+            <div class="col s12 offset-m3 m6 offset-xl4 xl4">
                 <a href="{{ url_for('change_password', username=session.username) }}"
                    class="waves-effect waves-yellow text-shadow-small btn btn-green uppercase z-depth-3 btn-main btn-form bold">Refresh Password</a>
             </div>
 
             <!-- Delete Account Option -->
-            <div class="col s12 m4">
+            <div class="col s12 offset-m3 m6 offset-xl4 xl4">
                 <a href="#delete-modal-account"
                    class="modal-trigger waves-effect waves-light text-shadow-small btn btn-red uppercase z-depth-3 btn-main btn-form bold">Shut Kitchen Down</a>
             </div>
@@ -66,17 +66,17 @@
             <h5 class="text-red bold">Close Veggienosh Kitchen?</h5>
             <div class="divider"></div>
             <p class="text-red">
-                <i class="fas fa-exclamation-circle margin-top-small"></i> Deleting your account will remove all your recipes from Veggienosh.
+                <i class="fas fa-exclamation-circle margin-top-small" aria-hidden="true"></i> Deleting your account will remove all your recipes from Veggienosh.
             </p>
             
             <!-- Modal Warning Message -->
-            <h6 class="margin-top-small">Are you certain you want to close down your Veggienosh Kitchen?</h6>
+            <h6 class="margin-top-small small-text-delete">Are you certain you want to close down your Veggienosh Kitchen?</h6>
 
             <!-- Account Deletion Form -->
             <form action="{{ url_for('delete_account', username=session.username) }}" method="POST">
                 <div class="row center-align margin-top-small">
                     <div class="input-field col s12">
-                        <i class="material-icons prefix">lock</i>
+                        <i class="material-icons prefix" aria-hidden="true">lock</i>
                         <input
                             placeholder="Enter secret greens password"
                             id="confirm_password_to_delete"
@@ -94,7 +94,7 @@
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             {% for message in messages %}
-                                <p class="flash-error margin-top-small">{{ message }}</p>
+                                <p class="text-red">{{ message }}</p>
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
