@@ -269,6 +269,7 @@ def delete_recipe(recipe_id):
         # User is not the author or recipe does not exist
         flash("You can only delete your own recipes!")
         return redirect(url_for('home'))
+    
 
 # Login Route
 @app.route("/login", methods=['GET', 'POST'])

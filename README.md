@@ -1,6 +1,8 @@
 # VeggieNosh: Vegan Recipe-Sharing Web Application
 
-Dedicated to the vibrant world of vegan cuisine, VeggieNosh is a contemporary recipe-sharing platform drawing inspiration from esteemed sites like [The Vegan Society](https://www.vegansociety.com/) and [Rainbow Plant Life](https://rainbowplantlife.com/). It provides users with a user-friendly interface to craft, share, and archive their cherished vegan recipes.
+[!Am I Responsive](veggienosh/static/images/readme/amiresponsive.png)
+
+Dedicated to the vibrant world of vegan cuisine, VeggieNosh is a contemporary recipe-sharing platform drawing inspiration from esteemed sites like [Vegan Recipe Club](https://www.veganrecipeclub.org.uk/) and [Rainbow Plant Life](https://rainbowplantlife.com/). It provides users with a user-friendly interface to craft, share, and archive their cherished vegan recipes.
 
 > **Note**: This endeavor is an integral component of the Code Institute’s Milestone Project 3, as part of their Diploma in Full Stack Software Development. It proficiently demonstrates the implementation of HTML, CSS, JavaScript, Python+Flask, MongoDB, and other technologies, meeting the essential criteria for CRUD (Create, Read, Update, and Delete) operations.
 
@@ -8,20 +10,56 @@ Dedicated to the vibrant world of vegan cuisine, VeggieNosh is a contemporary re
 
 ---
 
-## Table of Contents
-- [UX Development Planes](#ux-development-planes)
-  * [Strategy Plane](#strategy-plane)
-  * [Scope Plane](#scope-plane)
-  * [Structure Plane](#structure-plane)
-  * [Skeleton Plane](#skeleton-plane)
-  * [Surface Plane](#surface-plane)
-- [Features](#features)
-- [Issues and Bugs](#issues-and-bugs)
-- [Testing](#testing)
-- [Technology Used](#technology-used)
-- [Deployment](#deployment)
-- [Credits](#credits)
-- [Acknowledgements](#acknowledgements)
+#### 1. [UX Development Planes](#ux-development-planes)
+
+- [A. Strategy Plane](#a-strategy-plane)
+  - [User Stories](#user-stories)
+  - [Online Research](#online-research)
+  - [Project Goals, User Goals, and Developer Goals](#project-goals-user-goals-and-developer-goals)
+- [B. Structure Plane](#c-structure-plane)
+- [C. Skeleton Plane](#d-skeleton-plane)
+- [D. Surface Plane](#e-surface-plane)
+  - [Color Scheme](#color-scheme)
+  - [Typography](#typography)
+  - [Imagery](#imagery)
+  - [Database Structure](#database-structure)
+
+#### 2. [Features](#features)
+
+- [Existing Features](#existing-features)
+  - [General Design Features](#general-design-features)
+  - [Page Design Features](#page-design-features)
+- [Features to be Implemented in The Future](#features-to-be-implemented-in-the-future)
+
+#### 3. [Issues and Bugs](#issues-and-bugs)
+
+- [Solved Issues](#solved-issues)
+- [Known Issues & Unsolved Bugs](#known-issues--unsolved-bugs)
+
+#### 4. [Testing](#testing)
+
+- [Go to TESTING.md](TESTING.md)
+
+#### 5. [Technology Used](#technology-used)
+
+- [Main Languages](#main-languages)
+- [Libraries and Frameworks](#libraries-and-frameworks)
+- [Database Management](#database-management)
+- [Tools and Programs](#tools-and-programs)
+
+#### 6. [Deployment](#deployment)
+
+- [Deployment to Heroku](#deployment-to-heroku)
+- [How To Use This Project](#how-to-use-this-project)
+
+#### 7. [Credits](#credits)
+
+- [Code](#code)
+- [Contents](#contents)
+- [Images](#images)
+
+#### 8. [Acknowledgements](#acknowledgements)
+
 
 ---
 
@@ -53,7 +91,7 @@ Dedicated to the vibrant world of vegan cuisine, VeggieNosh is a contemporary re
 
 #### Online Research
 For UI and UX inspiration, research included platforms like:
-- [The Vegan Society](https://www.vegansociety.com/) 
+- [Vegan Recipe Club](https://www.veganrecipeclub.org.uk/) 
 - [Rainbow Plant Life](https://rainbowplantlife.com/)
 - various projects on [Dribbble](https://dribbble.com/)
 - Projects by Code Institute peers (from `peer-code-review` on Slack).
@@ -84,14 +122,6 @@ The site owner aims to:
 - Curate the platform's content and categories.
 - Maintain platform quality and adherence to rules.
 
-#### Strategy Table
-A thorough brainstorming session was conducted based on the user stories and goals. Opportunities were evaluated based on importance (driven by goals and user needs) and viability (considering time and resources).
-
-_(Continue with other sections like Scope Plane, Structure Plane, etc. following a similar structure.)_
-
-### B. Scope Plane
-
-Based on the mapping in the Strategy Plane, a scope was defined for the site with room for future improvements.
 
 ## Functional Requirements
 
@@ -142,7 +172,6 @@ Wireframes/ mock-ups were created using Figma to design the navigation and inter
 
 ## Color Scheme
 
-The overall theme of the site was orange and green[...] Using [Coolors](https://coolors.co/)[...]
-
+The overall theme of the site was 
 
 
