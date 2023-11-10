@@ -247,7 +247,7 @@ nav ul a {
 }
 
 input::placeholder {
-	color: var(--darkgrey); 
+	color: var(--lightgrey); 
 	opacity: 0.8; 
 }
 .dropdown-content li>a,
