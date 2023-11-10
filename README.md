@@ -14,9 +14,20 @@ Find the final project here: [VeggieNosh]()
   * [Wireframes](#wireframes)
   * [Features](#features)
     * [The Home Page](#the-home-page)
-    * [](#)
-    * [](#)
-    * [](#)
+    * [The Navigation Bar Functionality](#the-navigation-bar-functionality)
+    * [The All Recipe Page](#the-all-recipe-page)
+    * [The Single Recipe Page](#the-single-recipe-page)
+    * [The Registration Page](#the-registration-page)
+    * [The Login Page](#the-login-page)
+    * [The Logout Page](#the-logout-page)
+    * [The Account Settings Page](#the-account-settings-page)
+    * [The Change Username Page](#the-change-username-page)
+    * [The Change Password Page](#the-change-password-page)
+    * [The Delete Account Page](#the-single-recipe-page)
+    * [The User Recipe Page(My Recipe Page](#the-user-recipe-page)
+    * [The Add Recipe Page](#the-add-recipe-page)
+    * [The Edit Recipe Page](#the-edit-recipe-page)
+    * [The Delete Recipe Page](#the-delete-recipe-page)
     * [The 404 Error Page](#the-404-error-page)
     * [The 500 Error Page](#the-500-error-page)
     * [Features to Implement in the Future](#features-to-implement-in-the-future)
@@ -153,7 +164,7 @@ At the forefront of VeggieNosh, the home page welcomes visitors with a bright, c
 
 ![Home Page](veggienosh/static/images/readme/home_page.png)
 
-### Navigation Bar Functionality
+### The Navigation Bar Functionality
 
 The navigation bar is designed for constant presence at the top of the page, ensuring users can effortlessly access different sections of VeggieNosh at any time. 
 Adapting to various screen sizes, the navigation collapses into a hamburger icon on tablets and mobile devices, revealing a slide-out menu upon interaction for a clean, uncluttered experience.
@@ -171,14 +182,14 @@ The 'All Recipes' page of VeggieNosh elegantly presents a collection of recipe c
 
 ![All Recipes Page](veggienosh/static/images/readme/all_recipes.png)
 
-### Single Recipe Page
+### The Single Recipe Page
 Upon selecting a recipe card, the user is directed to the detailed Single Recipe page. This page comprehensively presents all pertinent details of the chosen recipe, including its title, a full description, the category and dish type, dietary categorization, serving size, total cooking time, the author's name, a list of ingredients, step-by-step directions, and a visual representation through a recipe image. In the absence of a user-provided image, a default placeholder image is displayed.
 
 For recipe authors, the page offers additional functionality with 'Edit' and 'Delete' options, allowing for straightforward navigation to the respective editing and deletion functions for their recipes.
 
 ![Single Recipe Page](veggienosh/static/images/readme/single_recipe.png)
 
-### Registration Page
+### The Registration Page
 The registration page on VeggieNosh is meticulously crafted to ensure user accounts are created with robust security measures. Users are required to provide a "username," "password," and a subsequent "confirm password" entry. To safeguard accounts, usernames must be distinct and are verified for uniqueness against existing ones within a character range of 3-15. Passwords follow the same character length requirements and, for security reasons, cannot be identical to the username.
 
 Additionally, the system is sensitive to accidental white spaces within entries — an error message will alert the user if any are detected to prevent login complications. Passwords are securely hashed to protect user information.
@@ -187,7 +198,39 @@ If the registration criteria are not met, users are promptly notified through cl
 
 ![Regiatration Page](veggienosh/static/images/readme/register_form.png)
 
-### Login Page
+### The Login Page
+The login page of VeggieNosh presents a streamlined form with fields for the "username" and "password," facilitating a smooth sign-in process for returning users. Authentication occurs through a verification check where the entered credentials are matched against secured records in the database. Upon successful login, users are seamlessly redirected to the home page with a confirmation message of successful access. Should there be any discrepancies in the input, users are promptly alerted with clear notifications to rectify their login details.
+
+For enhanced security and to prevent login errors, the form is designed to disallow any accidental white spaces in the username and password fields. This measure ensures that user credentials are entered correctly and maintains the integrity of the login process.
+
+Additionally, those new to VeggieNosh will find a convenient link to the registration page below the form, offering an easy transition for users looking to create an account.
+
+![Login Page](veggienosh/static/images/readme/login_form.png)
+
+### The Logout Page
+For logged-in users, selecting the "Exit Kitchen" button effectively ends their current session. This action will redirect them to the homepage, where they are greeted with a friendly "See you soon, Veggie Chef!" message.
+
+![Logout Page](veggienosh/static/images/readme/logout_page.png)
+
+### The Account Settings Page
+Within the Account Settings page, users are greeted by their personalized avatar, cleverly generated based on their initials, adding a touch of customization. This is accompanied by a welcoming message and easy access to key account management features. The page provides three intuitive buttons for essential account updates:
+
+- "Spice Up Username" to modify their display name,
+- "Refresh Password" to ensure ongoing account security,
+- "Shut Kitchen Down" for the option to conclusively deactivate their presence on the site.
+
+These controls are intuitively laid out, guiding users smoothly to the corresponding actions with ease and professionalism.
+
+![Account Settings Page](veggienosh/static/images/readme/account_settings.png)
+
+### The Change Username Page
+## Change Username Functionality
+
+The 'Spice Up Username' feature is designed to empower registered users with the ability to update their username while maintaining a high standard of security. The system performs a thorough check to ensure the new username is not already taken, including variations with different capitalizations to prevent impersonation or confusion. Your current username is conveniently displayed above the entry field for easy reference.
+
+Adjacent to the new username field, an informative question mark icon can be found. Hovering over this icon displays the username requirements, assisting users in choosing an acceptable new identifier. Following a successful username change, for enhanced security, users are redirected to the login page to sign in with their new username. Should a user decide against modifying their username, a 'Retreat' button is provided, offering a straightforward return to the Account Settings page without making any changes.
+
+![Change Username Page](veggienosh/static/images/readme/change_username.png)
 
 
 
