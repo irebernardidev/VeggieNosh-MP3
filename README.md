@@ -24,7 +24,7 @@ Find the final project here: [VeggieNosh]()
     * [The Change Username Page](#the-change-username-page)
     * [The Change Password Page](#the-change-password-page)
     * [The Delete Account Page](#the-single-recipe-page)
-    * [The User Recipe Page(My Recipe Page](#the-user-recipe-page)
+    * [The User Recipe Page(My Recipe Page)](#the-user-recipe-page)
     * [The Add Recipe Page](#the-add-recipe-page)
     * [The Edit Recipe Page](#the-edit-recipe-page)
     * [The Delete Recipe Page](#the-delete-recipe-page)
@@ -187,7 +187,11 @@ Upon selecting a recipe card, the user is directed to the detailed Single Recipe
 
 For recipe authors, the page offers additional functionality with 'Edit' and 'Delete' options, allowing for straightforward navigation to the respective editing and deletion functions for their recipes.
 
+Moreover, the Single Recipe page enhances user interaction by providing options to share the recipe on Facebook or WhatsApp, enabling users to easily disseminate their favorite dishes across social platforms. For those who prefer a tangible copy, a 'Print' button is prominently featured, allowing for the recipe to be printed and kept for offline use.
+
 ![Single Recipe Page](veggienosh/static/images/readme/single_recipe.png)
+
+![Share and Print](veggienosh/static/images/readme/share.png)
 
 ### The Registration Page
 The registration page on VeggieNosh is meticulously crafted to ensure user accounts are created with robust security measures. Users are required to provide a "username," "password," and a subsequent "confirm password" entry. To safeguard accounts, usernames must be distinct and are verified for uniqueness against existing ones within a character range of 3-15. Passwords follow the same character length requirements and, for security reasons, cannot be identical to the username.
@@ -232,7 +236,45 @@ Adjacent to the new username field, an informative question mark icon can be fou
 
 ![Change Username Page](veggienosh/static/images/readme/change_username.png)
 
+### The Change Password Page
+Users have the ability to update their password through a straightforward form, enhancing their account security. The form requires users to input their "Current Password" followed by the "New Password" and a "Confirm New Password" field for verification. To ensure security, both new password entries must be identical and within the length of 3 to 15 characters.
 
+For additional guidance, a hoverable question mark icon is available, detailing the password requirements. Upon successful submission of the form, the user will be navigated back to the account settings page, where a notification confirming the password update will be displayed. For those who wish to exit without making changes, a "Root Back" button is provided, which will also redirect them back to the account settings page.
+
+![Change Password Page](veggienosh/static/images/readme/change_username.png)
+
+### The Delete Account Page
+Upon selecting the "Shut Kitchen Down" option on the account settings page, a confirmation modal will appear, prompting the user to confirm their intention to delete their account. For security purposes, the user is required to enter their password to proceed. By confirming and clicking the "Close Kitchen" button, the user's account will be permanently removed from the "Users" database. Additionally, any recipes created by the user will be concurrently deleted from the "Recipes" collection. Should the user decide to retain their account, they may opt to click the "Back To Kitchen" button, which will close the modal without making any changes.
+
+![Delete Account Page](veggienosh/static/images/readme/delete_account.png)
+
+### The User Recipe Page(My Recipe Page)
+The "My Recipes" page is a dedicated space for registered users, offering an organized view of all their personal recipes. This feature also conveniently displays the total count of the user's recipes for easy reference. To facilitate the addition of new culinary creations, there is a prominently placed "Add New Veggie Recipe" button which leads users directly to the "Add Recipe" page. For a streamlined browsing experience, the recipes are displayed in a paginated format, showcasing 8 recipes per page. In the event that a user has not yet added any recipes, a friendly prompt encourages them to begin their culinary journey by creating their first recipe.
+
+![The User Recipe Page(My Recipe Page)](veggienosh/static/images/readme/my_recipes.png)
+
+### The Add Recipe Page
+For those with registered accounts, VeggieNosh provides a seamless recipe submission experience. Users can contribute new recipes via a submission form, which includes a set of validations to ensure comprehensive and quality entries. Mandatory fields are clearly marked, with 'Recipe category', 'Dish type', and 'Diet type' remaining optional. The 'Recipe Name' and 'Recipe Description' fields have a specified character limit to maintain consistency and readability.
+
+In the event a user does not supply an image URL for the recipe, a default placeholder image is utilized, maintaining a uniform appearance across the platform. A helpful tooltip guides users on uploading images to a free hosting service, like ImgBB, to facilitate image inclusion.
+
+Upon successful submission, the user is immediately taken to the detail page of their newly added recipe, confirming the addition. For added convenience, a 'Change My Mind' button is provided, offering a straightforward return to the home page without the need to navigate backward through the browser.
+
+![The Add Recipe Page](veggienosh/static/images/readme/add_recipe.png)
+
+### The Edit Recipe Page
+The Edit Recipe page is a feature designed for users who are logged in, enabling them to modify their recipe submissions. This option is exclusively available to the recipe's original author, underscored by the visibility of the "Edit Recipe" button solely on their recipes. To safeguard against unauthorized edits, security measures are in place to ensure only the author can alter the recipe details.
+
+The interface streamlines the editing process by pre-filling the form with the existing recipe information. Upon selecting the "Edit Recipe" button, any changes are immediately saved to the database, and the user is smoothly transitioned to the recipe's info page to review the updated content.
+
+For added convenience, a "Cancel" button is provided, allowing users to return to the home page without the need to navigate backward through their browser, thus enhancing the user experience with a simple alternative.
+
+![The Edit Recipe Page](veggienosh/static/images/readme/edit_recipe.png)
+
+### The Delete Recipe Page
+The recipe deletion feature is designed with authorship integrity in mind, ensuring that only the creator of a recipe has the authority to remove it. When visiting a Single Recipe Info page, the author can initiate the deletion process by clicking the "Delete Recipe" button, which triggers a confirmation modal. This modal serves as a safeguard, prompting the user to verify their intention to delete the recipe. Upon confirmation and clicking the "Delete" button within the modal, the recipe is permanently erased from the database and the author’s list of contributions in the "users" collection. For those who reconsider, a "Cancel" button is also available to close the modal without taking any action.
+
+![The Delete Recipe Page](veggienosh/static/images/readme/delete_recipe.png)
 
 
 ### The 404 Error Page
