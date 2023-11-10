@@ -241,9 +241,14 @@ nav ul a {
 	font-size: 1.3rem;	
 }
 
+#current_username {
+	color: var(--lightgrey);
+	font-weight: 500;
+}
+
 input::placeholder {
 	color: var(--darkgrey); 
-	opacity: 0.6; 
+	opacity: 0.8; 
 }
 .dropdown-content li>a,
 .dropdown-content li>span {
