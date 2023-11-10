@@ -1,5 +1,5 @@
 # VeggieNosh
-![VeggieNosh](veggienosh/static/images/readme/amiresponsive.png)
+![VeggieNosh](veggienosh/static/images/readme/am_i_responsive.png)
 Find the final project here: [VeggieNosh]()
 
 ## Table of Contents
@@ -41,7 +41,7 @@ Find the final project here: [VeggieNosh]()
 
 ### VeggieNosh: A Vegan Recipe-Sharing Platform
 
-**Dedicated to the vibrant world of vegan cuisine**, VeggieNosh is a modern recipe-sharing platform inspired by esteemed websites such as [Vegan Recipe Club](https://veganrecipeclub.org.uk) and [Rainbow Plant Life](https://www.rainbowplantlife.com). Our platform offers a **user-friendly interface** for crafting, sharing, and archiving beloved vegan recipes.
+**Dedicated to the vibrant world of vegan cuisine**, VeggieNosh is a modern recipe-sharing platform inspired by esteemed websites such as [Vegan Recipe Club](https://veganrecipeclub.org.uk) and [Rainbow Plant Life](https://www.rainbowplantlife.com). The platform offers a **user-friendly interface** for crafting, sharing, and archiving beloved vegan recipes.
 
 > _This project is a key part of the [Code Institute's Milestone Project 3](https://codeinstitute.net), contributing to the Diploma in Full Stack Software Development. It showcases a proficient implementation of **HTML, CSS, JavaScript, Python+Flask, MongoDB**, and other technologies. VeggieNosh fulfills the essential criteria for **CRUD operations**, allowing users to create, read, update, and delete recipes with ease._
 
@@ -77,7 +77,7 @@ Find the final project here: [VeggieNosh]()
 </details>
 
 # Design
-The architect behind VeggieNosh aimed for a seamless fusion of user-friendliness and modern design principles. This vegan online cookbook is a testament to their commitment to providing an accessible, visually appealing platform where recipes are not only shared but showcased with elegance and clarity.
+VeggieNosh is designed to harmoniously blend user convenience with modern design principles. This online vegan cookbook exemplifies a commitment to creating an interface that is both visually appealing and easy to navigate. It's a platform where recipes are elegantly and clearly showcased.
 The following design elements were used in the website:
 
 - ## Technical Framework
@@ -106,14 +106,19 @@ Using the [Adobe Color](https://color.adobe.com/create/color-wheel) colour wheel
 
 • The choice of Open Sans as the primary font is deliberate, offering readability and a contemporary ambience, while Ubuntu lends a distinct personality to headings and buttons, enhancing the overall design language.
 
-![Typography]()
-![Typography]()
+![Typography](veggienosh/static/images/readme/typography1.png)
+![Typography](veggienosh/static/images/readme/typography2.png)
 
 - ## Imagery
 VeggieNosh website primarily relies on a text-based interface to create a distraction-free quiz environment. However, some key images and icons are used:
-  * Logo: 
+  * Logo: The VeggieNosh logo originated from [Hatchful](https://www.shopify.com/tools/logo-maker) and was later refined to enhance contrast, ensuring clear visibility across various platforms and display sizes. The final design showcases a stylized carrot set against a teal backdrop, with playful typography that echoes the vegan essence of the cookbook. This emblem is tailored to stand out and embody the freshness of the plant-based recipes featured on the site.
 
-  * Icons: [Font Awesome](https://fontawesome.com/) icons are used to visually communicate functions like social media links and volume control. They are displayed in the website's primary color for consistency.
+![Logo](veggienosh/static/images/readme/logo_design.png)
+
+  * Icons: To enhance user engagement and facilitate content discovery, icons have been integrated extensively throughout VeggieNosh. Their use not only captures attention but also aids in content navigation and scanning. Icons serve as intuitive visual cues that transcend linguistic limitations, offering a more inclusive experience for non-native English speakers.
+
+[Font Awesome](https://fontawesome.com/) is the primary source for the icons within the project, providing consistent and recognizable visuals for navigation bars, footers, forms, and recipe detail pages. In certain instances, [Materialize icons](https://materializecss.com/icons.html) have also been employed to complement the design.
+
 
   * [Favicon](https://www.favicon.cc/): A unique favicon is provided that is representative of the brand identity. It's visible in the browser tab for easy site identification.
 
@@ -126,26 +131,63 @@ Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://
 # Features
 ## Existing Features
 
-The website is comprised of a home page, a games page, a leaderboard page, a contact form page a 404 error page & a 500 error page.
+The website features a structured layout that includes a Home page, an All Recipes page, an Account Settings page, a Registration page, a Change Password page, a Change Username page, a Login page, a User Recipe page, a Single Recipe page, an Add Recipe page, a Search Recipe page, as well as dedicated 404 and 500 Error pages for navigational and server errors.
 
 All Pages on the website are responsive and have:
 - A [favicon](https://www.favicon.cc/) in the browser tab.
-![Favicon](documentation/features/browser-favicon.png)
 
-- The title of the site at the top of every page. This title also acts as a link back to the home page.
-![Ttle](documentation/features/title.png)
+![Favicon](veggienosh/static/images/readme/browser-favicon.png)
+
+- The Logo: The VeggieNosh logo is strategically positioned at the top of every page for consistent brand visibility. On desktop displays, the logo is placed at the top right, ensuring it's easily noticeable. For smaller screens, the logo is centered to maintain prominence. Clicking the logo from any page redirects users back to the home page, providing a convenient way to return to the start at any time.
+![Logo](veggienosh/static/images/readme/logo_design.png)
 
 - Social Media Icons:
-Appearing on every page, the icons are appropriate representations of the Social Media platforms, linking users to the various platforms. The icons appear in the centre of the footer.
-![Social media links](documentation/features/socials-icons.png)
+Appearing on every page, the icons are appropriate representations of the Social Media platforms, linking users to the various platforms. The icons appear in the centre of the footer.The footer also carries the copyright notice.
 
-- The background image is an essential aspect of the website's visual aesthetic. It contributes to the overall look and feel of the site, giving it a playful and engaging appearance that fits the trivia game theme.
-![Background Image](assets/images/yellow-question-mark.jpg)
+![Social media links](veggienosh/static/images/readme/socials_icons.png)
 
 ### The Home Page
 
-![Home Page](documentation/features/home-page.png)
+At the forefront of VeggieNosh, the home page welcomes visitors with a bright, cheerful banner highlighting an assortment of fresh vegetables, framing the site’s purpose in vibrant color. The logo, clear and central, pairs with an engaging tagline that beckons visitors to explore further. Below, the 'Star Veggie Picks' section artfully displays featured recipes, tempting the eye with their vivid imagery. The layout is crisp and user-centric, providing effortless navigation that complements the site’s professional and inviting atmosphere.
 
+
+![Home Page](veggienosh/static/images/readme/home_page.png)
+
+### Navigation Bar Functionality
+
+The navigation bar is designed for constant presence at the top of the page, ensuring users can effortlessly access different sections of VeggieNosh at any time. 
+Adapting to various screen sizes, the navigation collapses into a hamburger icon on tablets and mobile devices, revealing a slide-out menu upon interaction for a clean, uncluttered experience.
+
+Guest users will find the navigation bar includes essential links for seamless browsing:
+
+![Home Page Navbar for New Users](veggienosh/static/images/readme/home_page_nav1.png)
+
+Logged-in users benefit from an expanded set of options, improving their experience with personalized navigation:
+
+![Home Page Navbar for Current Users](veggienosh/static/images/readme/home_page_nav2.png)
+
+### The All Recipes Page
+The 'All Recipes' page of VeggieNosh elegantly presents a collection of recipe cards, organized chronologically from the oldest to the newest additions. Accompanying the page heading is a count of the total recipes available, enclosed within parentheses for easy reference. Each recipe card is interactive and serves as a gateway to a dedicated page, offering detailed information about the recipe. For a streamlined browsing experience, the page is paginated, displaying eight recipes per page for user convenience.
+
+![All Recipes Page](veggienosh/static/images/readme/all_recipes.png)
+
+### Single Recipe Page
+Upon selecting a recipe card, the user is directed to the detailed Single Recipe page. This page comprehensively presents all pertinent details of the chosen recipe, including its title, a full description, the category and dish type, dietary categorization, serving size, total cooking time, the author's name, a list of ingredients, step-by-step directions, and a visual representation through a recipe image. In the absence of a user-provided image, a default placeholder image is displayed.
+
+For recipe authors, the page offers additional functionality with 'Edit' and 'Delete' options, allowing for straightforward navigation to the respective editing and deletion functions for their recipes.
+
+![Single Recipe Page](veggienosh/static/images/readme/single_recipe.png)
+
+### Registration Page
+The registration page on VeggieNosh is meticulously crafted to ensure user accounts are created with robust security measures. Users are required to provide a "username," "password," and a subsequent "confirm password" entry. To safeguard accounts, usernames must be distinct and are verified for uniqueness against existing ones within a character range of 3-15. Passwords follow the same character length requirements and, for security reasons, cannot be identical to the username.
+
+Additionally, the system is sensitive to accidental white spaces within entries — an error message will alert the user if any are detected to prevent login complications. Passwords are securely hashed to protect user information.
+
+If the registration criteria are not met, users are promptly notified through clear error messages to adjust their input accordingly. Following a successful registration, the user is directed to the home page with a confirmation notice, and a link for existing users to log in is conveniently placed at the bottom of the form for easy access.
+
+![Regiatration Page](veggienosh/static/images/readme/register_form.png)
+
+### Login Page
 
 
 
