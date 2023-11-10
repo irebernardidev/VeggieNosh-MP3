@@ -28,8 +28,7 @@ Find the final project here: [VeggieNosh]()
     * [The Add Recipe Page](#the-add-recipe-page)
     * [The Edit Recipe Page](#the-edit-recipe-page)
     * [The Delete Recipe Page](#the-delete-recipe-page)
-    * [The 404 Error Page](#the-404-error-page)
-    * [The 500 Error Page](#the-500-error-page)
+    * [The 404 and 500 Error Page](#the-404-and-500-error-page)
     * [Features to Implement in the Future](#features-to-implement-in-the-future)
   * [Accessibility](#accessibility)  
 - [Issues and Bugs](#issues-and-bugs)
@@ -277,14 +276,9 @@ The recipe deletion feature is designed with authorship integrity in mind, ensur
 ![The Delete Recipe Page](veggienosh/static/images/readme/delete_recipe.png)
 
 
-### The 404 Error Page
-The 404 error page displays the sites name as a title. This also acts as a link back to the home page. Within the page there is a sorry message explaining to the user that there has been an error directing them to the page they were looking for. The user can click on Home button or title to redirect themselves to the home page.
-![404 Page](documentation/features/404-page.png)
-
-
-### The 500 Error Page
-The 500 error page displays the sites names as a title, which also acts as a link back to the home page. Within the page is an error message that tells the user sorry there seems to be an internal server error. The user can click on Home button or title to redirect themselves to the home page.
-![500 Page](documentation/features/500-page.png)
+### The 404 and 500 Error Page
+Tailored 404 and 500 error pages have been crafted to provide users with clear information about the encountered issue. Each page features a "Back Home" button for a swift return to the homepage. Additionally, the navigation bar is present on these pages, offering an easy route back to any section of the website, should users find themselves off the intended path.
+![404 Page](veggienosh/static/images/readme/404_page.png)
 
 
 ## Features to Implement in the future
