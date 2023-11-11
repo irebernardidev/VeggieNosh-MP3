@@ -282,8 +282,24 @@ Tailored 404 and 500 error pages have been crafted to provide users with clear i
 
 
 ## Features to Implement in the future
-- Additional features that could be added to the website in the future include:
-   * 
+In the realm of potential upgrades for the vegan online cookbook application, several features stand out as key to enhancing user experience and functionality. These planned improvements reflect the ongoing commitment to making the application more robust and user-centric. 
+
+* Advanced Recipe Search with Filters: Although a basic search function is already in place, there's room for improvement. The next development phase could introduce advanced filters in the search bar, enabling users to narrow down their searches by criteria like category, dish type, or dietary preferences. This addition would significantly streamline the recipe discovery process.
+
+* Favorites Feature for Personalization: Envisioned as a new aspect of the application, this feature would allow users to 'like' and save their favorite recipes into a personalized 'My Favorites' collection. Each recipe card might include a 'heart' icon, making it easy for users to curate their own list of go-to recipes.
+
+* Pagination Enhancement for Better Navigation: As the number of recipes grows, an upgraded pagination system becomes essential. The proposed system would include intuitive navigation buttons like 'First', 'Last', 'Previous', and 'Next', alongside a display limit for page numbers, ensuring smoother user navigation through the site.
+
+* Forgotten Password Recovery Mechanism: Introducing a feature for password recovery without requiring initial login could significantly enhance user convenience. This typically involves sending a secure link to the user's registered email for password resetting, adding an extra layer of security and user-friendliness to the platform.
+
+* Separate Reviews Page for Clarity: To prevent cluttering recipe pages with extensive reviews, a dedicated review page might be introduced. Displaying a handful of the latest reviews on the recipe page with a link to a full review page could offer a more organized and user-friendly layout.
+
+* Public User Profiles for Community Building: The addition of public user profiles, where users can view all recipes created by a specific user, would foster a sense of community and collaboration. This feature would make user names clickable, leading to a public profile showcasing their culinary creations.
+
+* Direct Image Uploads from Computers: Moving beyond URL-based image uploads, the application could allow users to upload images directly from their devices. This feature would make the process of adding recipes more intuitive and accessible.
+
+* Admin-Focused Category Management Tool: To better manage the expanding database of recipes and categories, a specialized tool for category migration and management could be developed. This would enable admins to efficiently reorganize or update categories, thereby maintaining the application's structure and user experience as it scales.
+
 ## Accessibility
 Throughout coding this site I kept accessibility in mind, to ensure that the website is user friendly for any user. I did this by:
 
@@ -303,18 +319,24 @@ Throughout coding this site I kept accessibility in mind, to ensure that the web
 The following technologies were used in the development of the website:
 
 ### Main Languages Used
-- HTML5
-- CSS3
-- JS 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) 
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries & Programs Used
-- [Bootstrap 5.3.0](https://getbootstrap.com/) 
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/) microframework for building and rendering pages.
+- [MongoDB Atlas](https://www.mongodb.com/) NoSQL database for storing back-end data.
+- [PyMongo](https://pypi.org/project/pymongo/)
+- [WTForms](https://pypi.org/project/WTForms/)
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/utils/#module-werkzeug.security)
+- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
+- [Heroku](https://dashboard.heroku.com/apps)
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design phase of the project.
 - [GitHub](https://github.com/) was used to store the project after pushing.
 - [Google Fonts](https://fonts.google.com/) was used to import the font "Roboto" into the style.css file. This font was used throughout the project.
 - [Font Awesome 6.3.0](https://fontawesome.com/) was used on all pages throughout the website to import icons (e.g. social media icons) for UX purposes.
 - [jQuery](https://jquery.com/) A JavaScript library.
-
 - [Am I Responsive?](https://ui.dev/amiresponsive) was used in order to see responsive design throughout the process and to generate mockup imagery to be used.
 - [Favicon](https://www.favicon.cc/) was used to create a favicon to help users quickly identify a website when multiple tabs are open or when searching through bookmarks.
 - [Visual Studio Code](https://code.visualstudio.com/download) was used to create files pages and produce the code for the project.
@@ -330,31 +352,177 @@ Testing information can be found in a separate testing [file](TESTING.md).
 
 
 ## Deployment
-The website was deployed on GitHub pages.
 
-### Deploying on GitHub Pages
-To deploy the website on GitHub Pages, the following steps were followed:
-1. Create a new repository on GitHub
-2. Add the necessary files to the repository
-3. Go to the settings page of the repository and scroll down to the GitHub Pages section
-4. Select the main branch and the root folder, then click save
-5. The website will now be live at the URL provided in the GitHub Pages section
+## Project Development Tools
+- **IDE**: Developed using VsCode.
+- **Version Control**: Committed to Github desktop as a local repository.
+- **Code Hosting**: Pushed and stored on GitHub.
 
-### Cloning the repository
-You can clone the repository by following these steps:
-1. Go to the repository on GitHub.
-2. Click the "Code" button to the right of the screen, click HTTPs and copy the link there.
-3. Open a GitBash terminal and navigate to the directory where you want to locate the clone.
-4. On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process.
+## Deployment Platform
+- **Chosen Platform**: Deployed on Heroku.
+- **Reason**: GitHub pages cannot host Python projects.
+- **Repository Hosting**: The repository is hosted on GitHub.
 
-### Forking the repository
-By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository.
-You can fork this repository by using the following steps:
-1. Go to the  repository on GitHub.
-2. Click on the 'Fork' option towards the top left of the page.
-3. Click the dropdown button and click 'create a new fork'.
-4. This will bring up a page with details of the repository, fill in boxes as required.
-Click 'create fork'.
+## Deployment to Heroku
+### Methods to Deploy on Heroku
+1. **Heroku Command Line Interface**.
+2. **Connect to GitHub Repository** (Chosen method for its simplicity).
+
+### Steps for Deployment Using GitHub
+#### Set Up A New Heroku App
+1. Go to [Heroku.com](https://heroku.com), create an account or log in.
+2. On the dashboard, click "Create New App".
+3. Name the app (must be unique with hyphens between words).
+4. Select the nearest region and click "Create App".
+
+#### Create A `requirements.txt` File
+- **Purpose**: Lists Python dependencies needed for the project.
+- **Heroku Recognition**: Helps Heroku detect the project's language.
+- **Steps**:
+  1. In the terminal, create the file:
+     ```
+     pip3 freeze --local > requirements.txt
+     ```
+  2. Add, commit, and push the file:
+     ```
+     git add -A
+     git commit -m "Add requirements.txt"
+     git push
+     ```
+
+#### Create A `Procfile`
+- **Purpose**: Informs Heroku how to run the project.
+- **Steps**:
+  1. In the terminal, create the `Procfile`:
+     ```
+     echo web: python run.py > Procfile
+     ```
+     (Sets up a web process; `python run.py` is the command to run the application).
+  2. Add, commit, and push the file:
+     ```
+     git add -A
+     git commit -m "Add Procfile"
+     git push
+     ```
+
+#### Connect App to GitHub
+1. In the Heroku app dashboard, go to the Deploy page.
+2. Under Deployment Method, select "GitHub".
+3. Click "Connect to GitHub" and enter your GitHub repository name.
+4. Once found, click "Connect".
+
+# Set Up The Environment Variables in Heroku
+
+Heroku requires explicit declaration of environment variables since it cannot read from hidden files like `env.py`. Here's how to set them up:
+
+1. Open the **Heroku dashboard** of your Flask app.
+2. Navigate to the **"Settings"** page.
+3. Click on **"Reveal Config Vars"**.
+4. Add the environment variables as key-value pairs:
+
+   | Key          | Value                                      |
+   | ------------ | ------------------------------------------ |
+   | IP           | 0.0.0.0                                    |
+   | PORT         | 5000                                       |
+   | SECRET_KEY   | `<your_secret_key>`                        |
+   | MONGO_URI    | `mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority` |
+   | MONGO_DBNAME | `<database_name>`                          |
+
+# Enable The Automatic Deployment
+
+1. In the **"Automatic Deploys"** section, enable automatic deployment from the master/main branch.
+2. In the **"Manual deploy"** section, deploy the branch.
+3. After deployment, a notification "Your app was successfully deployed" appears. The app can be viewed by selecting **View App**.
+
+# How To Use This Project
+
+## Set Up MongoDB
+
+1. Navigate to [mongoDB.com](https://www.mongodb.com/) and sign up or log in.
+2. Create a cluster:
+   - Choose **Shared Cluster**.
+   - Select a cloud provider (e.g., AWS) and your region.
+   - Select the **M0 Tier** (free tier).
+   - Name your cluster.
+   - Click **"Create Cluster"**.
+3. Set up database access:
+   - Under **Security**, go to **Database Access**.
+   - Click **"Add New Database User"**. Create a username and password (letters and numbers only).
+   - Set "Database User Privileges" to Read and Write to any database.
+4. Whitelist IP Address:
+   - In the **Security** menu, click **"Network Access"**.
+   - Click **"Add IP Address"**, select **"Allow Access from Anywhere"**.
+5. In the **Cluster** tab, click on the **Collections** tab.
+
+# Create Database
+You can create the database and collections as per the Data Scheme:
+1. From the Clusters page, select the **Collections** button.
+2. Click **Create Database**, enter the database name, and an initial collection name. This database name is used in your `MONGO_URI` and `MONGO_DBNAME` environment variables.
+3. Add more collections by clicking the green **Create Collection** button.
+4. To manually create a document, select **Collection**, then **Insert Document**.
+
+# 2. Fork or Clone The GitHub Repository
+
+## Fork GitHub Repository
+Forking the GitHub repository allows you to have a copy on your GitHub account, enabling you to view or make changes without impacting the original repository:
+1. Log into GitHub.
+2. Go to the main page of the repository you wish to fork.
+3. Below your profile picture, at the top right of the Repository, find the **Fork** Button.
+4. After forking, you'll have a copy of the original repository in your account.
+5. Changes to the forked repository can be merged with the original repository through a pull request.
+
+## Clone GitHub Repository
+Cloning a GitHub Repository creates a local copy on your computer:
+1. Log into GitHub.
+2. Navigate to the main page of the repository you wish to clone.
+3. Click the **Code** dropdown above the file list.
+4. For cloning via HTTPS, under **HTTPS**, copy the link.
+5. Open Git Bash.
+6. Change the directory to where you want the clone.
+7. Type git clone, and then paste the URL you copied in Step 4.
+``````
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+``````
+8. Press Enter to create your local clone.
+``````
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+Cloning into 'CI-Clone'...
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (8/8), done.
+remove: Total 10 (delta 1), reused 10 (delta 1)
+Unpacking objects: 100% (10/10), done.
+``````
+Changes made on the local machine (cloned repository) can be pushed to the upstream repository directly if you have a write access for the repository. Otherwise, the changes made in the cloned repository are first pushed to the forked repository, and then a pull request is created.
+
+3. Set local environment variables and install dependencies
+Once the copy of the repository has been created, the environment variables have to be set:
+
+  1. Create a .gitignore file in the project's root directory, by typing in the terminal window: 
+```touch .gitignore
+```
+  2. Create the environment file, by typing:
+```
+touch env.py
+``````
+  3. Add (write) env.py to the .gitignore file.
+perl
+  4. Within the env.py file, enter the project's environment variables:
+  ```
+  import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", <your_secret_key")
+os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority")
+os.environ.setdefault("MONGO_DBNAME", "<database_name")```
+``````
+
+  5. Install all dependencies from the requirements file, by typing:
+```pip3 install -r requirements.txt
+``````
+  6. Then go to the deployment section to configure and deploy the app on Heroku, skip the create requirements.txt and Procfile as they're already available in the repo.
+
+[Back to top](#top) 
 
 ## Credits
 The website was built by the developer. The webpages use images from [Freepik](https://www.freepik.com/), icons from [Font Awesome](https://fontawesome.com/) and [Favicon](https://www.favicon.cc/).
