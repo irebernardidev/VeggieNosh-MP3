@@ -1,4 +1,4 @@
-<!-- Veggienosh Account Menu -->
+<!-- VeggieNosh Account Menu -->
 <ul id="Account" class="dropdown-content center-align">
     <li><a href="{{ url_for('my_recipes', username = session.username) }}">My Veggie Recipes</a></li>
     <li><a href="{{ url_for('add_recipe') }}">Whip Up New Recipe</a></li>
@@ -9,7 +9,7 @@
 <nav>
     <div class="nav-wrapper">
         <a href="{{ url_for('home') }}">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo" alt="Veggienosh Logo" lazyload="on" >
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="brand-logo" alt="VeggieNosh Logo" lazyload="on" >
         </a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons navbar-icon">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -20,15 +20,15 @@
             <li><a href="{{ url_for('logout') }}" class="uppercase"><i class="fas fa-sign-out-alt navbar-icon"></i> Exit Kitchen</a></li>
             {% else %}
             <li><a href="{{url_for('login')}}" class="uppercase"><i class="fas fa-sign-in-alt navbar-icon"></i> Enter Kitchen</a></li>
-            <li><a href="{{url_for('register')}}" class="uppercase"><i class="fas fa-user-plus navbar-icon"></i> Join Veggienosh</a></li>
+            <li><a href="{{url_for('register')}}" class="uppercase"><i class="fas fa-user-plus navbar-icon"></i> Join VeggieNosh</a></li>
             {% endif %}
         </ul>
     </div>
 </nav>
 
-<!-- Veggienosh Mobile Menu -->
+<!-- VeggieNosh Mobile Menu -->
 <ul class="sidenav" id="mobile-demo">
-    <li><h1 class="center-align mobile-navbar-heading">Veggienosh</h1></li>
+    <li><h1 class="center-align mobile-navbar-heading">VeggieNosh</h1></li>
     <li><a href="{{url_for('home')}}" class="uppercase"><i class="fas fa-home"></i>Home</a></li>
     <li><a href="{{url_for('all_recipes')}}" class="uppercase"><i class="fas fa-utensils"></i>Browse Veggie Dishes</a></li>
     {% if session.username %}
@@ -39,6 +39,6 @@
     <li><a href="{{ url_for('logout') }}" class="uppercase"><i class="fas fa-sign-out-alt"></i> Exit Kitchen</a></li>
     {% else %}
     <li><a href="{{url_for('login')}}" class="uppercase"><i class="fas fa-sign-in-alt"></i>Enter Kitchen</a></li>
-    <li><a href="{{url_for('register')}}" class="uppercase"><i class="fas fa-user-plus"></i>Join Veggienosh</a></li>
+    <li><a href="{{url_for('register')}}" class="uppercase"><i class="fas fa-user-plus"></i>Join VeggieNosh</a></li>
     {% endif %}
 </ul>

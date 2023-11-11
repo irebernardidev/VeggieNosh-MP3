@@ -7,7 +7,7 @@
 
         <!-- User's Account Title -->
         <h1 class="secondary-heading uppercase center-align">
-            <span class="text-black"> {{ username }}</span>'s Veggienosh Kitchen
+            <span class="text-black"> {{ username }}</span>'s VeggieNosh Kitchen
         </h1>
 
         <!-- Flash messages for Account Dashboard -->
@@ -63,14 +63,14 @@
         <div class="modal-content center-align">
 
             <!-- Modal Warning Header -->
-            <h5 class="text-red bold">Close Veggienosh Kitchen?</h5>
+            <h5 class="text-red bold">Close VeggieNosh Kitchen?</h5>
             <div class="divider"></div>
             <p class="text-red">
-                <i class="fas fa-exclamation-circle margin-top-small" aria-hidden="true"></i> Deleting your account will remove all your recipes from Veggienosh.
+                <i class="fas fa-exclamation-circle margin-top-small" aria-hidden="true"></i> Deleting your account will remove all your recipes from VeggieNosh.
             </p>
             
             <!-- Modal Warning Message -->
-            <h6 class="margin-top-small small-text-delete">Are you certain you want to close down your Veggienosh Kitchen?</h6>
+            <h6 class="margin-top-small small-text-delete">Are you certain you want to close down your VeggieNosh Kitchen?</h6>
 
             <!-- Account Deletion Form -->
             <form action="{{ url_for('delete_account', username=session.username) }}" method="POST">

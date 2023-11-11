@@ -277,7 +277,7 @@ The recipe deletion feature is designed with authorship integrity in mind, ensur
 
 
 ### The 404 and 500 Error Page
-Tailored 404 and 500 error pages have been crafted to provide users with clear information about the encountered issue. Each page features a "Back Home" button for a swift return to the homepage. Additionally, the navigation bar is present on these pages, offering an easy route back to any section of the website, should users find themselves off the intended path.
+Tailored 404 and 500 error pages have been crafted to provide users with clear information about the encountered issue. Each page features a "Return To Veggie Delights" button for a swift return to the homepage. Additionally, the navigation bar is present on these pages, offering an easy route back to any section of the website, should users find themselves off the intended path.
 ![404 Page](veggienosh/static/images/readme/404_page.png)
 
 

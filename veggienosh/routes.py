@@ -31,7 +31,7 @@ def home():
     return render_template(
         'home.html', 
         featured_recipes=featured_recipes,
-        title='Veggienosh Home'
+        title='VeggieNosh Home'
     )
 
 # All Recipes Route
@@ -276,7 +276,7 @@ def delete_recipe(recipe_id):
 def login():
     # Check if user is already logged in
     if 'username' in session:
-        flash('You are already in the Veggienosh kitchen, Chef!')
+        flash('You are already in the VeggieNosh kitchen, Chef!')
         return redirect(url_for('home'))
 
     form = LoginForm()
@@ -310,7 +310,7 @@ def login():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if 'username' in session:
-        flash('Chef, you are already in the Veggienosh kitchen!')
+        flash('Chef, you are already in the VeggieNosh kitchen!')
         return redirect(url_for('home'))
 
     form = RegisterForm()
@@ -329,7 +329,7 @@ def register():
             }
             users_coll.insert_one(new_user)
             session['username'] = request.form['username']
-            flash('You are now officially a Veggienosh Chef!')
+            flash('You are now officially a VeggieNosh Chef!')
             return redirect(url_for('home'))
 
     return render_template('register.html', form=form, title='Join the Veggie World')
@@ -355,7 +355,7 @@ def account_settings(username):
 def change_username():
     # Redirect user if they're not logged in
     if 'username' not in session:
-        flash("You need to be in the Veggienosh kitchen to update your chef's name!")
+        flash("You need to be in the VeggieNosh kitchen to update your chef's name!")
         return redirect(url_for('login'))
 
     users = users_coll
@@ -386,7 +386,7 @@ def change_username():
 @app.route("/change_password/<username>", methods=['GET', 'POST'])
 def change_password(username):
     if 'username' not in session:
-        flash('Chef, please log in to the Veggienosh kitchen to update your secret sauce!')
+        flash('Chef, please log in to the VeggieNosh kitchen to update your secret sauce!')
     users = users_coll
     form = ChangePasswordForm()
     username = users.find_one({'username': session['username']})['username']
@@ -420,7 +420,7 @@ def change_password(username):
 @app.route("/delete_account/<username>", methods=['GET', 'POST'])
 def delete_account(username):
     if 'username' not in session:
-        flash('You must be in the Veggienosh kitchen to toss out an account!')
+        flash('You must be in the VeggieNosh kitchen to toss out an account!')
         return redirect(url_for('login'))  # Redirect if not logged in
 
     user = users_coll.find_one({"username": username})
@@ -436,7 +436,7 @@ def delete_account(username):
             for recipe_id in all_user_recipes:
                 recipes_coll.delete_one({"_id": recipe_id})
 
-            flash("We are sad to see you leave the Veggienosh family. Take care, Veggie Chef!")
+            flash("We are sad to see you leave the VeggieNosh family. Take care, Veggie Chef!")
             session.pop("username", None)
             users_coll.delete_one({"_id": user["_id"]})
 
