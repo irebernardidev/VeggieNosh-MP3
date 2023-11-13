@@ -134,7 +134,55 @@ VeggieNosh website primarily relies on a text-based interface to create a distra
 
 - ## Database Structure
 Database schema was designed using [diagram.io.](https://dbdiagram.io/home)
-[Database Schema](veggienosh/static/images/readme/database_schema.png)
+
+![Database Schema](veggienosh/static/images/readme/database_schema.png)
+
+For this project, MongoDB, a NoSQL database, is utilized to store and manage data efficiently. MongoDB's flexibility allows for a schemaless design, meaning each document in a collection does not need to have the same set of fields. Below is an overview of the collections and their respective fields used in this application:
+
+#### Collections and Fields
+###### Categories
+
+_id: ObjectId - A unique identifier for each document.
+category_type: String - Represents the type of food category.
+
+##### Dishes
+
+_id: ObjectId - A unique identifier for each dish type.
+meal_type: String - Describes the type of dish (e.g.,Christmas, NYE, breakfast, lunch, dinner).
+
+##### Diets
+
+_id: ObjectId - A unique identifier for each diet type.
+diet_type: String - Describes the type of diet (e.g., vegan, gluten free, etc).
+
+##### Users
+
+_id: ObjectId - A unique identifier for each user.
+username: String - The user's chosen username.
+password: String - The user's password.
+user_recipes: Array - A list of recipe IDs created by the user.
+
+##### Recipes
+
+_id: ObjectId - A unique identifier for each recipe.
+recipe_name: String - The name of the recipe.
+description: String - A brief description of the recipe.
+category_type: String - The type of category the recipe belongs to, referencing the Categories collection.
+dish_type: String - The type of meal, referencing the Dishes collection.
+cooking_time: String - The time required to prepare and cook the recipe.
+diet_type: String - The diet category the recipe falls into, referencing the Diets collection.
+servings: String - The number of servings the recipe yields.
+ingredients: Array - A list of ingredients required for the recipe.
+directions: Array - Step-by-step instructions for preparing the recipe.
+author: ObjectId - References the _id of the user who authored the recipe in the Users collection.
+image: String - A URL or file path to an image of the finished recipe.
+
+##### Relationships
+##### Recipes and Users:
+The author field in the Recipes collection is a reference to the _id in the Users collection, indicating which user created the recipe.
+
+Recipes, Categories, Dishes, and Diets: The category_type, dish_type, and diet_type in the Recipes collection serve as references to the Categories, Dishes, and Diets collections, respectively. These fields categorize each recipe but do not enforce strict relational constraints as seen in SQL databases.
+
 
 - ## Wireframes
 Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://balsamiq.com/). Please note some improvements were made during the development of the website.
