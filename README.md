@@ -46,7 +46,7 @@ Find the final project here: [VeggieNosh]()
   * [Code](#code)
 - [Acknowledgements](#acknowledgements)
 
-## Introduction
+# Introduction
 
 ### VeggieNosh: A Vegan Recipe-Sharing Platform
 
@@ -54,7 +54,7 @@ Find the final project here: [VeggieNosh]()
 
 > _This project is a key part of the [Code Institute's Milestone Project 3](https://codeinstitute.net), contributing to the Diploma in Full Stack Software Development. It showcases a proficient implementation of **HTML, CSS, JavaScript, Python+Flask, MongoDB**, and other technologies. VeggieNosh fulfills the essential criteria for **CRUD operations**, allowing users to create, read, update, and delete recipes with ease._
 
-## User Experience
+# User Experience
 ### User Stories
 
 #### New/Unregistered User
@@ -310,10 +310,10 @@ Throughout coding this site I kept accessibility in mind, to ensure that the web
 [Back to top](#)
 
 
-## Issues and Bugs
+# Issues and Bugs
 
 
-## Technologies Used
+# Technologies Used
 
 The following technologies were used in the development of the website:
 
@@ -507,7 +507,7 @@ Changes made on the local machine (cloned repository) can be pushed to the upstr
 
 [Back to top](#how-to-use-this-project)
 
-## Credits
+# Credits
 The website was built by the developer. The webpages use images from [Freepik](https://www.freepik.com/), icons from [Font Awesome](https://fontawesome.com/) and [Favicon](https://www.favicon.cc/).
 
 ### Content
@@ -533,7 +533,7 @@ The developer consulted multiple sites in order to better understand the code th
 
 [Back to top](#top)
 
-## Acknowledgements
+# Acknowledgements
 
 I want to express my deepest appreciation to my mentor, Seun, for her steadfast support and invaluable insights throughout this journey. I also thank the CI Slack community for their useful advice and suggestions, and to Peter for his tutoring.
 
