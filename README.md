@@ -29,6 +29,7 @@ Find the final project here: [VeggieNosh]()
     * [The Add Recipe Page](#the-add-recipe-page)
     * [The Edit Recipe Page](#the-edit-recipe-page)
     * [The Delete Recipe Page](#the-delete-recipe-page)
+    * [The Search Page](#the-search-page)
     * [The 404 and 500 Error Page](#the-404-and-500-error-page)
     * [Features to Implement in the Future](#features-to-implement-in-the-future)
   * [Accessibility](#accessibility)  
@@ -356,6 +357,14 @@ The recipe deletion feature is designed with authorship integrity in mind, ensur
 
 ![The Delete Recipe Page](veggienosh/static/images/readme/delete_recipe.png)
 
+### The Search Page
+Central to the page, the search bar allows users to enter their desired recipe or ingredient. It's enhanced with the ability to retain the entered query, even after the search is executed.
+To ensure users can find recipes easily, the search functionality employs regex for partial matching. This means even searches with only a few letters, like "am," can yield relevant results.
+An intuitive clear button ('×') is included within the search bar, enabling users to effortlessly start a new search by clearing the existing query with a single click.
+The page dynamically displays the number of recipes matching the search query. If no results are found, a friendly prompt suggests alternative search terms. Results are presented in a paginated format for easy navigation.
+
+![The Search Page](veggienosh/static/images/readme/search.png)
+![The Search Page- No Result](veggienosh/static/images/readme/no_result.png)
 
 ### The 404 and 500 Error Page
 Tailored 404 and 500 error pages have been crafted to provide users with clear information about the encountered issue. Each page features a "Return To Veggie Delights" button for a swift return to the homepage. Additionally, the navigation bar is present on these pages, offering an easy route back to any section of the website, should users find themselves off the intended path.

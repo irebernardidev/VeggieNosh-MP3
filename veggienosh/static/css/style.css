@@ -470,6 +470,10 @@ input::placeholder {
 	justify-content: center;
 }
 
+.clear-button {
+	cursor: pointer;
+}
+
 /* Overriding Materialize styles for text input */
 .search-input {
 	font-family: inherit !important;
