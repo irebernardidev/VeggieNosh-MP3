@@ -461,6 +461,7 @@ input::placeholder {
 .search-container {
 	width: 90%;
 	margin: 2rem auto;
+	text-align: center
 }
 
 .search {
@@ -482,6 +483,7 @@ input::placeholder {
 	transition: all .2s !important;
 	margin-right: -3.25rem !important;
 }
+
 
 /* Overriding Materialize styles for text input focus state */
 .search-input:focus {

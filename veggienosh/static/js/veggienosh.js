@@ -50,3 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.dropdown-trigger'); 
     var instances = M.Dropdown.init(elems, {}); 
 });
+
+// Search bar functionality
+// Clears the content of the input field when the clear button is clicked.
+function clearSearch() {
+    document.getElementById('query').value = '';
+}

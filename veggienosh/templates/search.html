@@ -17,7 +17,8 @@
     <!-- Form for searching vegan recipes -->
     <form action="{{ url_for('search') }}" class="search-form">
         <!-- Input placeholder for vegan recipe discovery -->
-        <input type="text" class="search-input" id="query" name="query" placeholder="Search plant-based recipes...">
+        <input type="text" class="search-input" id="query" name="query" placeholder="Search plant-based recipes..." value="{{ query }}">
+        <span class="clear-button" onclick="clearSearch()">&times;</span>
         <!-- Icon Button for Search -->
         <button class="search-button">
             <i class="fas fa-search search-icon"></i>
@@ -31,7 +32,7 @@
         {% if number_of_recipes_found == 0 %}
             <!-- No Results Found Message -->
             <h2 class="sub-heading">Oh kale no! No recipes found for "<span class="text-red">{{ query }}</span>"</h2>
-            <p>Try sowing a different seed: search for categories like 'desserts' or 'salads', or check your spelling.</p>
+            <p>Oops! Let's avocado-do-over. Check your spelling or try planting a new search term!</p>
             <!-- Link to Browse All Recipes -->
             <div class="margin-top-med">
                 <a href="{{ url_for('all_recipes') }}"

@@ -468,8 +468,9 @@ def search():
     """
     Function to handle search queries for recipes.
 
-    Retrieves user input, searches the database for matching recipes,
-    handles pagination, and renders the results on 'search.html'.
+    Retrieves user input, searches the database for matching recipes
+    with regex for partial matching, handles pagination,
+    and renders the results on 'search.html'.
     """
     
     # Pagination setup
@@ -477,21 +478,20 @@ def search():
     current_page = int(request.args.get('current_page', 1))
     query = request.args.get('query')
 
-    # Create a text index for the search
-    recipes_coll.create_index([("$**", 'text')])
-
-    # Perform the search and handle sorting and pagination
+    # Perform the search with regex for partial matching
+    regex_query = {"$regex": query, "$options": "i"}  # Case-insensitive partial match
     results = recipes_coll.find(
-        {'$text': {'$search': str(query)}},
-        {'score': {'$meta': 'textScore'}}
+        {"recipe_name": regex_query}
     ).sort('_id', pymongo.ASCENDING).skip(
         (current_page - 1) * limit_per_page
     ).limit(limit_per_page)
 
-    # Calculate the total number of recipes found and pages needed
+    # Calculate the total number of recipes found with regex search
     number_of_recipes_found = recipes_coll.count_documents(
-        {'$text': {'$search': str(query)}}
+        {"recipe_name": regex_query}
     )
+
+    # Determine the total number of pages for pagination
     total_pages = int(math.ceil(number_of_recipes_found / limit_per_page))
     results_pages = range(1, total_pages + 1)
 
