@@ -2,7 +2,7 @@
 ![VeggieNosh](veggienosh/static/images/readme/am_i_responsive.png)
 Find the final project here: [VeggieNosh]()
 
-## Table of Contents
+# Table of Contents
 - [Introduction](#introduction)
 - [UX](#ux)
    * [User Stories](#user-stories)
@@ -11,6 +11,7 @@ Find the final project here: [VeggieNosh]()
   * [Colour Scheme](#colour-scheme)
   * [Typography](#typography)
   * [Imagery](#imagery)
+  * [Database structure](#database-structure)
   * [Wireframes](#wireframes)
   * [Features](#features)
     * [The Home Page](#the-home-page)
@@ -131,7 +132,11 @@ VeggieNosh website primarily relies on a text-based interface to create a distra
 
   * [Favicon](https://www.favicon.cc/): A unique favicon is provided that is representative of the brand identity. It's visible in the browser tab for easy site identification.
 
-## Wireframes
+- ## Database Structure
+Database schema was designed using [diagram.io.](https://dbdiagram.io/home)
+[Database Schema](veggienosh/static/images/readme/database_schema.png)
+
+- ## Wireframes
 Wireframes were created for mobile, tablet and desktop using [Balsamiq](https://balsamiq.com/). Please note some improvements were made during the development of the website.
 
 [Wireframes](documentation/wireframes)
