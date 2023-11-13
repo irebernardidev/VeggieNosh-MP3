@@ -610,8 +610,10 @@ The website was built by the developer. The webpages use images from [Freepik](h
 
 ### Media
 
-- Background imange was sourced by [Freepik](https://www.freepik.com/) free library.
-- 
+- All images were sourced by [Freepik](https://www.freepik.com/) free library.
+- The favicon was generated from [Favicon](https://www.favicon.cc/).
+- The logo was originated from [Hatchful](https://www.shopify.com/tools/logo-maker) and was later refined by the developer.
+
 
 ### Code
 
