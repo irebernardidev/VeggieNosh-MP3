@@ -144,16 +144,26 @@ For this project, MongoDB, a NoSQL database, is utilized to store and manage dat
 
 _id: ObjectId - A unique identifier for each document.
 category_type: String - Represents the type of food category.
-
+``````
+_id: <ObjectId>
+category_type: <String>
+``````
 ##### Dishes
 
 _id: ObjectId - A unique identifier for each dish type.
 meal_type: String - Describes the type of dish (e.g.,Christmas, NYE, breakfast, lunch, dinner).
-
+```
+_id: <ObjectId>
+dish_type: <String>
+``````
 ##### Diets
 
 _id: ObjectId - A unique identifier for each diet type.
 diet_type: String - Describes the type of diet (e.g., vegan, gluten free, etc).
+```
+_id: <ObjectId>
+diet_type: <String>
+``````
 
 ##### Users
 
@@ -161,6 +171,12 @@ _id: ObjectId - A unique identifier for each user.
 username: String - The user's chosen username.
 password: String - The user's password.
 user_recipes: Array - A list of recipe IDs created by the user.
+```
+_id: <ObjectId>
+username: <String>
+password: <String>
+user_recipes: <Array>
+``````
 
 ##### Recipes
 
@@ -176,8 +192,21 @@ ingredients: Array - A list of ingredients required for the recipe.
 directions: Array - Step-by-step instructions for preparing the recipe.
 author: ObjectId - References the _id of the user who authored the recipe in the Users collection.
 image: String - A URL or file path to an image of the finished recipe.
-
-##### Relationships
+```
+_id: <ObjectId>
+recipe_name: <String>
+description: <String>
+category_type: <String>
+dish_type: <String>
+cooking_time: <String>
+diet_type: <String>
+servings: <String>
+ingredients: <Array>
+directions: <Array>
+author: <ObjectId>
+image: <String>
+```
+#### Relationships
 ##### Recipes and Users:
 The author field in the Recipes collection is a reference to the _id in the Users collection, indicating which user created the recipe.
 
