@@ -17,9 +17,10 @@ class RegisterForm(FlaskForm):
         'Password',
         validators=[
             DataRequired(),
-            Length(min=3, max=15),
-            Regexp('^[\S]+$', message='No whitespace allowed'),  # Password must not contain whitespace
-            EqualTo('confirm_password', message='Passwords must match.')  # Ensure confirmation matches the password
+            Length(min=6, max=20),  # Adjusted length for better security
+            Regexp('^[\S]+$', message='No whitespace allowed'),
+            Regexp('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$', message='Password must contain at least one letter and one number.'),
+            EqualTo('confirm_password', message='Passwords must match.')
         ]
     )
 
@@ -92,9 +93,10 @@ class ChangePasswordForm(FlaskForm):
         'New Password',
         validators=[
             DataRequired(),
-            Length(min=3, max=15),
-            Regexp('^[\S]+$', message='No whitespace allowed'),  # New password must not contain whitespace
-            EqualTo('confirm_new_password', message='Passwords must match.')  # Ensure confirmation matches the new password
+            Length(min=6, max=20),  # Adjusted length for better security
+            Regexp('^[\S]+$', message='No whitespace allowed'),
+            Regexp('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$', message='Password must contain at least one letter and one number.'),
+            EqualTo('confirm_new_password', message='Passwords must match.')
         ]
     )
 
