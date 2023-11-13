@@ -350,178 +350,162 @@ The website was tested thoroughly to ensure it is fully functional and user-frie
 Testing information can be found in a separate testing [file](TESTING.md).
 
 
-## Deployment
+# Deployment
 
-## Project Development Tools
-- **IDE**: Developed using VsCode.
-- **Version Control**: Committed to Github desktop as a local repository.
-- **Code Hosting**: Pushed and stored on GitHub.
-
-## Deployment Platform
-- **Chosen Platform**: Deployed on Heroku.
-- **Reason**: GitHub pages cannot host Python projects.
-- **Repository Hosting**: The repository is hosted on GitHub.
+The project was developed using Visual Studio Code (VSCode) and GitHub Desktop. Changes were committed and pushed to GitHub using GitHub Desktop. The web application is deployed on Heroku because a Python project cannot be hosted on GitHub Pages. The repository itself is hosted on GitHub.
 
 ## Deployment to Heroku
-### Methods to Deploy on Heroku
-1. **Heroku Command Line Interface**.
-2. **Connect to GitHub Repository** (Chosen method for its simplicity).
 
-### Steps for Deployment Using GitHub
-#### Set Up A New Heroku App
-1. Go to [Heroku.com](https://heroku.com), create an account or log in.
-2. On the dashboard, click "Create New App".
-3. Name the app (must be unique with hyphens between words).
-4. Select the nearest region and click "Create App".
+There are two ways to deploy on Heroku:
+* Using the Heroku Command Line Interface, or
+* Connect to GitHub Repository.
 
-#### Create A `requirements.txt` File
-- **Purpose**: Lists Python dependencies needed for the project.
-- **Heroku Recognition**: Helps Heroku detect the project's language.
-- **Steps**:
-  1. In the terminal, create the file:
-     ```
-     pip3 freeze --local > requirements.txt
-     ```
-  2. Add, commit, and push the file:
-     ```
-     git add -A
-     git commit -m "Add requirements.txt"
-     git push
-     ```
+I did the second method as it's the simpler way to deploy to Heroku. The steps are as follows.
 
-#### Create A `Procfile`
-- **Purpose**: Informs Heroku how to run the project.
-- **Steps**:
-  1. In the terminal, create the `Procfile`:
-     ```
-     echo web: python run.py > Procfile
-     ```
-     (Sets up a web process; `python run.py` is the command to run the application).
-  2. Add, commit, and push the file:
-     ```
-     git add -A
-     git commit -m "Add Procfile"
-     git push
-     ```
+### 1. Set Up A New Heroku App
 
-#### Connect App to GitHub
-1. In the Heroku app dashboard, go to the Deploy page.
-2. Under Deployment Method, select "GitHub".
-3. Click "Connect to GitHub" and enter your GitHub repository name.
-4. Once found, click "Connect".
+  * Navigate to [Heroku.com](https://www.heroku.com/), create a new  account or login if you already have an account.
+  * On the dashboard page, click "Create New App" button.
+  * Give the app a name, the name must be unique with hypens between words.
+  * Set the region closest to you, and click "Create App".
 
-# Set Up The Environment Variables in Heroku
+### 2. Create A Requirements.txt file
 
-Heroku requires explicit declaration of environment variables since it cannot read from hidden files like `env.py`. Here's how to set them up:
+A requirements.txt file contains a list of the Python dependencies that our project needs to run successfully. It's how Heroku can detect what language we're using. Here are the steps to create a requirements.txt file:
 
-1. Open the **Heroku dashboard** of your Flask app.
-2. Navigate to the **"Settings"** page.
-3. Click on **"Reveal Config Vars"**.
-4. Add the environment variables as key-value pairs:
+  * Create a requirements.txt file by typing in the terminal:
+``````
+pipi3 freeze --local > requirements.txt
+``````
+  * Add, commit, and push the file:
+```
+git add -A
+git commit -m "Add requirements.txt"
+git push
+``````
 
-   | Key          | Value                                      |
-   | ------------ | ------------------------------------------ |
-   | IP           | 0.0.0.0                                    |
-   | PORT         | 5000                                       |
-   | SECRET_KEY   | `<your_secret_key>`                        |
-   | MONGO_URI    | `mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority` |
-   | MONGO_DBNAME | `<database_name>`                          |
+### 3. Create A Procfile file
 
-# Enable The Automatic Deployment
+A Procfile is a special kind of file that tells Heroku how to run our project.
 
-1. In the **"Automatic Deploys"** section, enable automatic deployment from the master/main branch.
-2. In the **"Manual deploy"** section, deploy the branch.
-3. After deployment, a notification "Your app was successfully deployed" appears. The app can be viewed by selecting **View App**.
+  * In the terminal, type:
+```
+echo web: python run.py > Procfile
+``````
+This command tells Heroku that it's going to be a web process, and the command to run our application is "python run.py", which is the name of the python file that we've created.
+  * Add, commit, and push the file:
+```
+git add -A
+git commit -m "Add Procfile"
+git push
+``````
+
+### 4. Connect Our App to Github
+
+ * In Heroku app dashboard, navigate to the Deploy page. On the Deployment Method, click "Github".
+ * Click on "Connect to Github" button.
+ * Fill in the name of your Github repository name and click on "Search".
+ * After it found the correct repository, click on "Connect".
+
+### 5. Set Up The Environment Variables in Heroku
+
+Since we've contained our environment variables within a hidden file env.py, Heroku won't be able to read those variables. We can securely tell Heroku which variables are required.
+
+ * Go back to Heroku dashboard of your flask app, navigate to the "Settings" page.
+ * Click on "Reveal Config Vars" button, add environment variables in a key-value pairs as below:
+
+| Key          | Value                                             |
+|--------------|---------------------------------------------------|
+| IP           | 0.0.0.0                                           |
+| PORT         | 5000                                              |
+| SECRET_KEY   | `<your_secret_key>`                               |
+| MONGO_URI    | `mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority` |
+| MONGO_DBNAME | `<database_name>`                                 |
+
+### 6. Enable The Automatic Deployment
+
+ * On "Automatic Deploys" section, from our master/main branch click on "Enable Automatic Deployment".
+ * On "Manual deploy" section, from our master/main click on "Deploy Branch".
+
+ * Heroku will now receive the code from Github and start building the app using our required packages. Once it's done, you'll see a notification "Your app was successfully deployed." The deployed version can now be viewed by selecting View App.
 
 # How To Use This Project
 
-## Set Up MongoDB
+To use this project, follow these steps:
 
-1. Navigate to [mongoDB.com](https://www.mongodb.com/) and sign up or log in.
-2. Create a cluster:
-   - Choose **Shared Cluster**.
-   - Select a cloud provider (e.g., AWS) and your region.
-   - Select the **M0 Tier** (free tier).
-   - Name your cluster.
-   - Click **"Create Cluster"**.
-3. Set up database access:
-   - Under **Security**, go to **Database Access**.
-   - Click **"Add New Database User"**. Create a username and password (letters and numbers only).
-   - Set "Database User Privileges" to Read and Write to any database.
-4. Whitelist IP Address:
-   - In the **Security** menu, click **"Network Access"**.
-   - Click **"Add IP Address"**, select **"Allow Access from Anywhere"**.
-5. In the **Cluster** tab, click on the **Collections** tab.
+## 1. Create a Database on MongoDB
 
-# Create Database
-You can create the database and collections as per the Data Scheme:
-1. From the Clusters page, select the **Collections** button.
-2. Click **Create Database**, enter the database name, and an initial collection name. This database name is used in your `MONGO_URI` and `MONGO_DBNAME` environment variables.
-3. Add more collections by clicking the green **Create Collection** button.
-4. To manually create a document, select **Collection**, then **Insert Document**.
+### 1. Set Up MongoDB
 
-# 2. Fork or Clone The GitHub Repository
+* Navigate to [mongoDB.com](https://www.mongodb.com/), create an account or log in.
+* Create a cluster by choosing the Shared Cluster:
+    * Select a cloud provider. Amazon Web Service (AWS) is an excellent choice for the project, and then select the region closest to you.
+    * Select a cluster tier, choose the M0 Tier (Free forever tier).
+    * Click on the cluster name, and fill in the cluster name of your choice.
+    * Click "Create Cluster" button. This cluster name will be used in your MONGO_URI environment variable.
+*  Navigate to Database Access under the Security section on the left, to create our database user credentials:
+    * Click on "Add New Database User", create a username and password. Note to use a combination of letters and numbers for the username and password.
+    * Set the "Database User Privileges" to Read and Write to any database, and click "Add User".
+    * Click on "Network Access" within the Security menu to whitelist our IP address. Click "Add IP Address", select "Allow Access from Anywhere", click "Confirm".
+* Go back to the Cluster tab, click on the Collections tab.
+* Create a database according to the Data Scheme:
+    * From the Clusters page, click on the Collections button.
+    * Click on "Create Database", provide the database name, and one initial collection name.
+    * Create more collections by clicking the green button "Create Collection".
+    * To manually create a document, click on the "Collection", followed by "Insert Document".
 
-## Fork GitHub Repository
-Forking the GitHub repository allows you to have a copy on your GitHub account, enabling you to view or make changes without impacting the original repository:
-1. Log into GitHub.
-2. Go to the main page of the repository you wish to fork.
-3. Below your profile picture, at the top right of the Repository, find the **Fork** Button.
-4. After forking, you'll have a copy of the original repository in your account.
-5. Changes to the forked repository can be merged with the original repository through a pull request.
+## 2. Fork or Clone The Github Repository
 
-## Clone GitHub Repository
-Cloning a GitHub Repository creates a local copy on your computer:
-1. Log into GitHub.
-2. Navigate to the main page of the repository you wish to clone.
-3. Click the **Code** dropdown above the file list.
-4. For cloning via HTTPS, under **HTTPS**, copy the link.
+### Fork GitHub Repository
+
+1. Log in to GitHub.
+2. Navigate to the main page of the GitHub Repository that you want to fork.
+3. At the top right of the Repository just below your profile picture, locate the "Fork" Button.
+4. You should now have a copy of the original repository in your GitHub account.
+5. Changes made to the forked repository can be merged with the original repository via a pull request.
+
+### Clone Github Repository
+
+1. Log in to GitHub.
+2. Navigate to the main page of the GitHub Repository that you want to clone.
+3. Above the list of files, click the dropdown called "Code".
+4. To clone the repository using HTTPS, under "HTTPS", copy the link.
 5. Open Git Bash.
-6. Change the directory to where you want the clone.
-7. Type git clone, and then paste the URL you copied in Step 4.
-``````
+6. Change the current working directory to the location where you want the cloned directory.
+7. Type `git clone`, and then paste the URL you copied.
+    ```bash
+    $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+    ```
+8. Press Enter. Your local clone will be created.
+```
 $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-``````
-8. Press Enter to create your local clone.
-``````
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-Cloning into 'CI-Clone'...
-remote: Counting objects: 10, done.
-remote: Compressing objects: 100% (8/8), done.
-remove: Total 10 (delta 1), reused 10 (delta 1)
-Unpacking objects: 100% (10/10), done.
-``````
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
 Changes made on the local machine (cloned repository) can be pushed to the upstream repository directly if you have a write access for the repository. Otherwise, the changes made in the cloned repository are first pushed to the forked repository, and then a pull request is created.
+## 3. Set Local Environment Variables and Install Dependencies
 
-3. Set local environment variables and install dependencies
-Once the copy of the repository has been created, the environment variables have to be set:
+1. Create a `.gitignore` file in the project's root directory, by typing in the terminal window: `touch .gitignore`
+2. Create the environment file, by typing: `touch env.py`
+3. Add `env.py` to the `.gitignore` file.
+4. Within the `env.py` file, enter the project's environment variables:
+    ```python
+    import os
 
-  1. Create a .gitignore file in the project's root directory, by typing in the terminal window: 
-```touch .gitignore
-```
-  2. Create the environment file, by typing:
-```
-touch env.py
-``````
-  3. Add (write) env.py to the .gitignore file.
-perl
-  4. Within the env.py file, enter the project's environment variables:
-  ```
-  import os
+    os.environ.setdefault("IP", "0.0.0.0")
+    os.environ.setdefault("PORT", "5000")
+    os.environ.setdefault("SECRET_KEY", "<your_secret_key>")
+    os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority")
+    os.environ.setdefault("MONGO_DBNAME", "<database_name>")
+    ```
+5. Install all dependencies from the requirements file, by typing: `pip3 install -r requirements.txt`.
 
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", <your_secret_key")
-os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority")
-os.environ.setdefault("MONGO_DBNAME", "<database_name")```
-``````
+6. Then, go to the deployment section to configure and deploy the app on Heroku. Skip the create `requirements.txt` and `Procfile` as they're already available in the repo.
 
-  5. Install all dependencies from the requirements file, by typing:
-```pip3 install -r requirements.txt
-``````
-  6. Then go to the deployment section to configure and deploy the app on Heroku, skip the create requirements.txt and Procfile as they're already available in the repo.
-
-[Back to top](#top) 
+[Back to top](#how-to-use-this-project)
 
 ## Credits
 The website was built by the developer. The webpages use images from [Freepik](https://www.freepik.com/), icons from [Font Awesome](https://fontawesome.com/) and [Favicon](https://www.favicon.cc/).
