@@ -594,9 +594,19 @@ The website was built by the developer. The webpages use images from [Freepik](h
 
 ### Content
 
-- Some of the text used in the the various pages were borrowed and adapted from various sites, listed below.
+- During the development of this project, a variety of resources and community support platforms provided essential guidance and assistance. Below is a summary of these key resources:
 
-  * 
+### Community Support
+- **[Stack Overflow](https://stackoverflow.com/)**, **[W3School](https://www.w3schools.com/)**, **[Geeks for Geeks](https://www.geeksforgeeks.org/)** and **[Medium](https://medium.com/)**: Essential in offering solutions and advice throughout the project's development phase.
+
+### Documentation and Tutorials
+- **[Flask](https://flask.palletsprojects.com/en/1.1.x/) and [MongoDB](https://www.mongodb.com/docs/manual/) Documentation**: Primary references for understanding and implementing core functionalities.
+- **Flask Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)**: These tutorials covered package structure, custom error pages, WTForms, and password hashing.
+- **Flask WTForms Tutorials by [Pretty Printed](https://www.youtube.com/watch?v=eu0tg4vgFr4&list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)**: Provided clear guidance on using Flask WTForms.
+
+### Specific Implementations
+- **UI & UX Design**: Design concepts were influenced by various projects found on [Dribble](https://dribbble.com/), shaping the user interface and experience.
+- **Form Design Elements**: The use of prefix-icons, asterisks, and question-mark tooltips in forms was adapted from Tim Nelson's project.
 
 ### Media
 
@@ -607,17 +617,24 @@ The website was built by the developer. The webpages use images from [Freepik](h
 
 The developer consulted multiple sites in order to better understand the code they were trying to implement. For code that was copied and edited, the developer made sure to reference this with the code. The following sites were used on a more regular basis:
 
-- [Stack Overflow](https://stackoverflow.com/)
-- [W3Schools](https://www.w3schools.com/)
-- [Geeks for Geeks](https://www.geeksforgeeks.org/)
-- [Medium](https://medium.com/) 
+#### Community Support
+- **[Stack Overflow](https://stackoverflow.com/)**, **[W3School](https://www.w3schools.com/)**, **[Geeks for Geeks](https://www.geeksforgeeks.org/)** and **[Medium](https://medium.com/)**: Essential in offering solutions and advice throughout the project's development phase.
+
+#### Documentation and Tutorials
+- **Create Flask Application with MongoDB Database [Ankush Chavan](https://ankush-chavan.medium.com/creating-flask-application-with-mongodb-database-77ec45b5b995)**: Primary references for understanding and implementing core functionalities.
+- **Flask Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)**: These tutorials covered package structure, custom error pages, WTForms, and password hashing.
+- **Flask WTForms Tutorials by [Pretty Printed](https://www.youtube.com/watch?v=eu0tg4vgFr4&list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)**: Provided clear guidance on using Flask WTForms.
+
+#### Specific Implementations
+- **UI & UX Design**: Design concepts were influenced by various projects found on [Awwwards](https://www.awwwards.com/), shaping the user interface and experience.
+- **Form Design Elements**: The use of prefix-icons, asterisks, and question-mark tooltips in forms was adapted from Tim Nelson's project.
 
 
 [Back to top](#top)
 
 # Acknowledgements
 
-I want to express my deepest appreciation to my mentor, Seun, for her steadfast support and invaluable insights throughout this journey. I also thank the CI Slack community for their useful advice and suggestions, and to Peter for his tutoring.
+I want to express my deepest appreciation to my mentor, Seun, for her steadfast support and invaluable insights throughout this journey. I also thank the CI Slack community for their useful advice and suggestions, and to Jess for her tutoring.
 
 [Back to top](#top)
 
