@@ -420,8 +420,8 @@ The following technologies were used in the development of the website:
 - [PyMongo](https://pypi.org/project/pymongo/)
 - [WTForms](https://pypi.org/project/WTForms/)
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/utils/#module-werkzeug.security)
-- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
-- [Heroku](https://dashboard.heroku.com/apps)
+- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)was used as a templating language for Python to display backend data to HTML.
+- [Heroku](https://dashboard.heroku.com/apps) was used to deploy the website.
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design phase of the project.
 - [GitHub](https://github.com/) was used to store the project after pushing.
 - [Google Fonts](https://fonts.google.com/) was used to import the font "Roboto" into the style.css file. This font was used throughout the project.
@@ -599,34 +599,17 @@ Changes made on the local machine (cloned repository) can be pushed to the upstr
 [Back to top](#how-to-use-this-project)
 
 # Credits
-The website was built by the developer. The webpages use images from [Freepik](https://www.freepik.com/), icons from [Font Awesome](https://fontawesome.com/) and [Favicon](https://www.favicon.cc/).
 
 ### Content
-
-- During the development of this project, a variety of resources and community support platforms provided essential guidance and assistance. Below is a summary of these key resources:
-
-### Community Support
-- **[Stack Overflow](https://stackoverflow.com/)**, **[W3School](https://www.w3schools.com/)**, **[Geeks for Geeks](https://www.geeksforgeeks.org/)** and **[Medium](https://medium.com/)**: Essential in offering solutions and advice throughout the project's development phase.
-
-### Documentation and Tutorials
-- **[Flask](https://flask.palletsprojects.com/en/1.1.x/) and [MongoDB](https://www.mongodb.com/docs/manual/) Documentation**: Primary references for understanding and implementing core functionalities.
-- **Flask Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)**: These tutorials covered package structure, custom error pages, WTForms, and password hashing.
-- **Flask WTForms Tutorials by [Pretty Printed](https://www.youtube.com/watch?v=eu0tg4vgFr4&list=PLXmMXHVSvS-C_T5JWEDWIc9yEM3Hj52-1)**: Provided clear guidance on using Flask WTForms.
-
-### Specific Implementations
-- **UI & UX Design**: Design concepts were influenced by various projects found on [Dribble](https://dribbble.com/), shaping the user interface and experience.
-- **Form Design Elements**: The use of prefix-icons, asterisks, and question-mark tooltips in forms was adapted from Tim Nelson's project.
+All recipe descriptions and images, unless contributed by users, are sourced from [Rainbow PLant Life](https://rainbowplantlife.com/) and [A Couple Cooks](https://www.acouplecooks.com/).
 
 ### Media
-
 - All images were sourced by [Freepik](https://www.freepik.com/) free library.
 - The favicon was generated from [Favicon](https://www.favicon.cc/).
 - The logo was originated from [Hatchful](https://www.shopify.com/tools/logo-maker) and was later refined by the developer.
 
-
 ### Code
-
-The developer consulted multiple sites in order to better understand the code they were trying to implement. For code that was copied and edited, the developer made sure to reference this with the code. The following sites were used on a more regular basis:
+During the development of this project, a variety of resources and community support platforms provided essential guidance and assistance. Below is a summary of these key resources:
 
 #### Community Support
 - **[Stack Overflow](https://stackoverflow.com/)**, **[W3School](https://www.w3schools.com/)**, **[Geeks for Geeks](https://www.geeksforgeeks.org/)** and **[Medium](https://medium.com/)**: Essential in offering solutions and advice throughout the project's development phase.
@@ -639,7 +622,6 @@ The developer consulted multiple sites in order to better understand the code th
 #### Specific Implementations
 - **UI & UX Design**: Design concepts were influenced by various projects found on [Awwwards](https://www.awwwards.com/), shaping the user interface and experience.
 - **Form Design Elements**: The use of prefix-icons, asterisks, and question-mark tooltips in forms was adapted from Tim Nelson's project.
-
 
 [Back to top](#top)
 
