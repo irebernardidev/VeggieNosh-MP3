@@ -315,8 +315,10 @@ def register():
 
     form = RegisterForm()
     if form.validate_on_submit():
-        users = users_coll
-        registered_user = users_coll.find_one({'username': request.form['username']})
+        # Convert the provided username to lowercase for case-insensitive comparison
+        username = request.form['username'].lower()
+        # Use regex to perform a case-insensitive search for the username
+        registered_user = users_coll.find_one({'username': {"$regex": f"^{username}$", "$options": "i"}})
         if registered_user:
             flash("This chef name is already cooking. Choose another!")
             return redirect(url_for('register'))
@@ -333,6 +335,7 @@ def register():
             return redirect(url_for('home'))
 
     return render_template('register.html', form=form, title='Join the Veggie World')
+
 
 # Logout Route
 @app.route("/logout")
