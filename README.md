@@ -348,6 +348,8 @@ The interface streamlines the editing process by pre-filling the form with the e
 For added convenience, a "Cancel" button is provided, allowing users to return to the home page without the need to navigate backward through their browser, thus enhancing the user experience with a simple alternative.
 
 ![The Edit Recipe Page](documentation/readme/edit_recipe.png)
+![The Edit Recipe Page](documentation/readme/edit_page_dropdown.png)
+![The Edit Recipe Page](documentation/readme/edit_page_options.png)
 
 ### The Delete Recipe Page
 The recipe deletion feature is designed with authorship integrity in mind, ensuring that only the creator of a recipe has the authority to remove it. When visiting a Single Recipe Info page, the author can initiate the deletion process by clicking the "Delete Recipe" button, which triggers a confirmation modal. This modal serves as a safeguard, prompting the user to verify their intention to delete the recipe. Upon confirmation and clicking the "Delete" button within the modal, the recipe is permanently erased from the database and the author’s list of contributions in the "users" collection. For those who reconsider, a "Cancel" button is also available to close the modal without taking any action.
@@ -628,4 +630,3 @@ During the development of this project, a variety of resources and community sup
 I want to express my deepest appreciation to my mentor, Seun, for her steadfast support and invaluable insights throughout this journey. I also thank the CI Slack community for their useful advice and suggestions, and to Jess for her tutoring.
 
 [Back to top](#top)
-
