@@ -275,11 +275,9 @@ Moreover, the Single Recipe page enhances user interaction by providing options 
 ![Share and Print](veggienosh/static/images/readme/share.png)
 
 ### The Registration Page
-The registration page on VeggieNosh is meticulously crafted to ensure user accounts are created with robust security measures. Users are required to provide a "username," "password," and a subsequent "confirm password" entry. To safeguard accounts, usernames must be distinct and are verified for uniqueness against existing ones within a character range of 3-15. Passwords follow the same character length requirements and, for security reasons, cannot be identical to the username.
+The registration page on VeggieNosh is meticulously crafted to ensure user accounts are created with robust security measures. Users are required to provide a "username," "password," and a subsequent "confirm password" entry. Usernames must be distinct, verified for uniqueness, and within a character range of 3-15. Passwords must be between 6-20 characters in length and adhere to specific security criteria: they must contain at least one letter, one number, and no whitespace. Additionally, passwords cannot be identical to the username and are securely hashed to protect user information.
 
-Additionally, the system is sensitive to accidental white spaces within entries — an error message will alert the user if any are detected to prevent login complications. Passwords are securely hashed to protect user information.
-
-If the registration criteria are not met, users are promptly notified through clear error messages to adjust their input accordingly. Following a successful registration, the user is directed to the home page with a confirmation notice, and a link for existing users to log in is conveniently placed at the bottom of the form for easy access.
+The system is sensitive to accidental white spaces within entries, alerting users with an error message if any are detected to prevent login complications. If the registration criteria are not met, users receive clear error messages to adjust their input. Following successful registration, the user is directed to the home page with a confirmation notice. A link for existing users to log in is conveniently placed at the bottom of the form for easy access.
 
 ![Regiatration Page](veggienosh/static/images/readme/register_form.png)
 
@@ -309,8 +307,7 @@ These controls are intuitively laid out, guiding users smoothly to the correspon
 ![Account Settings Page](veggienosh/static/images/readme/account_settings.png)
 
 ### The Change Username Page
-## Change Username Functionality
-
+#### Change Username Functionality
 The 'Spice Up Username' feature is designed to empower registered users with the ability to update their username while maintaining a high standard of security. The system performs a thorough check to ensure the new username is not already taken, including variations with different capitalizations to prevent impersonation or confusion. Your current username is conveniently displayed above the entry field for easy reference.
 
 Adjacent to the new username field, an informative question mark icon can be found. Hovering over this icon displays the username requirements, assisting users in choosing an acceptable new identifier. Following a successful username change, for enhanced security, users are redirected to the login page to sign in with their new username. Should a user decide against modifying their username, a 'Retreat' button is provided, offering a straightforward return to the Account Settings page without making any changes.
@@ -318,11 +315,11 @@ Adjacent to the new username field, an informative question mark icon can be fou
 ![Change Username Page](veggienosh/static/images/readme/change_username.png)
 
 ### The Change Password Page
-Users have the ability to update their password through a straightforward form, enhancing their account security. The form requires users to input their "Current Password" followed by the "New Password" and a "Confirm New Password" field for verification. To ensure security, both new password entries must be identical and within the length of 3 to 15 characters.
+Users have the ability to update their password through a straightforward form, enhancing their account security. The form requires users to input their "Current Password" followed by the "New Password" and a "Confirm New Password" field for verification. To ensure security, both new password entries must be identical, within the length of 6 to 20 characters, and adhere to specific criteria: including at least one letter, one number, and no whitespace.
 
-For additional guidance, a hoverable question mark icon is available, detailing the password requirements. Upon successful submission of the form, the user will be navigated back to the account settings page, where a notification confirming the password update will be displayed. For those who wish to exit without making changes, a "Root Back" button is provided, which will also redirect them back to the account settings page.
+For additional guidance, a hoverable question mark icon is available, detailing these password requirements. Upon successful submission of the form, the user will be navigated back to the account settings page, where a notification confirming the password update will be displayed. For those who wish to exit without making changes, a "Root Back" button is provided, which will also redirect them back to the account settings page..
 
-![Change Password Page](veggienosh/static/images/readme/change_username.png)
+![Change Password Page](veggienosh/static/images/readme/change_password.png)
 
 ### The Delete Account Page
 Upon selecting the "Shut Kitchen Down" option on the account settings page, a confirmation modal will appear, prompting the user to confirm their intention to delete their account. For security purposes, the user is required to enter their password to proceed. By confirming and clicking the "Close Kitchen" button, the user's account will be permanently removed from the "Users" database. Additionally, any recipes created by the user will be concurrently deleted from the "Recipes" collection. Should the user decide to retain their account, they may opt to click the "Back To Kitchen" button, which will close the modal without making any changes.
@@ -339,7 +336,7 @@ For those with registered accounts, VeggieNosh provides a seamless recipe submis
 
 In the event a user does not supply an image URL for the recipe, a default placeholder image is utilized, maintaining a uniform appearance across the platform. A helpful tooltip guides users on uploading images to a free hosting service, like ImgBB, to facilitate image inclusion.
 
-Upon successful submission, the user is immediately taken to the detail page of their newly added recipe, confirming the addition. For added convenience, a 'Change My Mind' button is provided, offering a straightforward return to the home page without the need to navigate backward through the browser.
+Upon successful submission, the user is immediately taken to the detail page of their newly added recipe, confirming the addition. For added convenience, a 'Change My Mind' button is provided, offering a straightforward return to the User Recipes Page without the need to navigate backward through the browser.
 
 ![The Add Recipe Page](veggienosh/static/images/readme/add_recipe.png)
 
@@ -417,10 +414,10 @@ The following technologies were used in the development of the website:
 ### Frameworks, Libraries & Programs Used
 - [Flask](https://flask.palletsprojects.com/en/3.0.x/) microframework for building and rendering pages.
 - [MongoDB Atlas](https://www.mongodb.com/) NoSQL database for storing back-end data.
-- [PyMongo](https://pypi.org/project/pymongo/)
-- [WTForms](https://pypi.org/project/WTForms/)
-- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/utils/#module-werkzeug.security)
-- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)was used as a templating language for Python to display backend data to HTML.
+- [PyMongo](https://pypi.org/project/pymongo/) was used as a Python distribution containing tools for working with MongoDB.
+- [WTForms](https://pypi.org/project/WTForms/) was used for creating forms with validation.
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/utils/#module-werkzeug.security) was used for password hashing and authentication.
+- [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) was used as a templating language for Python to display backend data to HTML.
 - [Heroku](https://dashboard.heroku.com/apps) was used to deploy the website.
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design phase of the project.
 - [GitHub](https://github.com/) was used to store the project after pushing.
@@ -432,6 +429,7 @@ The following technologies were used in the development of the website:
 - [Visual Studio Code](https://code.visualstudio.com/download) was used to create files pages and produce the code for the project.
 - [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) was used during the testing phase to test the responsiveness of the site and to check for any bugs.
 - [TinyPNG](https://tinypng.com/) was used to compress images.
+- [UI Avatars](https://ui-avatars.com/) was used to generate avatars with initials from names.
 - [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa) a google chrome extension to enable you to view JSON as raw data or parsed.
 
 
