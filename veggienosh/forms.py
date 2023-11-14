@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Length, EqualTo, Optional, Regexp, ValidationError
 
 # Define the registration form for new users
@@ -165,5 +165,33 @@ class Add_RecipeForm(FlaskForm):
             DataRequired()
         ]
     )
+    
+    category_type = SelectField(
+    'Category',
+    choices=[('wholegrain', 'Wholegrain'), ('legumes', 'Legumes'), ('nuts and seeds', 'Nuts And Seeds')], 
+    validators=[Optional()]
+)
+   
+    dish_type = SelectField(
+    'Dish Type', 
+    choices=[
+        ('appetizer', 'Appetizer'),
+        ('entree', 'Entree'),
+        ('side', 'Side Dish'),
+        ('dessert', 'Dessert')
+    ],
+    validators=[Optional()]
+)
+    
+    diet_type = SelectField(
+    'Diet Type',
+    choices=[
+        ('vegan', 'Vegan'),
+        ('gluten_free', 'Gluten Free'),
+        ('soy_free', 'Soy Free'),
+        ('ketogenic', 'Ketogenic')
+    ], 
+    validators=[Optional()]
+)
 
     submit = SubmitField('Add Recipe')

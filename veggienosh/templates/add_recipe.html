@@ -1,14 +1,10 @@
-{# Extends the base layout template to inherit its structure and components #}
 {% extends 'base.html' %}
 
-{# Defines the block within the base template where this page's content will go #}
 {% block content %}
 <section class="container margin-top-large container-addrecipe z-depth-2">
     <h1 class="uppercase center-align secondary-heading">Whip Up a New Veggie Delight</h1>
     
-    {# Form for submitting a new recipe with necessary attributes and methods #}
     <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('insert_recipe') }}">
-        {# Security feature to prevent CSRF attacks #}
         {{ form.hidden_tag() }}
         
         <div class="row">
@@ -26,28 +22,29 @@
                 <label for="recipe_description">Veggie Recipe Description <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="20-300 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
             </div>
 
-            {# Select input for choosing the recipe category with a fun prompt #}
+            {# Select input for choosing the recipe category #}
             <div class="input-field col s12 m6 l4">
                 <i class="fas fa-globe-europe prefix"></i>
                 <select id="category_type" name="category_type">
-                    <option value="None" selected>Choose a category...</option>
-                    {% for category in category_types %}
-                        <option value="{{ category.category_type }}">{{ category.category_type }}</option>
-                    {% endfor %}
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="wholegrain">Wholegrain</option>
+                    <option value="legumes">Legumes</option>
+                    <option value="nuts and seeds">Nuts And Seeds</option>
                 </select>
-                <label for="category_type">Recipe Category (optional)</label>
+                <label for="category_type">Recipe Category</label>
             </div>
-
+            
             {# Select input for the type of dish #}
             <div class="input-field col s12 m6 l4">
-                <i class="fas fa-utensils prefix"></i>
+                <i class="fas fa-utensils prefix"></i>         
                 <select id="dish_type" name="dish_type">
                     <option value="" disabled selected>Pick a dish type</option>
-                    {% for dish in dish_types %}
-                        <option value="{{ dish.dish_type }}">{{ dish.dish_type }}</option>
-                    {% endfor %}
+                    <option value="appetizer">Appetizer</option>
+                    <option value="entree">Entree</option>
+                    <option value="side dish">Side Dish</option>
+                    <option value="dessert">Dessert</option>
                 </select>
-                <label for="dish_type">Dish Type (optional)</label>
+                <label for="dish_type">Dish Type</label>
             </div>
 
             {# Select input for specifying the diet type #}
@@ -55,9 +52,10 @@
                 <i class="fas fa-leaf prefix"></i>
                 <select id="diet_type" name="diet_type">
                     <option value="None" selected>Any dietary focus?</option>
-                    {% for diet in diet_types %}
-                        <option value="{{ diet.diet_type }}">{{ diet.diet_type }}</option>
-                    {% endfor %}
+                    <option value="vegan">Vegan</option>
+                    <option value="gluten free">Gluten Free</option>
+                    <option value="soy free">Soy Free</option>
+                    <option value="ketogenic">Ketogenic</option>
                 </select>
                 <label for="diet_type">Diet Type (optional)</label>
             </div>
@@ -90,7 +88,7 @@
                 <label for="directions">Preparation Steps (one step per line) <i class="fas fa-asterisk asterisk"></i></label>
             </div>
 
-            {# Input for the recipe image URL with a playful placeholder #}
+            {# Input for the recipe image URL #}
             <div class="input-field col s12">
                 <i class="far fa-images prefix"></i>
                 {{ form.image(id="recipe_image", placeholder="Got a photo of your masterpiece?", class="validate") }}
@@ -108,7 +106,7 @@
                 {% endwith %}
             </div>
 
-            {# Submission and cancellation buttons with clear labeling #}
+            {# Submission and cancellation buttons #}
             <div class="row">
                 <div class="col s6 right-align">
                     <a href="{{ url_for('my_recipes', username=session['username']) }}" class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase" name="action">Change My Mind</a>

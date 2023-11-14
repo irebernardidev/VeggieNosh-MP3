@@ -56,3 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function clearSearch() {
     document.getElementById('query').value = '';
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+});
+
