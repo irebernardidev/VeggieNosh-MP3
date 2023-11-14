@@ -1,5 +1,5 @@
 # VeggieNosh
-![VeggieNosh](veggienosh/static/images/readme/am_i_responsive.png)
+![VeggieNosh](documentation/readme/am_i_responsive.png)
 Find the final project here: [VeggieNosh]()
 
 # Table of Contents
@@ -111,20 +111,20 @@ For account settings, a trio of colors was selected to intuitively guide users t
 ## Colour Palette
 Using the [Adobe Color](https://color.adobe.com/create/color-wheel) colour wheel
 
-![Colour Palette](veggienosh/static/images/readme/colour-palette.png)
+![Colour Palette](documentation/readme/colour-palette.png)
 
 - ## Typography
 
 • The choice of Open Sans as the primary font is deliberate, offering readability and a contemporary ambience, while Ubuntu lends a distinct personality to headings and buttons, enhancing the overall design language.
 
-![Typography](veggienosh/static/images/readme/typography1.png)
-![Typography](veggienosh/static/images/readme/typography2.png)
+![Typography](documentation/readme/typography1.png)
+![Typography](documentation/readme/typography2.png)
 
 - ## Imagery
 VeggieNosh website primarily relies on a text-based interface to create a distraction-free quiz environment. However, some key images and icons are used:
   * Logo: The VeggieNosh logo originated from [Hatchful](https://www.shopify.com/tools/logo-maker) and was later refined to enhance contrast, ensuring clear visibility across various platforms and display sizes. The final design showcases a stylized carrot set against a teal backdrop, with playful typography that echoes the vegan essence of the cookbook. This emblem is tailored to stand out and embody the freshness of the plant-based recipes featured on the site.
 
-![Logo](veggienosh/static/images/readme/logo_design.png)
+![Logo](documentation/readme/logo_design.png)
 
   * Icons: To enhance user engagement and facilitate content discovery, icons have been integrated extensively throughout VeggieNosh. Their use not only captures attention but also aids in content navigation and scanning. Icons serve as intuitive visual cues that transcend linguistic limitations, offering a more inclusive experience for non-native English speakers.
 
@@ -136,7 +136,7 @@ VeggieNosh website primarily relies on a text-based interface to create a distra
 - ## Database Structure
 Database schema was designed using [diagram.io.](https://dbdiagram.io/home)
 
-![Database Schema](veggienosh/static/images/readme/database_schema.png)
+![Database Schema](documentation/readme/database_schema.png)
 
 For this project, MongoDB, a NoSQL database, is utilized to store and manage data efficiently. MongoDB's flexibility allows for a schemaless design, meaning each document in a collection does not need to have the same set of fields. Below is an overview of the collections and their respective fields used in this application:
 
@@ -228,22 +228,22 @@ The website features a structured layout that includes a Home page, an All Recip
 All Pages on the website are responsive and have:
 - A [favicon](https://www.favicon.cc/) in the browser tab.
 
-![Favicon](veggienosh/static/images/readme/browser-favicon.png)
+![Favicon](documentation/readme/browser-favicon.png)
 
 - The Logo: The VeggieNosh logo is strategically positioned at the top of every page for consistent brand visibility. On desktop displays, the logo is placed at the top right, ensuring it's easily noticeable. For smaller screens, the logo is centered to maintain prominence. Clicking the logo from any page redirects users back to the home page, providing a convenient way to return to the start at any time.
-![Logo](veggienosh/static/images/readme/logo_design.png)
+![Logo](documentation/readme/logo_design.png)
 
 - Social Media Icons:
 Appearing on every page, the icons are appropriate representations of the Social Media platforms, linking users to the various platforms. The icons appear in the centre of the footer.The footer also carries the copyright notice.
 
-![Social media links](veggienosh/static/images/readme/socials_icons.png)
+![Social media links](documentation/readme/socials_icons.png)
 
 ### The Home Page
 
 At the forefront of VeggieNosh, the home page welcomes visitors with a bright, cheerful banner highlighting an assortment of fresh vegetables, framing the site’s purpose in vibrant color. The logo, clear and central, pairs with an engaging tagline that beckons visitors to explore further. Below, the 'Star Veggie Picks' section artfully displays featured recipes, tempting the eye with their vivid imagery. The layout is crisp and user-centric, providing effortless navigation that complements the site’s professional and inviting atmosphere.
 
 
-![Home Page](veggienosh/static/images/readme/home_page.png)
+![Home Page](documentation/readme/home_page.png)
 
 ### The Navigation Bar Functionality
 
@@ -252,16 +252,16 @@ Adapting to various screen sizes, the navigation collapses into a hamburger icon
 
 Guest users will find the navigation bar includes essential links for seamless browsing:
 
-![Home Page Navbar for New Users](veggienosh/static/images/readme/home_page_nav1.png)
+![Home Page Navbar for New Users](documentation/readme/home_page_nav1.png)
 
 Logged-in users benefit from an expanded set of options, improving their experience with personalized navigation:
 
-![Home Page Navbar for Current Users](veggienosh/static/images/readme/home_page_nav2.png)
+![Home Page Navbar for Current Users](documentation/readme/home_page_nav2.png)
 
 ### The All Recipes Page
 The 'All Recipes' page of VeggieNosh elegantly presents a collection of recipe cards, organized chronologically from the oldest to the newest additions. Accompanying the page heading is a count of the total recipes available, enclosed within parentheses for easy reference. Each recipe card is interactive and serves as a gateway to a dedicated page, offering detailed information about the recipe. For a streamlined browsing experience, the page is paginated, displaying eight recipes per page for user convenience.
 
-![All Recipes Page](veggienosh/static/images/readme/all_recipes.png)
+![All Recipes Page](documentation/readme/all_recipes.png)
 
 ### The Single Recipe Page
 Upon selecting a recipe card, the user is directed to the detailed Single Recipe page. This page comprehensively presents all pertinent details of the chosen recipe, including its title, a full description, the category and dish type, dietary categorization, serving size, total cooking time, the author's name, a list of ingredients, step-by-step directions, and a visual representation through a recipe image. In the absence of a user-provided image, a default placeholder image is displayed.
@@ -270,16 +270,16 @@ For recipe authors, the page offers additional functionality with 'Edit' and 'De
 
 Moreover, the Single Recipe page enhances user interaction by providing options to share the recipe on Facebook or WhatsApp, enabling users to easily disseminate their favorite dishes across social platforms. For those who prefer a tangible copy, a 'Print' button is prominently featured, allowing for the recipe to be printed and kept for offline use.
 
-![Single Recipe Page](veggienosh/static/images/readme/single_recipe.png)
+![Single Recipe Page](documentation/readme/single_recipe.png)
 
-![Share and Print](veggienosh/static/images/readme/share.png)
+![Share and Print](documentation/readme/share.png)
 
 ### The Registration Page
 The registration page on VeggieNosh is meticulously crafted to ensure user accounts are created with robust security measures. Users are required to provide a "username," "password," and a subsequent "confirm password" entry. Usernames must be distinct, verified for uniqueness, and within a character range of 3-15. Passwords must be between 6-20 characters in length and adhere to specific security criteria: they must contain at least one letter, one number, and no whitespace. Additionally, passwords cannot be identical to the username and are securely hashed to protect user information.
 
 The system is sensitive to accidental white spaces within entries, alerting users with an error message if any are detected to prevent login complications. If the registration criteria are not met, users receive clear error messages to adjust their input. Following successful registration, the user is directed to the home page with a confirmation notice. A link for existing users to log in is conveniently placed at the bottom of the form for easy access.
 
-![Regiatration Page](veggienosh/static/images/readme/register_form.png)
+![Regiatration Page](documentation/readme/register_form.png)
 
 ### The Login Page
 The login page of VeggieNosh presents a streamlined form with fields for the "username" and "password," facilitating a smooth sign-in process for returning users. Authentication occurs through a verification check where the entered credentials are matched against secured records in the database. Upon successful login, users are seamlessly redirected to the home page with a confirmation message of successful access. Should there be any discrepancies in the input, users are promptly alerted with clear notifications to rectify their login details.
@@ -288,12 +288,12 @@ For enhanced security and to prevent login errors, the form is designed to disal
 
 Additionally, those new to VeggieNosh will find a convenient link to the registration page below the form, offering an easy transition for users looking to create an account.
 
-![Login Page](veggienosh/static/images/readme/login_form.png)
+![Login Page](documentation/readme/login_form.png)
 
 ### The Logout Page
 For logged-in users, selecting the "Exit Kitchen" button effectively ends their current session. This action will redirect them to the homepage, where they are greeted with a friendly "See you soon, Veggie Chef!" message.
 
-![Logout Page](veggienosh/static/images/readme/logout_page.png)
+![Logout Page](documentation/readme/logout_page.png)
 
 ### The Account Settings Page
 Within the Account Settings page, users are greeted by their personalized avatar, cleverly generated based on their initials, adding a touch of customization. This is accompanied by a welcoming message and easy access to key account management features. The page provides three intuitive buttons for essential account updates:
@@ -304,7 +304,7 @@ Within the Account Settings page, users are greeted by their personalized avatar
 
 These controls are intuitively laid out, guiding users smoothly to the corresponding actions with ease and professionalism.
 
-![Account Settings Page](veggienosh/static/images/readme/account_settings.png)
+![Account Settings Page](documentation/readme/account_settings.png)
 
 ### The Change Username Page
 #### Change Username Functionality
@@ -312,24 +312,24 @@ The 'Spice Up Username' feature is designed to empower registered users with the
 
 Adjacent to the new username field, an informative question mark icon can be found. Hovering over this icon displays the username requirements, assisting users in choosing an acceptable new identifier. Following a successful username change, for enhanced security, users are redirected to the login page to sign in with their new username. Should a user decide against modifying their username, a 'Retreat' button is provided, offering a straightforward return to the Account Settings page without making any changes.
 
-![Change Username Page](veggienosh/static/images/readme/change_username.png)
+![Change Username Page](documentation/readme/change_username.png)
 
 ### The Change Password Page
 Users have the ability to update their password through a straightforward form, enhancing their account security. The form requires users to input their "Current Password" followed by the "New Password" and a "Confirm New Password" field for verification. To ensure security, both new password entries must be identical, within the length of 6 to 20 characters, and adhere to specific criteria: including at least one letter, one number, and no whitespace.
 
 For additional guidance, a hoverable question mark icon is available, detailing these password requirements. Upon successful submission of the form, the user will be navigated back to the account settings page, where a notification confirming the password update will be displayed. For those who wish to exit without making changes, a "Root Back" button is provided, which will also redirect them back to the account settings page..
 
-![Change Password Page](veggienosh/static/images/readme/change_password.png)
+![Change Password Page](documentation/readme/change_password.png)
 
 ### The Delete Account Page
 Upon selecting the "Shut Kitchen Down" option on the account settings page, a confirmation modal will appear, prompting the user to confirm their intention to delete their account. For security purposes, the user is required to enter their password to proceed. By confirming and clicking the "Close Kitchen" button, the user's account will be permanently removed from the "Users" database. Additionally, any recipes created by the user will be concurrently deleted from the "Recipes" collection. Should the user decide to retain their account, they may opt to click the "Back To Kitchen" button, which will close the modal without making any changes.
 
-![Delete Account Page](veggienosh/static/images/readme/delete_account.png)
+![Delete Account Page](documentation/readme/delete_account.png)
 
 ### The User Recipe Page(My Recipe Page)
 The "My Recipes" page is a dedicated space for registered users, offering an organized view of all their personal recipes. This feature also conveniently displays the total count of the user's recipes for easy reference. To facilitate the addition of new culinary creations, there is a prominently placed "Add New Veggie Recipe" button which leads users directly to the "Add Recipe" page. For a streamlined browsing experience, the recipes are displayed in a paginated format, showcasing 8 recipes per page. In the event that a user has not yet added any recipes, a friendly prompt encourages them to begin their culinary journey by creating their first recipe.
 
-![The User Recipe Page(My Recipe Page)](veggienosh/static/images/readme/my_recipes.png)
+![The User Recipe Page(My Recipe Page)](documentation/readme/my_recipes.png)
 
 ### The Add Recipe Page
 For those with registered accounts, VeggieNosh provides a seamless recipe submission experience. Users can contribute new recipes via a submission form, which includes a set of validations to ensure comprehensive and quality entries. Mandatory fields are clearly marked, with 'Recipe category', 'Dish type', and 'Diet type' remaining optional. The 'Recipe Name' and 'Recipe Description' fields have a specified character limit to maintain consistency and readability.
@@ -338,7 +338,7 @@ In the event a user does not supply an image URL for the recipe, a default place
 
 Upon successful submission, the user is immediately taken to the detail page of their newly added recipe, confirming the addition. For added convenience, a 'Change My Mind' button is provided, offering a straightforward return to the User Recipes Page without the need to navigate backward through the browser.
 
-![The Add Recipe Page](veggienosh/static/images/readme/add_recipe.png)
+![The Add Recipe Page](documentation/readme/add_recipe.png)
 
 ### The Edit Recipe Page
 The Edit Recipe page is a feature designed for users who are logged in, enabling them to modify their recipe submissions. This option is exclusively available to the recipe's original author, underscored by the visibility of the "Edit Recipe" button solely on their recipes. To safeguard against unauthorized edits, security measures are in place to ensure only the author can alter the recipe details.
@@ -347,12 +347,12 @@ The interface streamlines the editing process by pre-filling the form with the e
 
 For added convenience, a "Cancel" button is provided, allowing users to return to the home page without the need to navigate backward through their browser, thus enhancing the user experience with a simple alternative.
 
-![The Edit Recipe Page](veggienosh/static/images/readme/edit_recipe.png)
+![The Edit Recipe Page](documentation/readme/edit_recipe.png)
 
 ### The Delete Recipe Page
 The recipe deletion feature is designed with authorship integrity in mind, ensuring that only the creator of a recipe has the authority to remove it. When visiting a Single Recipe Info page, the author can initiate the deletion process by clicking the "Delete Recipe" button, which triggers a confirmation modal. This modal serves as a safeguard, prompting the user to verify their intention to delete the recipe. Upon confirmation and clicking the "Delete" button within the modal, the recipe is permanently erased from the database and the author’s list of contributions in the "users" collection. For those who reconsider, a "Cancel" button is also available to close the modal without taking any action.
 
-![The Delete Recipe Page](veggienosh/static/images/readme/delete_recipe.png)
+![The Delete Recipe Page](documentation/readme/delete_recipe.png)
 
 ### The Search Page
 Central to the page, the search bar allows users to enter their desired recipe or ingredient. It's enhanced with the ability to retain the entered query, even after the search is executed.
@@ -360,12 +360,12 @@ To ensure users can find recipes easily, the search functionality employs regex 
 An intuitive clear button ('×') is included within the search bar, enabling users to effortlessly start a new search by clearing the existing query with a single click.
 The page dynamically displays the number of recipes matching the search query. If no results are found, a friendly prompt suggests alternative search terms. Results are presented in a paginated format for easy navigation.
 
-![The Search Page](veggienosh/static/images/readme/search.png)
-![The Search Page- No Result](veggienosh/static/images/readme/no_result.png)
+![The Search Page](documentation/readme/search.png)
+![The Search Page- No Result](documentation/readme/no_result.png)
 
 ### The 404 and 500 Error Page
 Tailored 404 and 500 error pages have been crafted to provide users with clear information about the encountered issue. Each page features a "Return To Veggie Delights" button for a swift return to the homepage. Additionally, the navigation bar is present on these pages, offering an easy route back to any section of the website, should users find themselves off the intended path.
-![404 Page](veggienosh/static/images/readme/404_page.png)
+![404 Page](documentation/readme/404_page.png)
 
 
 ## Features to Implement in the future

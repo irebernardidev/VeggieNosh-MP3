@@ -1,5 +1,5 @@
 # VeggieNosh - Testing
-![VeggieNosh](veggienosh/static/images/readme/am_i_responsive.png)
+![VeggieNosh](documentation/readme/am_i_responsive.png)
  
 Find the final project here: [VeggieNosh](#)
 
