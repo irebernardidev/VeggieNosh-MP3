@@ -238,7 +238,7 @@ nav ul a {
 /* Override Materialize label color */
 .input-field label {
 	color: var(--black);
-	font-size: 1.3rem;	
+	font-size: 1.3rem;
 }
 
 #current_username {
@@ -247,9 +247,10 @@ nav ul a {
 }
 
 input::placeholder {
-	color: var(--lightgrey); 
-	opacity: 0.8; 
+	color: var(--lightgrey);
+	opacity: 0.8;
 }
+
 .dropdown-content li>a,
 .dropdown-content li>span {
 	color: var(--black);
@@ -295,9 +296,9 @@ input::placeholder {
 
 /* Recipe details styles */
 .divider-container {
-    display: flex;
-    justify-content: center;
-    margin: 3.5rem auto;
+	display: flex;
+	justify-content: center;
+	margin: 3.5rem auto;
 }
 
 .divider-yellow {
@@ -644,14 +645,14 @@ input::placeholder {
 }
 
 .btn-coral-2 {
-    background-color: var(--coral);
-    text-shadow: 0 1px 3px var(--lightblack);
+	background-color: var(--coral);
+	text-shadow: 0 1px 3px var(--lightblack);
 }
 
 .btn-coral-2:hover,
 .btn-coral-2:active,
 .btn-coral-2:focus {
-    background-color: var(--lightcoral);
+	background-color: var(--lightcoral);
 }
 
 /* Green button hover, active, and focus states */
