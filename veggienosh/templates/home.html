@@ -1,61 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
-
-  <!-- Flash Messages Section -->
-  <div class="row center-align">
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <!-- Iterate through each message and display -->
-        {% for message in messages %}
-          <p class="error-message margin-top-small">
-            {{ message }}
+<!-- Flash Messages Section -->
+<div class="row center-align">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <!-- Iterate through each message and display -->
+  {% for message in messages %}
+  <p class="error-message margin-top-small">
+    {{ message }}
+  </p>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+</div>
+<!-- Main Hero Section -->
+<div class="container home-container container-95">
+  <div class="hero-image">
+    <div class="row">
+      <div class="col s12">
+        <div class="text-block-home center-align">
+          <!-- Hero Heading -->
+          <h1 class="uppercase primary-heading">VeggieNosh</h1>
+          <!-- Hero Description -->
+          <p class="home-paragraph">
+            Discover, craft, and save your favorite veggie recipes.
           </p>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-  </div>
-
-  <!-- Main Hero Section -->
-  <div class="container home-container container-95">
-    <div class="hero-image">
-      <div class="row">
-        <div class="col s12">
-          <div class="text-block-home center-align">
-            <!-- Hero Heading -->
-            <h1 class="uppercase primary-heading">VeggieNosh</h1>
-            <!-- Hero Description -->
-            <p class="home-paragraph">
-              Discover, craft, and save your favorite veggie recipes.
-            </p>
-            <!-- Button to explore recipes -->
-            <a
-              href="{{ url_for('all_recipes')}}"
-              class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
-              id="btn-home"
-            >
-              Explore Veggie Creations
-            </a>
-          </div>
+          <!-- Button to explore recipes -->
+          <a href="{{ url_for('all_recipes')}}"
+            class="waves-effect waves-light btn btn-coral uppercase z-depth-3 btn-main"
+            id="btn-home">
+          Explore Veggie Creations
+          </a>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Featured Veggie Recipes Section -->
-  <div class="row container-85">
-    <!-- Section Heading -->
-    <h3 class="sub-heading center-align">Star Veggie Picks</h3>
-    <!-- Section Divider -->
-    <div class="divider"></div>
+</div>
+<!-- Featured Veggie Recipes Section -->
+<div class="row container-85">
+  <!-- Section Heading -->
+  <h3 class="sub-heading center-align">Star Veggie Picks</h3>
+  <!-- Section Divider -->
+  <div class="divider"></div>
+</div>
+<div class="container container-recipes">
+  <div class="row">
+    <!-- Display 4 random recipes from the database -->
+    {% for recipe in featured_recipes %}
+    <!-- Include Recipe Card for each recipe -->
+    {% include "includes/recipecards.html" %}
+    {% endfor %}
   </div>
-  <div class="container container-recipes">
-    <div class="row">
-      <!-- Display 4 random recipes from the database -->
-      {% for recipe in featured_recipes %}
-        <!-- Include Recipe Card for each recipe -->
-        {% include "includes/recipecards.html" %}
-      {% endfor %}
-    </div>
-  </div>
-
+</div>
 {% endblock %}

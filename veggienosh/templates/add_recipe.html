@@ -1,121 +1,121 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="container margin-top-large container-addrecipe z-depth-2">
+  <section class="container margin-top-large container-addrecipe z-depth-2">
     <h1 class="uppercase center-align secondary-heading">Whip Up a New Veggie Delight</h1>
     
     <form class="add-edit-form" autocomplete="off" method="POST" action="{{ url_for('insert_recipe') }}">
-        {{ form.hidden_tag() }}
-        
-        <div class="row">
-            {# Field for inputting the name of the recipe #}
-            <div class="input-field col s12">
-                <i class="far fa-file-alt prefix"></i>
-                {{ form.recipe_name(id="recipe_name", placeholder="What's the name of your veggie creation?", class="validate", minlength="4", maxlength="25") }}
-                <label for="recipe_name">Veggie Recipe Name <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="4-25 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
-            </div>
-
-            {# Field for describing the recipe in a few sentences #}
-            <div class="input-field col s12">
-                <i class="fas fa-pen prefix"></i>
-                {{ form.recipe_description(id="recipe_description", placeholder="Share the story behind your recipe", class="validate materialize-textarea", minlength="20", maxlength="300") }}
-                <label for="recipe_description">Veggie Recipe Description <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="20-300 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
-            </div>
-
-            {# Select input for choosing the recipe category #}
-            <div class="input-field col s12 m6 l4">
-                <i class="fas fa-globe-europe prefix"></i>
-                <select id="category_type" name="category_type">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="wholegrain">Wholegrain</option>
-                    <option value="legumes">Legumes</option>
-                    <option value="nuts and seeds">Nuts And Seeds</option>
-                </select>
-                <label for="category_type">Recipe Category</label>
-            </div>
-            
-            {# Select input for the type of dish #}
-            <div class="input-field col s12 m6 l4">
-                <i class="fas fa-utensils prefix"></i>         
-                <select id="dish_type" name="dish_type">
-                    <option value="" disabled selected>Pick a dish type</option>
-                    <option value="appetizer">Appetizer</option>
-                    <option value="entree">Entree</option>
-                    <option value="side dish">Side Dish</option>
-                    <option value="dessert">Dessert</option>
-                </select>
-                <label for="dish_type">Dish Type</label>
-            </div>
-
-            {# Select input for specifying the diet type #}
-            <div class="input-field col s12 m6 l4">
-                <i class="fas fa-leaf prefix"></i>
-                <select id="diet_type" name="diet_type">
-                    <option value="None" selected>Any dietary focus?</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="gluten free">Gluten Free</option>
-                    <option value="soy free">Soy Free</option>
-                    <option value="ketogenic">Ketogenic</option>
-                </select>
-                <label for="diet_type">Diet Type (optional)</label>
-            </div>
-
-            {# Input for the cooking time #}
-            <div class="input-field col s12 m6">
-                <i class="far fa-clock prefix"></i>
-                {{ form.cooking_time(type="number", class="validate", id="cooking_time") }}
-                <label for="cooking_time">How long does it take? (min) <i class="fas fa-asterisk asterisk"></i></label>
-            </div>
-
-            {# Input for the number of servings #}
-            <div class="input-field col s12 m6">
-                <i class="fas fa-concierge-bell prefix"></i>
-                {{ form.servings(type="number", class="validate", id="servings") }}
-                <label for="servings">Number of Servings <i class="fas fa-asterisk asterisk"></i></label>
-            </div>
-
-            {# Textarea for the list of ingredients #}
-            <div class="input-field col s12">
-                <i class="fas fa-clipboard-list prefix"></i>
-                {{ form.ingredients(id="ingredients", placeholder="What goes into your dish?", class="validate materialize-textarea") }}
-                <label for="ingredients">Ingredients (one ingredient per line) <i class="fas fa-asterisk asterisk"></i></label>
-            </div>
-
-            {# Textarea for the directions #}
-            <div class="input-field col s12">
-                <i class="fas fa-list-ol prefix"></i>
-                {{ form.recipe_directions(id="directions", placeholder="Let's get cooking - step by step!", class="validate materialize-textarea") }}
-                <label for="directions">Preparation Steps (one step per line) <i class="fas fa-asterisk asterisk"></i></label>
-            </div>
-
-            {# Input for the recipe image URL #}
-            <div class="input-field col s12">
-                <i class="far fa-images prefix"></i>
-                {{ form.image(id="recipe_image", placeholder="Got a photo of your masterpiece?", class="validate") }}
-                <label for="recipe_image">Image URL (show it off if you've got it!)<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i></label>
-            </div>
-
-            {# Display flash messages, if any #}
-            <div class="row center-align">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p class="text-red">{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-            </div>
-
-            {# Submission and cancellation buttons #}
-            <div class="row">
-                <div class="col s6 right-align">
-                    <a href="{{ url_for('my_recipes', username=session['username']) }}" class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase" name="action">Change My Mind</a>
-                </div>
-                <div class="col s6">
-                    {{ form.submit(class="btn btn-coral z-depth-3 btn-form btn-main uppercase") }}
-                </div>
-            </div>
+      {{ form.hidden_tag() }}
+      
+      <div class="row">
+        <!-- Field for inputting the name of the recipe -->
+        <div class="input-field col s12">
+          <i class="far fa-file-alt prefix"></i>
+          {{ form.recipe_name(id="recipe_name", placeholder="What's the name of your veggie creation?", class="validate", minlength="4", maxlength="25") }}
+          <label for="recipe_name">Veggie Recipe Name <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="4-25 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
         </div>
+
+        <!-- Field for describing the recipe in a few sentences -->
+        <div class="input-field col s12">
+          <i class="fas fa-pen prefix"></i>
+          {{ form.recipe_description(id="recipe_description", placeholder="Share the story behind your recipe", class="validate materialize-textarea", minlength="20", maxlength="300") }}
+          <label for="recipe_description">Veggie Recipe Description <i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="20-300 characters"></i> <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+
+        <!-- Select input for choosing the recipe category -->
+        <div class="input-field col s12 m6 l4">
+          <i class="fas fa-globe-europe prefix"></i>
+          <select id="category_type" name="category_type">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="wholegrain">Wholegrain</option>
+            <option value="legumes">Legumes</option>
+            <option value="nuts and seeds">Nuts And Seeds</option>
+          </select>
+          <label for="category_type">Recipe Category</label>
+        </div>
+        
+        <!-- Select input for the type of dish -->
+        <div class="input-field col s12 m6 l4">
+          <i class="fas fa-utensils prefix"></i>         
+          <select id="dish_type" name="dish_type">
+            <option value="" disabled selected>Pick a dish type</option>
+            <option value="appetizer">Appetizer</option>
+            <option value="entree">Entree</option>
+            <option value="side dish">Side Dish</option>
+            <option value="dessert">Dessert</option>
+          </select>
+          <label for="dish_type">Dish Type</label>
+        </div>
+
+        <!-- Select input for specifying the diet type -->
+        <div class="input-field col s12 m6 l4">
+          <i class="fas fa-leaf prefix"></i>
+          <select id="diet_type" name="diet_type">
+            <option value="None" selected>Any dietary focus?</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten free">Gluten Free</option>
+            <option value="soy free">Soy Free</option>
+            <option value="ketogenic">Ketogenic</option>
+          </select>
+          <label for="diet_type">Diet Type (optional)</label>
+        </div>
+
+        <!-- Input for the cooking time -->
+        <div class="input-field col s12 m6">
+          <i class="far fa-clock prefix"></i>
+          {{ form.cooking_time(type="number", class="validate", id="cooking_time") }}
+          <label for="cooking_time">How long does it take? (min) <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+
+        <!-- Input for the number of servings -->
+        <div class="input-field col s12 m6">
+          <i class="fas fa-concierge-bell prefix"></i>
+          {{ form.servings(type="number", class="validate", id="servings") }}
+          <label for="servings">Number of Servings <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+
+        <!-- Textarea for the list of ingredients -->
+        <div class="input-field col s12">
+          <i class="fas fa-clipboard-list prefix"></i>
+          {{ form.ingredients(id="ingredients", placeholder="What goes into your dish?", class="validate materialize-textarea") }}
+          <label for="ingredients">Ingredients (one ingredient per line) <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+
+        <!-- Textarea for the directions -->
+        <div class="input-field col s12">
+          <i class="fas fa-list-ol prefix"></i>
+          {{ form.recipe_directions(id="directions", placeholder="Let's get cooking - step by step!", class="validate materialize-textarea") }}
+          <label for="directions">Preparation Steps (one step per line) <i class="fas fa-asterisk asterisk"></i></label>
+        </div>
+
+        <!-- Input for the recipe image URL -->
+        <div class="input-field col s12">
+          <i class="far fa-images prefix"></i>
+          {{ form.image(id="recipe_image", placeholder="Got a photo of your masterpiece?", class="validate") }}
+          <label for="recipe_image">Image URL (show it off if you've got it!)<i class="fas fa-question-circle tooltipped" data-position="top" data-tooltip="You can upload your image to a free image hosting website (e.g. ImgBB) and paste direct link here"></i></label>
+        </div>
+
+        <!-- Display flash messages, if any -->
+        <div class="row center-align">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p class="text-red">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        </div>
+
+        <!-- Submission and cancellation buttons -->
+        <div class="row">
+          <div class="col s6 right-align">
+            <a href="{{ url_for('my_recipes', username=session['username']) }}" class="btn z-depth-2 btn-form btn-secondary waves-effect waves-light btn-main uppercase" name="action">Change My Mind</a>
+          </div>
+          <div class="col s6">
+            {{ form.submit(class="btn btn-coral z-depth-3 btn-form btn-main uppercase") }}
+          </div>
+        </div>
+      </div>
     </form>
-</section>
+  </section>
 {% endblock %}

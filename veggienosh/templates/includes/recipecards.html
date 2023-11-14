@@ -2,69 +2,69 @@
 <div class="col s12 m6 l3">
     <!-- Card container -->
     <div class="card hoverable card-recipe">
-        <!-- Card image section -->
-        <div class="card-image">
-            <!-- Link to single recipe info -->
-            <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}"> 
-                <!-- Check if recipe has an image -->
-                {% if recipe.image %}
-                    <img src="{{ recipe.image }}" class="responsive-img" alt="Recipe Image" />
-                {% else %}
-                    <!-- Display placeholder image if no image is provided -->
-                    <img src="{{ url_for('static', filename='images/recipe_placeholder.jpg') }}" class="responsive-img" alt="No recipe image available" />
-                {% endif %}
-            </a>
-            <!-- Display category type if not null and not "None" -->
-            {% if recipe.category_type and recipe.category_type != "None" %}
-                <div class="text-block">
-                    <p>{{ recipe.category_type }}</p>
-                </div>
+      <!-- Card image section -->
+      <div class="card-image">
+        <!-- Link to single recipe info -->
+        <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}"> 
+          <!-- Check if recipe has an image -->
+          {% if recipe.image %}
+            <img src="{{ recipe.image }}" class="responsive-img" alt="Recipe Image" />
+          {% else %}
+            <!-- Display placeholder image if no image is provided -->
+            <img src="{{ url_for('static', filename='images/recipe_placeholder.jpg') }}" class="responsive-img" alt="No recipe image available" />
+          {% endif %}
+        </a>
+        <!-- Display category type if not null and not "None" -->
+        {% if recipe.category_type and recipe.category_type != "None" %}
+          <div class="text-block">
+            <p>{{ recipe.category_type }}</p>
+          </div>
+        {% endif %}
+      </div>
+      <!-- End of card image section -->
+  
+      <!-- Card content section -->
+      <div class="card-content">
+        <!-- Recipe name -->
+        <h3>
+          <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}" class="card-title">
+            {{ recipe.recipe_name }}
+          </a>
+        </h3>
+  
+        <!-- Divider -->
+        <div class="divider"></div>
+  
+        <!-- Card bottom information -->
+        <div class="row card-bottom-info">
+          <!-- Dish type -->
+          <div class="col s4 uppercase card_dish_heading">
+            {% if recipe.dish_type and recipe.dish_type != "None" %}
+              {{ recipe.dish_type }}
             {% endif %}
+          </div>
+        
+          <!-- Cooking time and servings -->
+          <div class="col s8 right-align">
+            <!-- Cooking time -->
+            {% if recipe.cooking_time and recipe.cooking_time != "None" %}
+              <span title="Cooking time">
+                <i class="far fa-clock icon-recipe-card"></i> {{ recipe.cooking_time }} min |
+              </span>
+            {% endif %}
+            <!-- Servings -->
+            {% if recipe.servings and recipe.servings != "None" %}
+              <span title="Servings">
+                <i class="fas fa-user icon-recipe-card"></i> {{ recipe.servings }}
+              </span>
+            {% endif %}
+          </div>
         </div>
-        <!-- End of card image section -->
-
-        <!-- Card content section -->
-        <div class="card-content">
-            <!-- Recipe name -->
-            <h3>
-                <a href="{{ url_for('single_recipe_info', recipe_id=recipe._id) }}" class="card-title">
-                    {{ recipe.recipe_name }}
-                </a>
-            </h3>
-
-            <!-- Divider -->
-            <div class="divider"></div>
-
-            <!-- Card bottom information -->
-            <div class="row card-bottom-info">
-                <!-- Dish type -->
-                <div class="col s4 uppercase card_dish_heading">
-                    {% if recipe.dish_type and recipe.dish_type != "None" %}
-                        {{ recipe.dish_type }}
-                    {% endif %}
-                </div>
-              
-                <!-- Cooking time and servings -->
-                <div class="col s8 right-align">
-                    <!-- Cooking time -->
-                    {% if recipe.cooking_time and recipe.cooking_time != "None" %}
-                        <span title="Cooking time">
-                            <i class="far fa-clock icon-recipe-card"></i> {{ recipe.cooking_time }} min |
-                        </span>
-                    {% endif %}
-                    <!-- Servings -->
-                    {% if recipe.servings and recipe.servings != "None" %}
-                        <span title="Servings">
-                            <i class="fas fa-user icon-recipe-card"></i> {{ recipe.servings }}
-                        </span>
-                    {% endif %}
-                </div>
-            </div>
-            
-            <!-- End of card bottom information -->
-        </div>
-        <!-- End of card content section -->
+        <!-- End of card bottom information -->
+      </div>
+      <!-- End of card content section -->
     </div>
     <!-- End of card container -->
-</div>
-<!-- End of main container div -->
+  </div>
+  <!-- End of main container div -->
+  

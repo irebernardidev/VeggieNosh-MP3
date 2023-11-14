@@ -25,13 +25,13 @@ To verify adaptability, I employed Google Chrome Developer Tools and Firefox's I
 #### W3C Validator
 [W3C](https://validator.w3.org/) was used to validate the HTML on all pages of the website. It was also used to validate the CSS.
 
-- [Home Page](documentation/testing/validation/home_validator.png)
-- [Footer Page](documentation/testing/validation/footer_validator.png)
-- [Navbar Page](documentation/testing/validation/navbar_validator.png)
-- [Recipe Cards Page](documentation/testing/validation/cards_validator.png)
-- [Account Settings Page](documentation/testing/validation/account_validator.png)
-- [Add Recipe Page](documentation/testing/validation/add_rec_validator.png)
-- [All Recipe Page](documentation/testing/validation/all_rec_validator.png)
+- [Home Page](documentation/testing/validation/home_validator.png) - No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
+- [Footer Page](documentation/testing/validation/footer_validator.png)- No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
+- [Navbar Page](documentation/testing/validation/navbar_validator.png) - No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
+- [Recipe Cards Page](documentation/testing/validation/cards_validator.png) - No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
+- [Account Settings Page](documentation/testing/validation/account_validator.png) - No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
+- [Add Recipe Page](documentation/testing/validation/add_rec_validator.png) - No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
+- [All Recipe Page](documentation/testing/validation/all_rec_validator.png) - No errors, since it does not recognize Jinja2 templating language, it showed a couple of warnings.
 - [Base Page](documentation/testing/validation/base_validator.png)
 - [Change Password Page](documentation/testing/validation/change_pass_validator.png)
 - [Change Username Page](documentation/testing/validation/change_user_validator.png)
@@ -43,4 +43,4 @@ To verify adaptability, I employed Google Chrome Developer Tools and Firefox's I
 - [Single Recipe Info Page](documentation/testing/validation/single_rec_validator.png)
 - [404 Error Page](documentation/testing/validation/404_validator.png)
 - [500 Error Page](documentation/testing/validation/500_validator.png)
-- [CSS](documentation/testing/validation/css_validator.png)
+- [CSS](documentation/testing/validation/css_validator.png) - No errors or warnings.
