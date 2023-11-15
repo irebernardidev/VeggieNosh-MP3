@@ -44,22 +44,21 @@ $(document).ready(function() {
     });
 });
 
-// Initialize social media share dropdowns after full page load.
-// This ensures all elements for sharing recipes are interactive and data-rich.
+// Initialize social media share dropdowns after full page load
+// This ensures all elements for sharing recipes are interactive and data-rich
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.dropdown-trigger'); 
     var instances = M.Dropdown.init(elems, {}); 
 });
 
-// Search bar functionality
-// Clears the content of the input field when the clear button is clicked.
+// Search bar functionality: Clears the content of the input field when the clear button is clicked
 function clearSearch() {
     document.getElementById('query').value = '';
 }
 
-
+// Initialize MaterializeCSS Select Elements after DOM Content Loaded
+// This ensures that all 'select' elements are styled and functional
 document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
 });
-

@@ -1,29 +1,27 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-    <!-- VeggieNosh: 500 Error Page -->
+  <!-- VeggieNosh: 500 Error Page -->
 
-    <div class="container">
-        <div class="row">
-            <div class="col s12 center-align margin-top-large">
-                
-                <!-- Error Heading -->
-                <h1 class="uppercase bold error-heading">
-                    <span class="text-black"> 500</span> Oopsie Daisies!
-                </h1>
-                
-                <!-- Error Sub-Heading -->
-                <h3 class="margin-top-small error-sub-heading">
-                    A sprinkle of trouble in our veggie kitchen!
-                </h3>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 center-align margin-top-large">
+        <!-- Error Heading -->
+        <h1 class="uppercase bold error-heading">
+          <span class="text-black"> 500</span> Oopsie Daisies!
+        </h1>
+        
+        <!-- Error Sub-Heading -->
+        <h3 class="margin-top-small error-sub-heading">
+          A sprinkle of trouble in our veggie kitchen!
+        </h3>
 
-                <!-- Back Home Button -->
-                <a href="{{ url_for('home')}}" class="btn btn-main text-shadow-small waves-effect waves-light uppercase z-depth-3 btn-large">
-                    Return to Veggie Delights
-                </a>
-                
-            </div>
-        </div>
+        <!-- Back Home Button -->
+        <a href="{{ url_for('home')}}" class="btn btn-main text-shadow-small waves-effect waves-light uppercase z-depth-3 btn-large">
+          Return to Veggie Delights
+        </a>
+      </div>
     </div>
+  </div>
 
 {% endblock %}

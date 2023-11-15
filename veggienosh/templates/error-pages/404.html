@@ -1,27 +1,26 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<!-- Start of 404 Error Page for VeggieNosh -->
+  <!-- Start of 404 Error Page for VeggieNosh -->
 
-<div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col s12 center-align margin-top-large">
-            <!-- Error Heading -->
-            <h1 class="uppercase bold error-heading">
-                <span class="text-black">404</span> Oopsie Daisy!
-            </h1>
-            <!-- Sub-heading -->
-            <h3 class="margin-top-small error-sub-heading">
-                The recipe you're looking for might've been eaten!
-            </h3>
-            <!-- Back Home Button -->
-            <a href="{{ url_for('home')}}" 
-               class="btn btn-main text-shadow-small waves-effect waves-light uppercase z-depth-3 btn-large">
-                Return to Veggie Delights
-            </a>
-        </div>
+      <div class="col s12 center-align margin-top-large">
+        <!-- Error Heading -->
+        <h1 class="uppercase bold error-heading">
+          <span class="text-black">404</span> Oopsie Daisy!
+        </h1>
+        <!-- Sub-heading -->
+        <h3 class="margin-top-small error-sub-heading">
+          The recipe you're looking for might've been eaten!
+        </h3>
+        <!-- Back Home Button -->
+        <a href="{{ url_for('home')}}" 
+           class="btn btn-main text-shadow-small waves-effect waves-light uppercase z-depth-3 btn-large">
+          Return to Veggie Delights
+        </a>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- End of 404 Error Page for VeggieNosh -->
 {% endblock %}

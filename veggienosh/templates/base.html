@@ -2,48 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VeggieNosh</title>
-    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    {% if request.endpoint == 'login' %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VeggieNosh</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+  {% if request.endpoint == 'login' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
-    {% elif request.endpoint == 'register' %}
+  {% elif request.endpoint == 'register' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
-    {% elif request.endpoint == 'change_password' %}
+  {% elif request.endpoint == 'change_password' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
-    {% elif request.endpoint == 'change_username' %}
+  {% elif request.endpoint == 'change_username' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_forms.css') }}">
-    {% elif error %}
+  {% elif error %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bg_errors.css') }}">
-    {% endif %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    {% if title %}
+  {% endif %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  {% if title %}
     <title>VeggieNosh Cookbook - {{ title }}</title>
-    {% else %}
+  {% else %}
     <title>Welcome to VeggieNosh!</title>
-    {% endif %}
+  {% endif %}
 </head>
 
 <body>
-    <header>
-        {% include "includes/nav.html" %}
-      </header>
-      <main>
-        {% block content %}{% endblock %}
-        </main>
-        <footer>
-        {% include "includes/footer.html" %}
-        </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
-
-    <script src="{{ url_for('static', filename='js/veggienosh.js') }}"></script>
+  <header>
+    {% include "includes/nav.html" %}
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    {% include "includes/footer.html" %}
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="{{ url_for('static', filename='js/veggienosh.js') }}"></script>
 </body>
 
 </html>
