@@ -9,7 +9,6 @@ Find the final project here: [VeggieNosh](#)
   - [Javascript Validator](#javascript-validator)
   - [Python Validator](#python-validator)
   - [Lighthouse](#lighthouse)
-  - [WAVE Testing](#wave-testing)
 - [MANUAL TESTING](#manual-testing)
   - [Testing User Stories](#testing-user-stories)
   - [Full Testing](#full-testing)
@@ -64,27 +63,55 @@ To ensure that my code adheres to PEP8 guidelines, I am utilizing the [pycodesty
 ------
 #### Lighthouse
 
-I employed the Lighthouse feature in Chrome Developer Tools to evaluate the website's performance, accessibility, adherence to best practices, and SEO. While the resulting scores were not quite at the level I had hoped for, enhancing these aspects will be a key focus in my upcoming implementation efforts.
+I employed the Lighthouse feature in Chrome Developer Tools to evaluate the website's performance, accessibility, adherence to best practices, and SEO. While the resulting scores were good for most pages, some were not quite at the level I had hoped for. Enhancing these aspects will be a key focus in my upcoming implementation efforts, as I aim to elevate the overall quality and user experience of the website.
 
-- [Home Page](documentation/testing/validation/home_lh.png) 
-- [Footer Page](documentation/testing/validation/footer_lh.png)
-- [Navbar Page](documentation/testing/validation/navbar_lh.png) 
-- [Recipe Cards Page](documentation/testing/validation/cards_lh.png)
-- [Account Settings Page](documentation/testing/validation/account_lh.png) 
-- [Add Recipe Page](documentation/testing/validation/add_rec_lh.png) 
-- [All Recipe Page](documentation/testing/validation/all_rec_lh.png) 
-- [Base Page](documentation/testing/validation/base_lh.png) 
-- [Change Password Page](documentation/testing/validation/change_pass_lh.png) 
-- [Change Username Page](documentation/testing/validation/change_user_lh.png) 
-- [Edit Recipe Page](documentation/testing/validation/edit_lh.png)
-- [Login Page](documentation/testing/validation/login_lh.png)
-- [My Recipe Page](documentation/testing/validation/my_rec_lh.png) 
-- [Register Page](documentation/testing/validation/register_lh.png) 
-- [Search Page](documentation/testing/validation/search_lh.png) 
-- [Single Recipe Info Page](documentation/testing/validation/single_rec_lh.png) 
-- [404 Error Page](documentation/testing/validation/404_lh.png) 
-- [500 Error Page](documentation/testing/validation/500_lh.png) 
+**Home Page**
+- [Home Page Desktop](documentation/testing/validation/home_lh.png)
+- [Home Page Mobile](documentation/testing/validation/home_mob_lh.png)
+
+**All Recipe Page**
+- [All Recipe Page Desktop](documentation/testing/validation/all_rec_lh.png) 
+- [All Recipe Page Mobile](documentation/testing/validation/all_rec_mob_lh.png)
+
+**Single Recipe Info Page**
+- [Single Recipe Info Page Desktop](documentation/testing/validation/single_rec_lh.png)
+- [Single Recipe Info Page Mobile](documentation/testing/validation/single_rec_mob_lh.png)
+
+**Login Page**
+- [Login Page Desktop](documentation/testing/validation/login_lh.png) 
+- [Login Page Mobile](documentation/testing/validation/login_mob_lh.png)
+
+**Account Settings Page**
+- [Account Settings Page Desktop](documentation/testing/validation/account_lh.png)
+- [Account Settings Page Mobile](documentation/testing/validation/account_mob_lh.png)
+
+**Change Username Page**
+- [Change Username Page Desktop](documentation/testing/validation/change_user_lh.png) 
+- [Change Username Page Mobile](documentation/testing/validation/change_user_mob_lh.png) 
+
+**Change Password Page**
+- [Change Password Page Desktop](documentation/testing/validation/change_pass_lh.png)
+- [Change Password Page Mobile](documentation/testing/validation/change_pass_mob_lh.png) 
+
+**My Recipe Page**
+- [My Recipe Page Desktop](documentation/testing/validation/my_rec_lh.png)
+- [My Recipe Page Mobile](documentation/testing/validation/my_rec_mob_lh.png)
+
+**Edit Recipe Page**
+- [Edit Recipe Page Desktop](documentation/testing/validation/edit_lh.png)
+- [Edit Recipe Page Mobile](documentation/testing/validation/edit_mob_lh.png)
+
+**Add Recipe Page**
+- [Add Recipe Page Desktop](documentation/testing/validation/add_rec_lh.png)
+- [Add Recipe Page Mobile](documentation/testing/validation/add_rec_mob_lh.png) 
+
+**Register Page**
+- [Register Page Desktop](documentation/testing/validation/register_lh.png)
+- [Register Page Mobile](documentation/testing/validation/register_mob_lh.png) 
+
+**Search Page**
+- [Search Page Desktop](documentation/testing/validation/search_lh.png) 
+- [Search Page Mobile](documentation/testing/validation/search_mob_lh.png) 
+
 
 ------
-#### WAVE Testing
-[WAVE](https://wave.webaim.org/) (Web Accessibility Evaluation Tool) aids developers in crafting content that is more accessible to users with disabilities by pinpointing accessibility and WGAC compliance errors. I've utilized this tool to rigorously test my website, aiming to guarantee that it is free of any accessibility issues.
