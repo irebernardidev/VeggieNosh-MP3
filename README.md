@@ -33,7 +33,6 @@ Find the final project here: [VeggieNosh]()
     * [The 404 and 500 Error Page](#the-404-and-500-error-page)
     * [Features to Implement in the Future](#features-to-implement-in-the-future)
   * [Accessibility](#accessibility)  
-- [Issues and Bugs](#issues-and-bugs)
 - [Technologies Used](#technologies-used)
   * [Main Languages Used](#main-languages-used)
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
@@ -398,10 +397,6 @@ Throughout coding this site I kept accessibility in mind, to ensure that the web
 
 
 [Back to top](#)
-
-
-# Issues and Bugs
-
 
 # Technologies Used
 
