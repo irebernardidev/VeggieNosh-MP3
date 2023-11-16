@@ -159,3 +159,31 @@ Each device tested the site using the following browsers:
 - Opera
 - Firefox
 - Edge
+
+
+| Feature                       | Expected Outcome                                         | Testing Performed          | Result                               | Pass/Fail |
+|-------------------------------|----------------------------------------------------------|----------------------------|--------------------------------------|-----------|
+| **Navbar** | 
+| VeggieNosh Logo          | Clicking redirects to the home page.                                                          | Logo Clicked       | Home page redirection.                 | Pass |
+| Home Page Link           | Clicking takes the user to the home page.                                                     | Link Clicked       | Home page redirection.                 | Pass |
+| Browse Dishes Link       | Clicking leads to the All Recipes page.                                                       | Link Clicked       | All Recipes page redirection.          | Pass |
+| Enter The Kitchen Link   | Clicking directs to the VeggieNosh Login page.                                                | Link Clicked       | VeggieNosh Login page redirection.      | Pass |
+| Join VeggieNosh Link     | Clicking navigates to the "Whip Up An Account" Registration page.                             | Link Clicked       | Registration page redirection.         | Pass |
+| My Veggie Recipes Link   | (For logged-in users) Clicking redirects registered users to their "Veggie Masterpieces"/My Recipes page. | Link Clicked       | My Recipes page redirection.           | Pass |
+| "Whip Up A New Recipe" Link | Clicking takes the user to the Add Recipe page for creating new veggie delights.              | Link Clicked       | Add Recipe page redirection.           | Pass |
+| "Account Settings" Link  | Clicking leads to the Account Settings page for username updates, password changes, and account deletion. | Link Clicked       | Account Settings page redirection.     | Pass |
+| Exit the Kitchen Link    | Clicking logs the user out promptly, refreshes the home page, and reverts navbar links to default. | Link Clicked       | Homepage redirection.                  | Pass |
+| **Footer** |
+| Social Links | Footer contains social media links that open in a new tab (using 'target="_blank"). | Icon Clicked | Opens social media in a new tab. | Pass |
+| Email Icon | Alongside social media icons, an email icon is present. Clicking it launches the user's default email client in a new tab for message composition. | Icon Clicked | Opens email client in a new tab. | Pass |
+| Copyright Year | Footer includes a copyright notice. | View Footer | Displays copyright year. | Pass |
+| **Home Page** |
+| Explore Veggie Creations Button | Clicking leads to the "All Veggie Delights"/All Recipes page. | Button Clicked | Navigates to All Recipes page. | Pass |
+| Star Veggie Picks | Below the main image, the "Star Veggie Picks" section showcases featured recipes. | Scroll Down | Featured recipes are displayed. | Pass |
+| Recipe Cards | Clicking on a recipe card directs to the Single Recipe Info page, offering details, printing, and sharing options. | Card Clicked | Redirects to Single Recipe Info page. | Pass |
+| **Login Page** |
+| Enter The Kitchen Button            | Clicking the "Enter The Kitchen" button reveals the login form, which requires complete and accurate information to submit. A successful login leads to the home page with a confirmation of login. The "Whip One Up!" link at the form's bottom, leading to the Register page, is also operational.                                              | Button Clicked                     | Successful login leads to home page; form validation and Register page link function.   | Pass |
+| Username input - empty              | Submission is blocked if this mandatory field is left empty.                                                                                                                                                                                                                                                                                                                        | Attempted form submission, empty username | Required field alert via tooltip.                                                    | Pass |
+| Password input - empty              | Like the username, this field is essential and cannot be left blank for form submission.                                                                                                                                                                                                                                                                                            | Attempted form submission, empty password | Required field alert via tooltip.                                                    | Pass |
+| Incorrect username or password used | Displaying a non-specific error message ensures user security by not identifying which detail is incorrect.                                                                                                                                                                                                                                                                          | Incorrect credentials entered               | Non-specific error message displayed for incorrect username/password.                   | Pass |
+| "Whip One Up!" Link to register page | This link efficiently directs users to the registration page.                                                                                                                                                                                                                                                                                                                       | Link Clicked                                | User is taken to the registration page.                                                | Pass |
