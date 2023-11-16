@@ -77,7 +77,7 @@ Find the final project here: [VeggieNosh]()
 
 #### Administrative User:
 - All functionalities of a registered user.
-- Manage recipe categories.
+- Manage my veggie recipes.
 - Edit or delete any site recipes.
 
 <details>
