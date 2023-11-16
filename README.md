@@ -83,8 +83,8 @@ Find the final project here: [VeggieNosh]()
 <details>
   <summary>Click to see Persona Forms!</summary>
   
-  ![Persona forms]()
-  ![Persona forms]()
+  ![Persona forms](documentation/readme/persona_1.png)
+  ![Persona forms](documentation/readme/persona_2.png)
 </details>
 
 # Design
