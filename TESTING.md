@@ -159,6 +159,7 @@ Each device tested the site using the following browsers:
 - Opera
 - Firefox
 - Edge
+- Safari
 
 
 | Feature                       | Expected Outcome                                         | Testing Performed          | Result                               | Pass/Fail |

@@ -187,7 +187,6 @@ nav ul a {
 	background-color: var(--coral);
 	padding-bottom: 0.5rem;
 	color: var(--lightblack);
-	/* Ensure --on-background is defined or this will not work */
 	-webkit-box-shadow: 0px -5px 10px -6px var(--lightblack);
 	-moz-box-shadow: 0px -5px 10px -6px var(--lightblack);
 	box-shadow: 0px -5px 10px -6px var(--lightblack);
@@ -219,7 +218,7 @@ nav ul a {
 }
 
 .logo-login-register {
-	width: 14rem;
+	width: 18rem;
 }
 
 .error-message {

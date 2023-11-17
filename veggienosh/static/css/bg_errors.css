@@ -1,3 +1,14 @@
+/* 
+   Background Image Implementation for Extended Templates:
+   The technique employed for utilizing distinct CSS to apply background images in various extended templates 
+   is inspired by a solution shared on StackOverflow. For more details, visit: 
+   https://stackoverflow.com/questions/52604210/jinja-using-a-different-css-for-each-extended-template 
+*/
+
+/* 
+   Application of background-image specifically for the 404 and 500 error pages 
+*/
+
 main {
 	background-image: radial-gradient(rgba(249, 238, 238, 0.91), rgba(152, 142, 142, 0.04)), url(../images/errors-bg.jpg);
 	background-repeat: no-repeat;
